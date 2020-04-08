@@ -7,16 +7,18 @@ class Block(object):
 	
 
 class Stein(Block):
-	x
+	pass
 
 class Becken(Block):
-	x
+	pass
 	
 class P1becken(Becken):
-	x
+	pass
 	
 class P2becken(Becken):
-	x
+	pass
 	
 class Bothbecken(Becken):
-	x
+	pass
+
+block1 = pygame.image.load("block.png")

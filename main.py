@@ -1,5 +1,6 @@
 import pygame
-from player import Player
+import player
+from block import *
 pygame.init()
 
 
@@ -8,9 +9,10 @@ fenster = pygame.display.set_mode((1000, 650))
 pygame.display.set_caption("Mon jeu")
 
 
-p1 = Player(900, 550) #importiert die class Player aus der datei player
-p2 = Player(100, 550)
+p1 = player.Player(900, 300, 38, 38) #importiert die class Player aus der datei player
+p2 = player.Player(100, 300, 28, 48)# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.)
 
+bg = pygame.image.load("Background.jpeg")
 
 run = True
 	
@@ -37,9 +39,12 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	if allkeys[pygame.K_d]:
 		p2.bew(1)
 	
-	fenster.fill(0, 0, 0)
-	pygame.draw.rect(fenster, (255, 0, 0), (p1.x, p1.y, p1.width, p1.height))
-	pygame.draw.rect(fenster, (0, 0, 255), (p2.x, p2.y, p2.width, p2.height))
+	fenster.fill((255, 255, 255))
+	fenster.blit(bg, (0, 0))
+	fenster.blit(player.papa, (p1.x, p1.y))
+	fenster.blit(player.mama, (p2.x, p2.y))
+	pygame.draw.rect(fenster, (0, 0, 255), p1.hitbox, 2) #fenster, farbe, koordinaten&size, border-width
+	pygame.draw.rect(fenster, (0, 0, 255), p2.hitbox, 2)
 	pygame.display.update()
 	
 pygame.quit()
