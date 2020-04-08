@@ -2,9 +2,6 @@ import pygame
 
 class Player(object):
 
-
-	y = 550
-	x = 30
 	
 	springstate = False
 	springzahl = 5
@@ -17,7 +14,7 @@ class Player(object):
 		self.y = y
 		self.width = width
 		self.height = height
-		self.hitbox = (self.x, self.y, self.width, self.height)
+		self.hitbox = (x, y, width, height)
 	
 	def bew(self, richtung): # 1 für rechts, -1 für links
 		self.x = self.x + richtung * self.schritt
