@@ -1,16 +1,16 @@
-if not p1.springzahl: #gleiches wie = False
+if not springstate_f: #gleiches wie = False
 		if allkeys[pygame.K_UP] :
-			p1.springstate = True
+			springstate_f = True
 	else: 
-		if p1.springzahl >= -5: #solange es 5 nicht erreicht
-			if p1.springzahl > 0:
+		if springzahl_f >= -5: #solange es 5 nicht erreicht
+			if springzahl_f > 0:
 				neg = 1
 			else:
 				neg = -1
-			feuer_y = feuer_y - ((p1.springzahl**2)*neg) #bewegung
+			feuer_y = feuer_y - ((springzahl_f**2)*neg) #bewegung
 			springzahl_f = springzahl_f - 2 #counter springzahl
 		else: #variablen resetten wenn der sprung fertig ist
-			springstate_f = False
+			p1.springstate = False
 			springzahl_f = 5
 	if not springstate_w: #gleiches wie = False
 		if allkeys[pygame.K_w] :
