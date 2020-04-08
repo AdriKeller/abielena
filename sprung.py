@@ -1,7 +1,7 @@
 if not p1.springstate: #gleiches wie = False
 		if allkeys[pygame.K_UP] :
 			p1.springstate = True
-	else: 
+	else:
 		if springzahl_f >= -5: #solange es 5 nicht erreicht
 			if springzahl_f > 0:
 				neg = 1
