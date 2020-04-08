@@ -26,3 +26,4 @@ if not springstate_f: #gleiches wie = False
 		else: #variablen resetten wenn der sprung fertig ist
 			springstate_w = False
 			springzahl_w = 5
+			
