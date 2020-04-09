@@ -1,11 +1,8 @@
 import pygame
 
 class Player(object):
-	
-	
 	schritt = 10
-	
-	
+
 	def __init__(self, x, y, width, height, springstate, springzahl):
 		self.x = x
 		self.y = y
@@ -17,6 +14,9 @@ class Player(object):
 	
 	def bew(self, richtung): # 1 für rechts, -1 für links
 		self.x = self.x + richtung * self.schritt
+
+	def jump(self):
+		pass
 	
 papa = pygame.image.load("barbapapa.png")
 papa = pygame.transform.scale(papa, (40, 40))
