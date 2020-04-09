@@ -9,8 +9,8 @@ def drawlevel(levelnumber, fenster):
 	levelcounter_y = 0
 	for line in level:
 		for element in line: 
-			#if element == "4":
-				Stein(fenster, 200, 200)
+			if element == "4":
+				block.Stein(fenster, 200, 200)
 			levelcounter_x = levelcounter_x + 1
 			levelcounter_y = int(levelcounter_x / 30)
 			#print("x=" + str(levelcounter_x%30) + "y=" + str(levelcounter_y))

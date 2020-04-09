@@ -6,11 +6,13 @@ class Block(object):
 	width = 30
 
 class Stein(Block):
-	self.blockbild = pygame.image.load("block.png")
+	blockbild = pygame.image.load("block.png")
 	__init__(self, fenster, x, y):
-		self.fenster.blit(blockbild, (x, y)) = fenster.blit(blockbild, (x, y))
+		self.fenster = fenster
 		self.x = x
 		self.y = y
+		self.fenster.blit(self.blockbild, (self.x, self.y))
+
 
 class Becken(Block):
 	pass
