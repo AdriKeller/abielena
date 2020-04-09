@@ -8,7 +8,6 @@ class Block(object):
 class Stein(Block):
 	blockbild = pygame.image.load("block.png")
 	def __init__(self, fenster, x, y):
-		print("Hallo"
 		self.fenster = fenster
 		self.x = x
 		self.y = y
