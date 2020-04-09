@@ -18,5 +18,11 @@ pygame.init()
 
 
 fenster = pygame.display.set_mode((900, 600))
-
-drawlevel(1, fenster)
+run = True
+while run: 
+	pygame.time.delay(3)
+	for event in pygame.event.get(): #for every event out of the list of all the events happening
+		if event.type == pygame.QUIT: #damit wenn man das Fenster zumacht, kein Error kommt
+			run = False
+	drawlevel(1, fenster)
+pygame.quit()
