@@ -2,7 +2,6 @@ import pygame
 import player
 import readlevel
 import block
-import sprung
 
 pygame.init()
 fenster = pygame.display.set_mode((900, 600))
@@ -25,8 +24,8 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	
 	allkeys = pygame.key.get_pressed() #list of the status of all keys
 
-	sprung.jump(p1, allkeys[pygame.K_UP])
-	sprung.jump(p2, allkeys[pygame.K_w])
+	p1.jump(allkeys[pygame.K_UP])
+	p2.jump(allkeys[pygame.K_w])
 
 	if allkeys[pygame.K_LEFT]:
 		p1.bew(-1)
@@ -40,7 +39,6 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	fenster.fill((255, 255, 255))
 	fenster.blit(bg, (0, 0))
 	level.draw()
-	#readlevel.Level(1, fenster)
 
 	fenster.blit(player.papa, (p1.x, p1.y))
 	fenster.blit(player.mama, (p2.x, p2.y))
@@ -51,5 +49,3 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	pygame.display.update()
 	
 pygame.quit()
-
-

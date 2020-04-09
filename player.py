@@ -15,8 +15,21 @@ class Player(object):
 	def bew(self, richtung): # 1 für rechts, -1 für links
 		self.x = self.x + richtung * self.schritt
 
-	def jump(self):
-		pass
+	def jump(self, keypressed):
+		if not self.springstate: #gleiches wie = False
+			if keypressed:
+				self.springstate = True
+		else:
+			if self.springzahl >= -5: #solange es 5 nicht erreicht
+				if self.springzahl > 0:
+					neg = 1
+				else:
+					neg = -1
+				self.y = self.y - ((self.springzahl**2)*neg) #bewegung
+				self.springzahl = self.springzahl - 2 #counter springzahl
+			else: #variablen resetten wenn der sprung fertig ist
+				self.springstate = False
+				self.springzahl = 5
 	
 papa = pygame.image.load("barbapapa.png")
 papa = pygame.transform.scale(papa, (40, 40))
