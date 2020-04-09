@@ -1,7 +1,6 @@
 import pygame
 
 class Player(object):
-
 	
 	springstate = False
 	springzahl = 5
