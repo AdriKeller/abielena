@@ -6,7 +6,9 @@ class Block(object):
 	width = 30
 
 class Stein(Block):
-	pass
+	block1 = pygame.image.load("block.png")
+	__init__(self, fenster, x, y):
+		fenster.blit(block1, (200, 200))
 
 class Becken(Block):
 	pass
@@ -20,4 +22,3 @@ class P2becken(Becken):
 class Bothbecken(Becken):
 	pass
 
-block1 = pygame.image.load("block.png")
