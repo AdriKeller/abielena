@@ -8,11 +8,11 @@ def drawlevel(levelnumber, fenster):
 	levelcounter_y = 1
 	for line in level:
 		for element in line: 
-			if element == "4":
-				print("Höllo")
-				#block.Stein(fenster, 200, 200)
+			if element == "5":
+				block.Stein(fenster, (levelcounter_x %30)*30, levelcounter_y *30)
 			levelcounter_x = levelcounter_x + 1
 			levelcounter_y = int(levelcounter_x / 30)
+			print(levelcounter_y)
 			#print("x=" + str(levelcounter_x%30) + "y=" + str(levelcounter_y))
 
 pygame.init()

@@ -20,21 +20,12 @@ bg = pygame.image.load("Background.jpeg")
 blockbild = pygame.image.load("block.png")
 run = True
 
-def drawlevel(levelnumber):
-	level = open("Level/Level"+ str(levelnumber) + ".txt")
-	levelcounter_x = 1
-	levelcounter_y = 1
-	for line in level:
-		for element in line: 
-			if element == "5":
-				fenster.blit(blockbild, (200, 200))
-				print("H")
-			levelcounter_x = levelcounter_x + 1
-			levelcounter_y = int(levelcounter_x / 30)
 
+levelnumber = 1
+level = open("Level/Level"+ str(levelnumber) + ".txt")
+levelcounter_x = 1
+levelcounter_y = 1
 
-def place():
-	fenster.blit(blockbild, (200,200))
 
 
 while run: #mainloop der alles mögliche zu jeder Zeit checkt
@@ -77,7 +68,7 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 			p2.springstate = False
 			p2.springzahl = 5
 
-	drawlevel(1)
+	
 
 	if allkeys[pygame.K_LEFT]:
 		p1.bew(-1)
@@ -88,7 +79,15 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	if allkeys[pygame.K_d]:
 		p2.bew(1)
 		
-	
+	for line in level:
+		for element in line:
+			if element == "5":
+				print("HALLO")
+				fenster.blit(blockbild, (100, 100))
+			levelcounter_x = int(levelcounter_x + 1)
+			levelcounter_y = int(levelcounter_x / 30)
+
+
 	fenster.fill((255, 255, 255))
 	fenster.blit(bg, (0, 0))
 	fenster.blit(player.papa, (p1.x, p1.y))
