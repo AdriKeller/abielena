@@ -2,9 +2,8 @@ import pygame
 
 
 class Block(object):
-	height = 10
-	width = 10
-	
+	height = 30
+	width = 30
 
 class Stein(Block):
 	pass
