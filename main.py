@@ -22,20 +22,14 @@ run = True
 
 def drawlevel(levelnumber):
 	level = open("Level/Level"+ str(levelnumber) + ".txt")
-	levelcounter_x = 1
-	levelcounter_y = 1
+	levelcounter_y = 0
 	for line in level:
-		for element in line: 
-			if element == "5":
-				fenster.blit(blockbild, (200, 200))
-				print("H")
-			levelcounter_x = levelcounter_x + 1
-			levelcounter_y = int(levelcounter_x / 30)
-
-
-def place():
-	fenster.blit(blockbild, (200,200))
-
+		levelcounter_x = 0
+		for element in line:
+			if element == "1":
+				fenster.blit(blockbild, (30*levelcounter_x, 30*levelcounter_y))
+			levelcounter_x += 1
+		levelcounter_y += 1
 
 while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	pygame.time.delay(3) #clock (in milliseconds), pausiert das Programm für eine gewisse Zeit, also steht die Zahl für die Zeit, die verstreicht, bevor das Programm neu checkt
@@ -77,8 +71,6 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 			p2.springstate = False
 			p2.springzahl = 5
 
-	drawlevel(1)
-
 	if allkeys[pygame.K_LEFT]:
 		p1.bew(-1)
 	if allkeys[pygame.K_RIGHT]:
@@ -91,6 +83,8 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	
 	fenster.fill((255, 255, 255))
 	fenster.blit(bg, (0, 0))
+	drawlevel(1)
+
 	fenster.blit(player.papa, (p1.x, p1.y))
 	fenster.blit(player.mama, (p2.x, p2.y))
 	pygame.draw.rect(fenster, (0, 0, 255), p1.hitbox, 2) #fenster, farbe, koordinaten&size, border-width
