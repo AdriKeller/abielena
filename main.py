@@ -1,6 +1,6 @@
 import pygame
 import player
-#import readlevel
+import readlevel
 import block
 #import sprung
 
@@ -83,7 +83,8 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	
 	fenster.fill((255, 255, 255))
 	fenster.blit(bg, (0, 0))
-	drawlevel(1)
+	readlevel.drawlevel(1,fenster)
+	#drawlevel(1)
 
 	fenster.blit(player.papa, (p1.x, p1.y))
 	fenster.blit(player.mama, (p2.x, p2.y))
