@@ -14,12 +14,12 @@ class Player(object):
 		self.height = height
 		self.springstate = springstate
 		self.springzahl = springzahl
-		self.hitbox = (x, y, width, height)
+		#self.hitbox = (x, y, width, height)
 	
 	
 	def bew(self, richtung):# 1 für rechts, -1 für links
-		print(richtung)
-		if not block.Block.collision([self.x, self.y, self.width, self.height], richtung):
+		#print(richtung)
+		if not block.Block.collision(self, richtung):
 			self.x = self.x + richtung * self.schritt
 		
 	

@@ -53,8 +53,8 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	fenster.blit(player.papa, (p1.x, p1.y))
 	fenster.blit(player.mama, (p2.x, p2.y))
 	levelact.draw()
-	pygame.draw.rect(fenster, (0, 0, 255), p1.hitbox, 2) #fenster, farbe, koordinaten&size, border-width
-	pygame.draw.rect(fenster, (0, 0, 255), p2.hitbox, 2)
+	#pygame.draw.rect(fenster, (0, 0, 255), p1.hitbox, 2) #fenster, farbe, koordinaten&size, border-width
+	#pygame.draw.rect(fenster, (0, 0, 255), p2.hitbox, 2)
 	pygame.display.update()
 	
 pygame.quit()
