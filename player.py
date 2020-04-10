@@ -1,4 +1,5 @@
 import pygame
+import block
 
 class Player(object):
 	
@@ -16,8 +17,11 @@ class Player(object):
 		self.hitbox = (x, y, width, height)
 	
 	
-	def bew(self, richtung): # 1 für rechts, -1 für links
-		self.x = self.x + richtung * self.schritt
+	def bew(self, richtung):# 1 für rechts, -1 für links
+		print(richtung)
+		if not block.Block.collision([self.x, self.y, self.width, self.height], richtung):
+			self.x = self.x + richtung * self.schritt
+		
 	
 	
 	def jump(self, keypressed):

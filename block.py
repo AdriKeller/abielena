@@ -1,5 +1,5 @@
 import pygame
-
+import player
 
 
 class Block(object):
@@ -15,10 +15,17 @@ class Block(object):
 	def draw(self):
 		self.fenster.blit(self.bild, (self.x*30, self.y*30))
 		
-	def collision(currentplayer):
-		currentplayer.x = xcheck
-		currentplayer.y = ycheck
-		print(xcheck)
+	def collision(self, currentplayer, bew): #currentplayer = [x, y, width, height] --> hitbox from player  #bew = +-1 rechts/links
+		if bew > 0: #wenn Player nach rechts läuft
+			if self.x <= currentplayer[0]+ player.Player.schritt + currentplayer[2]:
+				return True
+			else:
+				return False
+		elif bew <0: #wenn Player nach links läuft
+			if self.x + 30 >= currentplayer[0] - player.Player.schritt:
+				return True
+			else:
+				return False
 		
 		
 		
