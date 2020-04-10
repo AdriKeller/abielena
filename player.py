@@ -5,7 +5,7 @@ import level
 class Player(object):
 	
 	
-	schritt = 10
+	schritt = 5
 	
 	
 	def __init__(self, x, y, width, height, springstate, springzahl):
@@ -18,9 +18,8 @@ class Player(object):
 		#self.hitbox = (x, y, width, height)
 	
 	
-	def bew(self, richtung):# 1 für rechts, -1 für links
-		#print(richtung)
-		if not block.Block.collision(self, richtung):
+	def bew(self, richtung, level):# 1 für rechts, -1 für links
+		if not level.levelfeld[18][7].collision(self, richtung):
 			self.x = self.x + richtung * self.schritt
 		
 	

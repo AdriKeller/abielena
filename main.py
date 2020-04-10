@@ -19,8 +19,8 @@ bg = pygame.image.load("Background.jpeg")
 
 run = True
 
-levelact = level.Level(fenster, 1)
-#print(levelact.levelfeld[18])
+levelnumber = 1 #das aktuelle Level festlegen
+levelact = level.Level(fenster, levelnumber) 
 
 while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	pygame.time.delay(3) #clock (in milliseconds), pausiert das Programm für eine gewisse Zeit, also steht die Zahl für die Zeit, die verstreicht, bevor das Programm neu checkt
@@ -38,13 +38,13 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	p2.jump(allkeys[pygame.K_w])	
 
 	if allkeys[pygame.K_LEFT]: #if pygame.K_LEFT == True
-		p1.bew(-1)
+		p1.bew(-1, levelact)
 	if allkeys[pygame.K_RIGHT]:
-		p1.bew(1)
+		p1.bew(1, levelact)
 	if allkeys[pygame.K_a]:
-		p2.bew(-1)
+		p2.bew(-1, levelact)
 	if allkeys[pygame.K_d]:
-		p2.bew(1)
+		p2.bew(1, levelact)
 		
 
 

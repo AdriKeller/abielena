@@ -13,15 +13,15 @@ class Level:
 		for line in level: 
 			x = 0
 			for element in line:
-				if element != "\n":
+				if element != "\n": #textdoc ist nach jeder Zeile ein Zeilensprung der abgelesen wird
 					if element == "1":
-						unterliste[x] = [block.Stein(fenster, x, y)]
+						unterliste[x] = block.Stein(fenster, x, y)
 					elif element == "2":
-						unterliste[x] = [block.P1becken(fenster, x, y)]
+						unterliste[x] = block.P1becken(fenster, x, y)
 					elif element == "3":
-						unterliste[x] = [block.P2becken(fenster, x, y)]
+						unterliste[x] = block.P2becken(fenster, x, y)
 					elif element == "4":
-						unterliste[x] = [block.Bothbecken(fenster, x, y)]
+						unterliste[x] = block.Bothbecken(fenster, x, y)
 					x = x + 1
 			self.levelfeld = self.levelfeld + [unterliste] #liste generieren
 			unterliste = [None]*30 #innere Liste wieder auf null stellen weil man von neuem anfängt
@@ -32,6 +32,5 @@ class Level:
 		for line in self.levelfeld:
 			for element in line:
 				if element != None:
-					print(element)
 					element.draw() #element gehört zu block, dieser hat funktion draw()
 
