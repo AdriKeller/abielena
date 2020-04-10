@@ -22,7 +22,7 @@ class Level:
 				elif element == "4":
 					unterliste = unterliste + [block.Bothbecken(fenster, x, y)]
 				else: 
-					unterliste = unterliste + [0]
+					unterliste = unterliste + []
 				x = x + 1
 			self.levelfeld = self.levelfeld + [unterliste] #liste generieren
 			unterliste = [] #innere Liste wieder auf null stellen weil man von neuem anfängt
@@ -32,5 +32,6 @@ class Level:
 	def draw(self):
 		for line in self.levelfeld:
 			for element in line:
-				element.draw() #element gehört zu block, dieser hat funktion draw()
+				if not element:
+					element.draw() #element gehört zu block, dieser hat funktion draw()
 

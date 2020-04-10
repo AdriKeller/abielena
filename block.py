@@ -13,7 +13,7 @@ class Block(object):
 		self.bild = pygame.image.load(bildsource)
 		
 	def draw(self):
-		self.fenster.blit(self.bild, (self.x, self.y))
+		self.fenster.blit(self.bild, (self.x*30, self.y*30))
 		
 		
 		
