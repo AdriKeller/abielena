@@ -12,8 +12,8 @@ fenster = pygame.display.set_mode((900, 600))
 pygame.display.set_caption("Mon jeu")
 
 
-p1 = player.Player(800, 532, 38, 38) #importiert die class Player aus der datei player
-p2 = player.Player(100, 522, 28, 48)# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
+p1 = player.Player(800, 532, 38, 38, "barbapapa.png", fenster) #importiert die class Player aus der datei player
+p2 = player.Player(100, 522, 28, 48, "barbamama.gif", fenster)# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
 
 bg = pygame.image.load("Background.jpeg")
 
@@ -33,9 +33,6 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	allkeys = pygame.key.get_pressed() #list of the status of all keys
 		
 
-
-	p1.jump(allkeys[pygame.K_UP])
-	p2.jump(allkeys[pygame.K_w])	
 		
 	p1.bew(allkeys[pygame.K_LEFT], allkeys[pygame.K_RIGHT], allkeys[pygame.K_UP], levelact)
 	p2.bew(allkeys[pygame.K_a], allkeys[pygame.K_d], allkeys[pygame.K_w], levelact)
@@ -43,11 +40,9 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 
 	fenster.fill((255, 255, 255))
 	fenster.blit(bg, (0, 0))
-	fenster.blit(player.papa, (p1.x, p1.y))
-	fenster.blit(player.mama, (p2.x, p2.y))
+	p1.draw()
+	p2.draw()
 	levelact.draw()
-	#pygame.draw.rect(fenster, (0, 0, 255), p1.hitbox, 2) #fenster, farbe, koordinaten&size, border-width
-	#pygame.draw.rect(fenster, (0, 0, 255), p2.hitbox, 2)
 	pygame.display.update()
 	
 pygame.quit()
