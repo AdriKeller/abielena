@@ -12,8 +12,8 @@ fenster = pygame.display.set_mode((900, 600))
 pygame.display.set_caption("Mon jeu")
 
 
-p1 = player.Player(800, 300, 38, 38, False, 5) #importiert die class Player aus der datei player
-p2 = player.Player(100, 300, 28, 48, False, 5)# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.)
+p1 = player.Player(800, 532, 38, 38, False, 5) #importiert die class Player aus der datei player
+p2 = player.Player(100, 522, 28, 48, False, 5)# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
 
 bg = pygame.image.load("Background.jpeg")
 

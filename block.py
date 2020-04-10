@@ -15,6 +15,12 @@ class Block(object):
 	def draw(self):
 		self.fenster.blit(self.bild, (self.x*30, self.y*30))
 		
+	def collision(currentplayer):
+		currentplayer.x = xcheck
+		currentplayer.y = ycheck
+		print(xcheck)
+		
+		
 		
 		
 class Stein(Block):

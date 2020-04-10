@@ -32,6 +32,6 @@ class Level:
 	def draw(self):
 		for line in self.levelfeld:
 			for element in line:
-				if not element:
-					element.draw() #element gehört zu block, dieser hat funktion draw()
+				#if element != None:
+				element.draw() #element gehört zu block, dieser hat funktion draw()
 
