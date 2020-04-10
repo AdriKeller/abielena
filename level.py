@@ -8,30 +8,31 @@ class Level:
 		self.levelnumber = levelnumber
 		self.levelfeld = [] #2 dimensionale Liste mit den Blöcken usw
 		level = open("Level/Level"+ str(levelnumber) + ".txt")
-		unterliste = [] #jede y-Zeile
+		unterliste = [None]*30 #jede y-Zeile
+		print(unterliste)
 		y = 0
 		for line in level: 
 			x = 0
 			for element in line:
 				if element == "1":
-					unterliste = unterliste + [block.Stein(fenster, x, y)]
+					unterliste[x] = [block.Stein(fenster, x, y)]
 				elif element == "2":
-					unterliste = unterliste + [block.P1becken(fenster, x, y)]
+					unterliste[x] = [block.P1becken(fenster, x, y)]
 				elif element == "3":
-					unterliste = unterliste + [block.P2becken(fenster, x, y)]
+					unterliste[x] = [block.P2becken(fenster, x, y)]
 				elif element == "4":
-					unterliste = unterliste + [block.Bothbecken(fenster, x, y)]
+					unterliste[x] = [block.Bothbecken(fenster, x, y)]
 				else: 
-					unterliste = unterliste + []
+					unterliste[x] = None
 				x = x + 1
 			self.levelfeld = self.levelfeld + [unterliste] #liste generieren
-			unterliste = [] #innere Liste wieder auf null stellen weil man von neuem anfängt
+			unterliste = [None]*30 #innere Liste wieder auf null stellen weil man von neuem anfängt
 			y = y + 1
 	
 	
 	def draw(self):
 		for line in self.levelfeld:
 			for element in line:
-				#if element != None:
-				element.draw() #element gehört zu block, dieser hat funktion draw()
+				if element != None:
+					element.draw() #element gehört zu block, dieser hat funktion draw()
 

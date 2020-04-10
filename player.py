@@ -1,5 +1,6 @@
 import pygame
 import block
+import level
 
 class Player(object):
 	
