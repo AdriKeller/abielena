@@ -16,16 +16,27 @@ class Block(object):
 		self.fenster.blit(self.bild, (self.x*30, self.y*30))
 		
 	def collision(self, currentplayer): #currentplayer = alles vom player  #bew = +-1 rechts/links
-		if bew > 0: #wenn Player nach rechts läuft
-			if self.x*30 < currentplayer.x + player.Player.schritt + currentplayer.width: #Achtung self.x ist zwsichen 0 und 30!
+		if  currentplayer.bew_x > 0: #wenn Player nach rechts läuft
+			if self.x*30 < currentplayer.x + currentplayer.schritt + currentplayer.width: #Achtung self.x ist zwsichen 0 und 30!
 				return True
 			else:
 				return False
-		elif bew < 0: #wenn Player nach links läuft
+		elif currentplayer.bew_x < 0: #wenn Player nach links läuft
 			if self.x*30 + 30 > currentplayer.x - currentplayer.schritt:
 				return True
 			else:
 				return False
+		if currentplayer.bew_y > 0: #wenn Player nach unten geht
+			if self.y * 30 < currentplayer.y + currentplayer.height +  currentplayer.bew_y:
+				return True
+			else:
+				return False
+		elif currentplayer.bew_y < 0: #wenn Player nach oben geht
+			if self.y * 30 + 30 > currentplayer.y + currentplayer.height +  currentplayer.bew_y:
+				return True
+			else:
+				return False
+			
 		
 		
 		
