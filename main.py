@@ -23,7 +23,7 @@ levelnumber = 1 #das aktuelle Level festlegen
 levelact = level.Level(fenster, levelnumber) 
 
 while run: #mainloop der alles mögliche zu jeder Zeit checkt
-	pygame.time.delay(3) #clock (in milliseconds), pausiert das Programm für eine gewisse Zeit, also steht die Zahl für die Zeit, die verstreicht, bevor das Programm neu checkt
+	pygame.time.delay(10) #clock (in milliseconds), pausiert das Programm für eine gewisse Zeit, also steht die Zahl für die Zeit, die verstreicht, bevor das Programm neu checkt
 
 
 	for event in pygame.event.get(): #for every event out of the list of all the events happening

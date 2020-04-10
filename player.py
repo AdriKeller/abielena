@@ -19,8 +19,11 @@ class Player(object):
 	
 	
 	def bew(self, richtung, level):# 1 für rechts, -1 für links
-		if not level.levelfeld[18][7].collision(self, richtung):
-			self.x = self.x + richtung * self.schritt
+		for line in level.levelfeld:
+			for element in line:
+				if element != None:
+					if not element.collision(self, richtung):
+						self.x = self.x + richtung * self.schritt
 		
 	
 	
