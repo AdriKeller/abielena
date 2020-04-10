@@ -5,7 +5,7 @@ import level
 class Player(object):
 	
 	
-	schritt = 5
+	schritt = 10
 	
 	
 	def __init__(self, x, y, width, height, springstate, springzahl):
