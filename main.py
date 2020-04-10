@@ -20,7 +20,7 @@ bg = pygame.image.load("Background.jpeg")
 run = True
 
 levelact = level.Level(fenster, 1)
-print(levelact.levelfeld[18])
+#print(levelact.levelfeld[18])
 
 while run: #mainloop der alles mögliche zu jeder Zeit checkt
 	pygame.time.delay(3) #clock (in milliseconds), pausiert das Programm für eine gewisse Zeit, also steht die Zahl für die Zeit, die verstreicht, bevor das Programm neu checkt
