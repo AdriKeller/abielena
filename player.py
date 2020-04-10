@@ -5,49 +5,50 @@ import level
 class Player(object):
 	
 	
-	schritt = 10
 	
-	
-	def __init__(self, x, y, width, height, springstate, springzahl):
+	def __init__(self, x, y, width, height):
 		self.x = x
 		self.y = y
 		self.width = width
 		self.height = height
-		self.springstate = springstate
-		self.springzahl = springzahl
+		self.bew_x = 0
+		self.bew_y = 0
+		self.schritt = 5
+		self.springstate = False
+		self.springzahl = 5
 		#self.hitbox = (x, y, width, height)
 	
 	
-	def bew(self, richtung, level):# 1 für rechts, -1 für links
-		for line in level.levelfeld:
-			for element in line:
-				if element != None:
-					if not element.collision(self, richtung):
-						self.x = self.x + richtung * self.schritt
-		
-	
-	
-	def jump(self, keypressed):
+	def bew(self, key_left, key_right, key_up, level):# 1 für rechts, -1 für links
+		if key_left:
+			self.bew_x = - self.schritt
+		elif key_right:
+			self.bew_x = self.schritt
+			
 		if not self.springstate: #gleiches wie = False
-			if keypressed :
-				self.springstate = True
+			if key_up :
+				self.springstate = True #ändern dass er nicht einmal durch den pygame loop durchgeht bevor er anfängt zu springen
 		else:
-			if self.springzahl >= -5: #solange es 5 nicht erreicht
-				if self.springzahl > 0:
-					neg = 1
-				else:
-					neg = -1
-				self.y = self.y - ((self.springzahl**2)*neg) #bewegung
+			if self.springzahl >= -5: #solange es -5 nicht erreicht
 				self.springzahl = self.springzahl - 2 #counter springzahl
+				if self.springzahl > 0:
+					self.bew_y = - (self.springzahl**2)
+				else:
+					self.bew_y =  self.springzahl**2
 			else: #variablen resetten wenn der sprung fertig ist
 				self.springstate = False
 				self.springzahl = 5
-		
+		if not level.collision(self):
+			self.y = self.y + self.bew_y #bewegung
+			self.x = self.x + self.bew_x
+
 
 	
-papa = pygame.image.load("barbapapa.png")
+papa = pygame.image.load("barbapapa.png") #änder in eine draw funktion wie bei den blöcken
 papa = pygame.transform.scale(papa, (40, 40))
 mama = pygame.image.load("barbamama.gif")
 mama = pygame.transform.scale(mama, (30, 50))
+
 	
+			
 

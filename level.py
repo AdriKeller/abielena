@@ -34,3 +34,12 @@ class Level:
 				if element != None:
 					element.draw() #element gehört zu block, dieser hat funktion draw()
 
+	def collision(self, currentplayer): #geht alle einzelnen Blöcke durch und ruft für jeden einzelnen die collision funktion von block auf
+		for line in self.levelfeld:
+			for element in line:
+				if element != None:
+					if element.collision(currentplayer):
+						return True
+		return False
+
+		
