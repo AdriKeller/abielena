@@ -39,7 +39,7 @@ class Level:
 			for element in line:
 				if element != None:
 					if element.collision(currentplayer):
-						print("coll")
+						print("coll", element.x, "and", element.y)
 						return True
 		return False
 
