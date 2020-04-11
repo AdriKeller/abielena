@@ -38,9 +38,10 @@ class Level:
 		for line in self.levelfeld:
 			for element in line:
 				if element != None:
-					if element.collision(currentplayer):
-						print("coll", element.x, "and", element.y)
+					if element.collision(currentplayer, self):
+						#print("coll", element.x, "and", element.y)
 						return True
 		return False
 
-		
+	def die(self):
+		print("died")

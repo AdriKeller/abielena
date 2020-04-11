@@ -5,7 +5,7 @@ import level
 class Player(object):
 	
 	
-	def __init__(self, x, y, width, height, bildsource, fenster):
+	def __init__(self, x, y, width, height, bildsource, fenster, name):
 		self.x = x
 		self.y = y
 		self.width = width #von hitbox
@@ -17,6 +17,7 @@ class Player(object):
 		self.springzahl = 5
 		self.fenster = fenster
 		self.bild = pygame.image.load(bildsource)
+		self.name = name
 	
 	def draw(self):
 		self.fenster.blit(self.bild, (self.x, self.y))
@@ -33,7 +34,7 @@ class Player(object):
 		else:
 			if self.springzahl >= -5: #solange es -5 nicht erreicht
 				if self.springzahl > 0:
-					self.bew_y = -(self.springzahl**2)
+					self.bew_y = -3*(self.springzahl**2)
 
 				self.springzahl = self.springzahl - 2 #counter springzahl
 
