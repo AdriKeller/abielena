@@ -33,11 +33,8 @@ class Player(object):
 		else:
 			if self.springzahl >= -5: #solange es -5 nicht erreicht
 				if self.springzahl > 0:
-					neg = -1
-				else:
-					neg = 1
-				
-				self.bew_y = neg * (self.springzahl**2)
+					self.bew_y = -(self.springzahl**2)
+
 				self.springzahl = self.springzahl - 2 #counter springzahl
 
 			else: #variablen resetten wenn der sprung fertig ist
@@ -48,4 +45,10 @@ class Player(object):
 			self.x = self.x + self.bew_x
 		
 		self.bew_x = 0
+		self.bew_y = 0
+
+	def fall(self, level):
+		self.bew_y = 10
+		if not level.collision(self):
+			self.y = self.y + self.bew_y
 		self.bew_y = 0
