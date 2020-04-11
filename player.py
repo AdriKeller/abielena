@@ -43,6 +43,7 @@ class Player(object):
 		if not level.collision(self):
 			self.y = self.y + self.bew_y #bewegung
 			self.x = self.x + self.bew_x
+			self.bew_x = 0
 
 
 

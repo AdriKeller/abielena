@@ -39,8 +39,10 @@ class Level:
 			for element in line:
 				if element != None:
 					if element.collision(currentplayer):
-						print("coll", element.x, "and", element.y)
+						print("coll")
 						return True
+					else:
+						return False
 		return False
 
 		
