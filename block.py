@@ -16,15 +16,8 @@ class Block(object):
 		self.fenster.blit(self.bild, (self.x*30, self.y*30))
 		
 	def collision(self, currentplayer): #currentplayer = alles vom player  #bew = +-1 rechts/links
-		if (self.x < currentplayer.x + currentplayer.width) and (currentplayer.x < self.x + 30) and (self.y < currentplayer.y + currentplayer.height) and ( currentplayer.y < self.y + 30):
-			return True
-		else:
-			return False
+		return (Block.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < Block.width * (self.x + 1)) and (Block.height * self.y < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < Block.height * (self.y + 1))
 			
-		
-		
-		
-		
 class Stein(Block):
 	def __init__(self, fenster, x, y):
 		super().__init__(fenster, x, y, "block.png")

@@ -28,24 +28,24 @@ class Player(object):
 			self.bew_x = self.schritt
 			
 		if not self.springstate: #gleiches wie = False
-			if key_up :
+			if key_up:
 				self.springstate = True #ändern dass er nicht einmal durch den pygame loop durchgeht bevor er anfängt zu springen
 		else:
 			if self.springzahl >= -5: #solange es -5 nicht erreicht
-				self.springzahl = self.springzahl - 2 #counter springzahl
 				if self.springzahl > 0:
-					self.bew_y = - (self.springzahl**2)
+					neg = -1
 				else:
-					self.bew_y =  self.springzahl**2
+					neg = 1
+				
+				self.bew_y = neg * (self.springzahl**2)
+				self.springzahl = self.springzahl - 2 #counter springzahl
+
 			else: #variablen resetten wenn der sprung fertig ist
 				self.springstate = False
 				self.springzahl = 5
 		if not level.collision(self):
 			self.y = self.y + self.bew_y #bewegung
 			self.x = self.x + self.bew_x
-
-
-
-	
-			
-
+		
+		self.bew_x = 0
+		self.bew_y = 0
