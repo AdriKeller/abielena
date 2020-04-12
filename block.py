@@ -15,18 +15,27 @@ class Block(object):
 	def draw(self):
 		self.fenster.blit(self.bild, (self.x*30, self.y*30))
 		
-	def collision(self, currentplayer): #currentplayer = alles vom player  #bew = +-1 rechts/links
-		if (self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.x + 30) and (self.y < currentplayer.y + currentplayer.bew_y+ currentplayer.height) and ( currentplayer.y + currentplayer.bew_y < self.y + 30):
+	def collision(self, currentplayer, level): #currentplayer = alles vom player  
+		if (self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * self.y < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)):
+			self.collide(currentplayer, level)
 			return True
 		else:
 			return False
-			
-		
-		
-		
+
+
+
+
+
 class Stein(Block):
 	def __init__(self, fenster, x, y):
 		super().__init__(fenster, x, y, "block.png")
+
+		
+		
+def collide(self, currentplayer, level): #schaut ob collision mit becken, wenn ja tötet
+	#print(self.kills(currentplayer))
+	if self.kills(currentplayer):
+		level.die()
 
 
 class Becken(Block):

@@ -12,8 +12,8 @@ fenster = pygame.display.set_mode((900, 600))
 pygame.display.set_caption("Mon jeu")
 
 
-p1 = player.Player(800, 532, 38, 38, "barbapapa.png", fenster) #importiert die class Player aus der datei player
-p2 = player.Player(100, 522, 28, 48, "barbamama.gif", fenster)# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
+p1 = player.Player(800, 532, 38, 38, "barbapapa.png", fenster, "p1") #importiert die class Player aus der datei player
+p2 = player.Player(100, 522, 28, 48, "barbamama.gif", fenster, "p2")# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
 
 bg = pygame.image.load("Background.jpeg")
 
@@ -36,6 +36,9 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 		
 	p1.bew(allkeys[pygame.K_LEFT], allkeys[pygame.K_RIGHT], allkeys[pygame.K_UP], levelact)
 	p2.bew(allkeys[pygame.K_a], allkeys[pygame.K_d], allkeys[pygame.K_w], levelact)
+	p1.grav(levelact)
+	p2.grav(levelact)
+
 
 
 	fenster.fill((255, 255, 255))
