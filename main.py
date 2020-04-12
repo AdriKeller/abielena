@@ -36,8 +36,8 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 		
 	p1.bew(allkeys[pygame.K_LEFT], allkeys[pygame.K_RIGHT], allkeys[pygame.K_UP], levelact)
 	p2.bew(allkeys[pygame.K_a], allkeys[pygame.K_d], allkeys[pygame.K_w], levelact)
-	p1.grav(levelact)
-	p2.grav(levelact)
+	#p1.grav(levelact)
+	#p2.grav(levelact)
 
 
 

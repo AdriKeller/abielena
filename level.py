@@ -34,11 +34,11 @@ class Level:
 				if element != None:
 					element.draw() #element gehört zu block, dieser hat funktion draw()
 
-	def collision(self, currentplayer, level): #geht alle einzelnen Blöcke durch und ruft für jeden einzelnen die collision funktion von block auf
+	def collision(self, currentplayer): #geht alle einzelnen Blöcke durch und ruft für jeden einzelnen die collision funktion von block auf
 		for line in self.levelfeld:
 			for element in line:
 				if element != None:
-					if element.collision(self, currentplayer, level):
+					if element.collision(currentplayer) == True:
 						#print("coll")
 						return True
 					else:
@@ -46,5 +46,5 @@ class Level:
 		return False
 
 		
-	def die():
-		print("du bist gestorben")
+#	def die():
+		#print("du bist gestorben")
