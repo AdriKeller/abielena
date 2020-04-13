@@ -16,7 +16,7 @@ class Player(object):
 		self.springstate = False
 		self.springzahl = 8
 		self.fallzahl = -2
-		self.fallstate = False
+		self.darffallen = True
 		self.fenster = fenster
 		self.bild = pygame.image.load(bildsource)
 		self.name = name
@@ -37,9 +37,11 @@ class Player(object):
 			if self.springzahl > 0:
 				self.bew_y = -(self.springzahl**2)
 				self.springzahl = self.springzahl - 2 #counter springzahl
+				self.darffallen = False
 			else: #variablen resetten wenn der sprung fertig ist
 				self.springstate = False
 				self.springzahl = 8
+				self.darffallen = True
 		if not level.collision(self, level):
 			self.y = self.y + self.bew_y #bewegung
 			self.x = self.x + self.bew_x
@@ -50,15 +52,16 @@ class Player(object):
 	
 	
 	def grav(self, level): #gravitation: wenn er nirgendswo anstößt, fällt er weiter
-		self.bew_y = self.fallzahl**2 #stop einbauen
-		if not level.collision(self, level):
-			self.springstate = True
-			self.y = self.y + self.bew_y
-			self.fallzahl = self.fallzahl -2
-			self.springstate = False
-		else:
-			 self.fallzahl = -2
-			 self.bew_y = 0
+		if self.darffallen:
+			self.bew_y = self.fallzahl**2 #stop einbauen
+			if not level.collision(self, level):
+				self.springstate = True
+				self.y = self.y + self.bew_y
+				self.fallzahl = self.fallzahl -2
+				self.springstate = False
+			else:
+				 self.fallzahl = -2
+				 self.bew_y = 0
 
 
 	
