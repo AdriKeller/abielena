@@ -20,11 +20,13 @@ class Player(object):
 		self.fenster = fenster
 		self.bild = pygame.image.load(bildsource)
 		self.name = name
+		self.inporte = False
 	
 	def draw(self):
 		self.fenster.blit(self.bild, (self.x, self.y))
 	
 	def bew(self, key_left, key_right, key_up, level):# 1 für rechts, -1 für links
+		#print(self.schritt)
 		if key_left:
 			self.bew_x = - self.schritt
 		elif key_right:
@@ -45,8 +47,6 @@ class Player(object):
 		if not level.collision(self, level):
 			self.y = self.y + self.bew_y #bewegung
 			self.x = self.x + self.bew_x
-		#if  self.darfspringen:
-		#	self.grav(level)
 		self.bew_x = 0
 		self.bew_y = 0
 	
@@ -54,8 +54,7 @@ class Player(object):
 	def grav(self, level): #gravitation: wenn er nirgendswo anstößt, fällt er weiter
 		if self.darffallen:
 			for x in range(4):
-				self.bew_y = (self.fallzahl**2)/4
-				#print(self.bew_y)
+				self.bew_y = (self.fallzahl**2)/4 #man muss es teilen, damit bei der collision funktion nicht durchfällt
 				if not level.collision(self, level):
 					self.darfspringen = False
 					self.y = self.y + self.bew_y

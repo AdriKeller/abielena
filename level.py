@@ -22,6 +22,10 @@ class Level:
 						unterliste[x] = block.P2becken(fenster, x, y)
 					elif element == "4":
 						unterliste[x] = block.Bothbecken(fenster, x, y)
+					elif element == "5":
+						unterliste[x] = block.P1door(fenster, x, y)
+					elif element == "6":
+						unterliste[x] = block.P2door(fenster, x, y) 
 					x = x + 1
 			self.levelfeld = self.levelfeld + [unterliste] #liste generieren
 			unterliste = [None]*30 #innere Liste wieder auf null stellen weil man von neuem anfängt
