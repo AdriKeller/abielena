@@ -41,11 +41,11 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 
 
 
-	fenster.fill((255, 255, 255))
 	fenster.blit(bg, (0, 0))
-	levelact.draw()
+	levelact.draw_background()
 	p1.draw()
 	p2.draw()
+	levelact.draw_foreground()
 	pygame.display.update()
 	
 pygame.quit()

@@ -16,9 +16,12 @@ class Block(object):
 		self.fenster.blit(self.bild, (self.x*30, self.y*30))
 		
 	def collbecken(self, currentplayer, level): #schaut ob collision mit becken, wenn ja tötet
-		#print(self.kills(currentplayer))
 		if self.kills(currentplayer):
 			level.die()
+	
+	#def collziel(self, currentplayer, level):
+		#if (self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * (self.y + tiefe)  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)):
+
 		
 	def collision(self, currentplayer, level): #currentplayer = alles vom player
 		tiefe = 0 #sagt wv tiefer von der oberen kante die Hitbox anfängt
@@ -26,8 +29,9 @@ class Block(object):
 		if isinstance(self, Becken):
 			tiefe = 2/3
 			currentplayer.schritt = 3
-		if isinstance(self, Door):
-			return False
+		#if isinstance(self, Door):
+			#self.collziel(currentplayer, level)
+		#	return False
 		elif (self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * (self.y + tiefe)  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)):
 			self.collbecken(currentplayer, level)
 			return True
@@ -46,7 +50,7 @@ class Stein(Block):
 
 
 
-class Door(Block):
+class Ziel(Block):
 	def __init__(self, fenster, x, y, bildsource):
 		super().__init__(fenster, x, y, bildsource)
 		self.height = 60
@@ -57,17 +61,17 @@ class Door(Block):
 	def kills(self, currentplayer):
 		return False
 		
-class P1door(Door):#rosa Tür
+class P1ziel(Ziel):#rosa Tür
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "p1door.png")
+		super().__init__(fenster, x, y, "p1ziel.png")
 	
 	def win(self, currentplayer): #wenn rosa Spieler, dann True
 		return currentplayer.name == "p1"
 		
 
-class P2door(Door): #schwarze Tür
+class P2ziel(Ziel): #schwarze Tür
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "p2door.png")
+		super().__init__(fenster, x, y, "p2ziel.png")
 	
 	def win(self, currentplayer):
 		return currentplayer.name == "p2" #wenn schwarzer Spieler, dann True

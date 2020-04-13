@@ -6,46 +6,47 @@ class Level:
 	def __init__(self, fenster, levelnumber):
 		self.fenster = fenster
 		self.levelnumber = levelnumber
-		self.levelfeld = [] #2 dimensionale Liste mit den Blöcken usw
+		self.levelfeld_background = []
+		self.levelfeld_foreground = []
 		level = open("Level/Level"+ str(levelnumber) + ".txt")
-		unterliste = [None]*30 #jede y-Zeile
 		y = 0
 		for line in level: 
 			x = 0
 			for element in line:
 				if element != "\n": #textdoc ist nach jeder Zeile ein Zeilensprung der abgelesen wird
 					if element == "1":
-						unterliste[x] = block.Stein(fenster, x, y)
+						self.levelfeld_foreground = self.levelfeld_foreground + [block.Stein(fenster, x, y)]
 					elif element == "2":
-						unterliste[x] = block.P1becken(fenster, x, y)
+						self.levelfeld_foreground = self.levelfeld_foreground + [block.P1becken(fenster, x, y)]
 					elif element == "3":
-						unterliste[x] = block.P2becken(fenster, x, y)
+						self.levelfeld_foreground = self.levelfeld_foreground + [block.P2becken(fenster, x, y)]
 					elif element == "4":
-						unterliste[x] = block.Bothbecken(fenster, x, y)
+						self.levelfeld_foreground = self.levelfeld_foreground + [block.Bothbecken(fenster, x, y)]
 					elif element == "5":
-						unterliste[x] = block.P1door(fenster, x, y)
+						self.levelfeld_background = self.levelfeld_background + [block.P1ziel(fenster, x, y)]
 					elif element == "6":
-						unterliste[x] = block.P2door(fenster, x, y) 
+						self.levelfeld_background = self.levelfeld_background + [block.P2ziel(fenster, x, y)]
 					x = x + 1
-			self.levelfeld = self.levelfeld + [unterliste] #liste generieren
-			unterliste = [None]*30 #innere Liste wieder auf null stellen weil man von neuem anfängt
 			y = y + 1
 	
 	
-	def draw(self):
-		for line in self.levelfeld:
-			for element in line:
-				if element != None:
-					element.draw() #element gehört zu block, dieser hat funktion draw()
+	def draw_foreground(self):
+		for element in self.levelfeld_foreground:
+			element.draw() #element gehört zu block, dieser hat funktion draw()
+				
+	def draw_background(self):
+		for element in self.levelfeld_background:
+			element.draw() #element gehört zu block, dieser hat funktion draw()
 
 	def collision(self, currentplayer, level): #geht alle einzelnen Blöcke durch und ruft für jeden einzelnen die collision funktion von block auf
-		for line in self.levelfeld:
-			for element in line:
-				if element != None:
-					if element.collision(currentplayer, level): #gleiche wie == True
-						return True
+		for element in self.levelfeld_foreground:
+			if element.collision(currentplayer, level): #gleiche wie == True
+				return True
 		return False
 
 		
 	def die(self):
 		print("du bist gestorben")
+	
+	def win(self):
+		print("du hast gewonnen")
