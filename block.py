@@ -16,12 +16,11 @@ class Block(object):
 		self.fenster.blit(self.bild, (self.x*30, self.y*30))
 		
 	def collision(self, currentplayer, level): #currentplayer = alles vom player
-		if self.getroot() == block.Stein:	
-			tiefe = 1
-		else:
+		tiefe = 0 #sagt wv tiefer von der oberen kante die Hitbox anfängt
+		if isinstance(self, Becken):
 			tiefe = 2/3
-		if (Block.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < Block.width * (self.x + 1)) and (Block.height * self.y < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < Block.height * (self.y + tiefe)):
-			#self.collide(currentplayer, level)
+		if (self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * (self.y + tiefe)  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)):
+			self.collbecken(currentplayer, level)
 			return True
 		else:
 			return False
@@ -35,7 +34,7 @@ class Stein(Block):
 
 		
 		
-def collide(self, currentplayer, level): #schaut ob collision mit becken, wenn ja tötet
+def collbecken(self, currentplayer, level): #schaut ob collision mit becken, wenn ja tötet
 	
 	#print(self.kills(currentplayer))
 	#if self.kills(currentplayer):
