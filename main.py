@@ -12,7 +12,7 @@ fenster = pygame.display.set_mode((900, 600))
 pygame.display.set_caption("Mon jeu")
 
 
-p1 = player.Player(800, 532, 38, 38, "barbapapa.png", fenster, "p1") #importiert die class Player aus der datei player
+p1 = player.Player(800, 132, 38, 38, "barbapapa.png", fenster, "p1") #importiert die class Player aus der datei player
 p2 = player.Player(500, 522, 28, 48, "barbamama.gif", fenster, "p2")# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
 
 bg = pygame.image.load("Background.jpeg")
