@@ -26,7 +26,6 @@ class Player(object):
 		self.fenster.blit(self.bild, (self.x, self.y))
 	
 	def bew(self, key_left, key_right, key_up, level):# 1 für rechts, -1 für links
-		#print(self.schritt)
 		if key_left:
 			self.bew_x = - self.schritt
 		elif key_right:

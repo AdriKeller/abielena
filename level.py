@@ -52,10 +52,5 @@ class Level:
 
 		
 	def die(self):
-		print("du bist gestorben")
 		self.leveldeath = True
 	
-	#def win(self):
-	#	print(player.p1.zielstate, "and", player.p2.zielstate)
-	#	if player.p1.zielstate and player.p2.zielstate:
-	#		print("du hast gewonnen")
