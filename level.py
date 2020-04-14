@@ -42,6 +42,9 @@ class Level:
 		for element in self.levelfeld_foreground:
 			if element.collision(currentplayer, level): #gleiche wie == True
 				return True
+		for element in self.levelfeld_background:
+			if element.collision(currentplayer, level): #wenn es eine collision mit dem Ziel gibt
+				return False #soll er trotzdem weiterlaufen
 		return False
 
 		

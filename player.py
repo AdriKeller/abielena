@@ -38,13 +38,13 @@ class Player(object):
 		else:
 			if self.springzahl > 0:
 				self.bew_y = -(self.springzahl**2)
-				self.springzahl = self.springzahl - 2 #counter springzahl
+				self.springzahl = self.springzahl - 1 #counter springzahl
 				self.darffallen = False
 			else: #variablen resetten wenn der sprung fertig ist
 				self.darfspringen = True
 				self.springzahl = 8
 				self.darffallen = True
-		if not level.collision(self, level):
+		if not level.collision(self, level):#level ist in dem fall levelact
 			self.y = self.y + self.bew_y #bewegung
 			self.x = self.x + self.bew_x
 		self.bew_x = 0
