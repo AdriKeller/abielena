@@ -20,7 +20,7 @@ class Player(object):
 		self.fenster = fenster
 		self.bild = pygame.image.load(bildsource)
 		self.name = name
-		self.inporte = False
+		self.zielstate = False
 	
 	def draw(self):
 		self.fenster.blit(self.bild, (self.x, self.y))

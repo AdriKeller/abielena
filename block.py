@@ -23,9 +23,10 @@ class Block(object):
 			level.die()
 	
 	def collziel(self, currentplayer, level):
-		print(self.height)
-		if (self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * (self.y + tiefe)  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)):
-			print("yay")
+		if self.wins(currentplayer):
+			currentplayer.zielstate = True
+		else: 
+			currentplayer.zielstate = False
 		
 	def collision(self, currentplayer, level): #currentplayer = alles vom player
 		tiefe = 0 #sagt wv tiefer von der oberen kante die Hitbox anfängt
@@ -55,7 +56,7 @@ class Ziel(Block):
 		super().__init__(fenster, x, y, bildsource)
 		self.height = 60
 	
-	def win(self, currentplayer):
+	def wins(self, currentplayer):
 		return False
 		
 		
@@ -63,7 +64,7 @@ class P1ziel(Ziel):#rosa Tür
 	def __init__(self, fenster, x, y):
 		super().__init__(fenster, x, y, "p1ziel.png")
 	
-	def win(self, currentplayer): #wenn rosa Spieler, dann True
+	def wins(self, currentplayer): #wenn rosa Spieler, dann True
 		return currentplayer.name == "p1"
 		
 
@@ -71,7 +72,7 @@ class P2ziel(Ziel): #schwarze Tür
 	def __init__(self, fenster, x, y):
 		super().__init__(fenster, x, y, "p2ziel.png")
 	
-	def win(self, currentplayer):
+	def wins(self, currentplayer):
 		return currentplayer.name == "p2" #wenn schwarzer Spieler, dann True
 
 class Becken(Block):

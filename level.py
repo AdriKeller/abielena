@@ -1,11 +1,13 @@
 import pygame
 import block
+import player
 
 
 class Level:
 	def __init__(self, fenster, levelnumber):
 		self.fenster = fenster
 		self.levelnumber = levelnumber
+		self.leveldeath = False
 		self.levelfeld_background = []
 		self.levelfeld_foreground = []
 		level = open("Level/Level"+ str(levelnumber) + ".txt")
@@ -44,12 +46,16 @@ class Level:
 				return True
 		for element in self.levelfeld_background:
 			if element.collision(currentplayer, level): #wenn es eine collision mit dem Ziel gibt
+				element.collziel(currentplayer, level)
 				return False #soll er trotzdem weiterlaufen
 		return False
 
 		
 	def die(self):
 		print("du bist gestorben")
+		self.leveldeath = True
 	
-	def win(self):
-		print("du hast gewonnen")
+	#def win(self):
+	#	print(player.p1.zielstate, "and", player.p2.zielstate)
+	#	if player.p1.zielstate and player.p2.zielstate:
+	#		print("du hast gewonnen")
