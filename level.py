@@ -4,10 +4,11 @@ import player
 
 
 class Level:
-	def __init__(self, fenster, levelnumber):
+	def __init__(self, fenster, levelnumber, positionplayer):
 		self.fenster = fenster
 		self.levelnumber = levelnumber
 		self.leveldeath = False
+		self.positionplayer = positionplayer
 		self.levelfeld_background = []
 		self.levelfeld_foreground = []
 		try:
@@ -33,6 +34,9 @@ class Level:
 						self.levelfeld_background = self.levelfeld_background + [block.P2ziel(fenster, x, y)]
 					x = x + 1
 			y = y + 1
+			if y == 20:
+				self.positionplayer = line
+				
 	
 	
 	def draw_foreground(self):
