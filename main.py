@@ -23,7 +23,7 @@ finishlevel = pygame.image.load("Background_finishlevel.jpeg")
 
 run = True
 
-levelnumber = 1 #das aktuelle Level festlegen
+levelnumber = 0 #das aktuelle Level festlegen
 levelact = level.Level(fenster, levelnumber, p1, p2)
 p1.reset()#setzt die position
 p2.reset()
