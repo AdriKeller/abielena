@@ -1,22 +1,22 @@
 import pygame
 import block
 import player
+import os
 
 
 class Level:
-	def __init__(self, fenster, levelnumber, positionplayer):
+	def __init__(self, fenster, levelnumber, player1, player2):
 		self.fenster = fenster
 		self.levelnumber = levelnumber
 		self.leveldeath = False
-		self.positionplayer = positionplayer
 		self.levelfeld_background = []
 		self.levelfeld_foreground = []
-		try:
-			level = open("Level/Level"+ str(levelnumber) + ".txt")
-		except FileNotFoundError:
-			self.levelnumber = self.levelnumber - 1
+		if os.path.isfile("Level/Level"+ str(levelnumber) + ".txt"):
+			level = open("Level/Level"+ str(levelnumber) + ".txt").readlines()
+		else:
+			print("du bist dumm")
 		y = 0
-		for line in level: 
+		for line in level[1:]: #damit er die position der player nicht einliest
 			x = 0
 			for element in line:
 				if element != "\n": #textdoc ist nach jeder Zeile ein Zeilensprung der abgelesen wird
@@ -34,9 +34,12 @@ class Level:
 						self.levelfeld_background = self.levelfeld_background + [block.P2ziel(fenster, x, y)]
 					x = x + 1
 			y = y + 1
-			if y == 20:
-				self.positionplayer = line
-				
+		standardposition = level[0].split(",")
+		player1.standard_x = int(standardposition[0])
+		player1.standard_y = int(standardposition[1])
+		player2.standard_x = int(standardposition[2])
+		player2.standard_y = int(standardposition[3])
+	
 	
 	
 	def draw_foreground(self):

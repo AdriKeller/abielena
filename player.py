@@ -5,9 +5,9 @@ import level
 class Player(object):
 	
 	
-	def __init__(self, x, y, width, height, bildsource, fenster, name):
-		self.x = x
-		self.y = y
+	def __init__(self, width, height, bildsource, fenster, name):
+		self.x = 0
+		self.y = 0
 		self.width = width #von hitbox
 		self.height = height #von hitbox
 		self.bew_x = 0
@@ -20,6 +20,13 @@ class Player(object):
 		self.fenster = fenster
 		self.bild = pygame.image.load(bildsource)
 		self.name = name
+		self.zielstate = False
+		self.standard_x = 0
+		self.standard_y = 0
+	
+	def reset(self):
+		self.x = self.standard_x
+		self.y = self.standard_y
 		self.zielstate = False
 	
 	def draw(self):
