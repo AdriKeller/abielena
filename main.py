@@ -2,7 +2,8 @@ import pygame
 import player
 import level
 import block
-
+import os
+import time
 
 pygame.init()
 
@@ -18,11 +19,12 @@ p2 = player.Player(26, 50, "barbamama.png", fenster, "p2")# width und height 2 w
 bg = pygame.image.load("Background.jpeg")
 bgdie = pygame.image.load("Background_die.jpeg")
 bgwin = pygame.image.load("Background_win.jpeg")
+finishlevel = pygame.image.load("Background_finishlevel.jpeg")
 
 run = True
 
 levelnumber = 1 #das aktuelle Level festlegen
-levelact = level.Level(fenster, levelnumber, p1, p2) 
+levelact = level.Level(fenster, levelnumber, p1, p2)
 p1.reset()#setzt die position
 p2.reset()
 
@@ -45,21 +47,29 @@ while run: #mainloop der alles mögliche zu jeder Zeit checkt
 
 
 	fenster.blit(bg, (0, 0))
+	if levelnumber == 0:
+		fenster.blit(finishlevel, (0, 0))
 	levelact.draw_background()
 	p1.draw()
 	p2.draw()
 	levelact.draw_foreground()
 	if levelact.leveldeath:
+		#time.sleep(0.5)
 		fenster.blit(bgdie, (0, 0))
 		if  allkeys[pygame.K_SPACE]:
 			levelact.leveldeath = False
 			p1.reset()
 			p2.reset()
 	elif p1.zielstate and p2.zielstate:
+		#time.sleep(0.5)
 		fenster.blit(bgwin, (0, 0))
 		if allkeys[pygame.K_SPACE]:
 			levelnumber = levelnumber + 1
-			levelact = level.Level(fenster, levelnumber, p1, p2)
+			if os.path.isfile("Level/Level"+ str(levelnumber) + ".txt"):
+				levelact = level.Level(fenster, levelnumber, p1, p2)
+			else:
+				levelnumber = 0
+				levelact = level.Level(fenster, levelnumber, p1, p2)
 			p1.reset() 
 			p2.reset()
 	pygame.display.update()

@@ -14,7 +14,7 @@ class Player(object):
 		self.bew_y = 0
 		self.schritt = 10
 		self.darfspringen = True
-		self.springzahl = 8
+		self.springzahl = 6.75
 		self.fallzahl = 1
 		self.darffallen = True
 		self.fenster = fenster
@@ -48,7 +48,7 @@ class Player(object):
 				self.darffallen = False
 			else: #variablen resetten wenn der sprung fertig ist
 				self.darfspringen = True
-				self.springzahl = 8
+				self.springzahl = 6.75
 				self.darffallen = True
 		if not level.collision(self, level):#level ist in dem fall levelact
 			self.y = self.y + self.bew_y #bewegung

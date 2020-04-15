@@ -1,7 +1,6 @@
 import pygame
 import block
 import player
-import os
 
 
 class Level:
@@ -11,10 +10,7 @@ class Level:
 		self.leveldeath = False
 		self.levelfeld_background = []
 		self.levelfeld_foreground = []
-		if os.path.isfile("Level/Level"+ str(levelnumber) + ".txt"):
-			level = open("Level/Level"+ str(levelnumber) + ".txt").readlines()
-		else:
-			print("du bist dumm")
+		level = open("Level/Level"+ str(levelnumber) + ".txt").readlines()
 		y = 0
 		for line in level[1:]: #damit er die position der player nicht einliest
 			x = 0
