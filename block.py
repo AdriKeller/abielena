@@ -55,6 +55,7 @@ class Ziel(Block):
 	def __init__(self, fenster, x, y, bildsource):
 		super().__init__(fenster, x, y, bildsource)
 		self.height = 60
+		self.width = 30 #damit beim in die Tür reinlaufen man wirklich in der Mitte stehen muss
 	
 	def wins(self, currentplayer):
 		return False

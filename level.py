@@ -10,7 +10,10 @@ class Level:
 		self.leveldeath = False
 		self.levelfeld_background = []
 		self.levelfeld_foreground = []
-		level = open("Level/Level"+ str(levelnumber) + ".txt")
+		try:
+			level = open("Level/Level"+ str(levelnumber) + ".txt")
+		except FileNotFoundError:
+			self.levelnumber = self.levelnumber - 1
 		y = 0
 		for line in level: 
 			x = 0
