@@ -1,0 +1,29 @@
+h1{
+	
+}
+
+body{
+		background-color: #AEE0FA;
+		font-family: Comic Sans MS, Comic Sans, cursive;
+}
+
+.act, .laact, .notact, .lanotact{
+		font-weight: bolder;
+		text-decoration:none;
+		margin: 10px 10px 1px 10px;
+}
+
+
+.laact, .lanotact{
+		float: right;
+}
+
+.act, .notact{
+	float:left;
+}
+
+a:hover{
+	padding: 3px;
+	border: 2px dotted black;
+	border-radius: 20px;
+}
