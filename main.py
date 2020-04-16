@@ -43,8 +43,6 @@ while run:
 		
 		#Level von neuem beginnen
 		if  allkeys[pygame.K_SPACE]:
-			levelact.leveldeath = False
-			
 			p1.reset()
 			p2.reset()
 		

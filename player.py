@@ -56,7 +56,7 @@ class Player(object):
 	def reset(self):
 		self.x = self.standard_x
 		self.y = self.standard_y
-		
+		self.tot = False
 		self.zielstate = False
 	
 	"""
