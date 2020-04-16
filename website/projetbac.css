@@ -1,6 +1,4 @@
-h1{
-	
-}
+
 
 body{
 		background-color: white;
@@ -9,9 +7,21 @@ body{
 		text-align: center;
 }
 
+.text{
+		text-align: justify;
+		/*width: 75%;*/
+		margin-left: 10%;
+		margin-right: 10%;
+}
+.logo{
+		margin: 1px 10px 1px 30px; /*oben rechts unten links*/
+		/*position: absolute;
+		left:200px;
+		top:100px;*/
+}
+
 .act, .laact, .notact, .lanotact{
-		text-decoration:none;
-		margin: 10px 10px 1px 10px;
+		margin: 30px 10px 1px 10px;
 		font-family: "Arial black";
 		
 }
@@ -22,21 +32,20 @@ body{
 }
 
 .act, .notact{
-	float:left;
+		float:left;
 }
 
-a:hover{
-	padding: 3px;
-	border: 2px dotted black;
-	border-radius: 20px;
+a.hover:hover{
+		padding: 3px;
+		border: 2px dotted black;
+		border-radius: 20px;
 }
 
-a.nohover:hover{
-	border: None;
-	padding: None;
-	border-radius: None;
-}
 
 h1, h2{
-	font-family: "Arial black";
+		font-family: "Arial black";
+}
+
+a{
+		text-decoration:none;
 }
