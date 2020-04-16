@@ -140,4 +140,4 @@ class Bothbecken(Becken):
 	
 	#Elemente dieser Klasse sind immer tödlich
 	def kills(self, currentplayer):
-		return False
+		return True
