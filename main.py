@@ -19,7 +19,7 @@ bgdie = pygame.image.load("Background_die.jpeg")
 bgwin = pygame.image.load("Background_win.jpeg")
 finishlevel = pygame.image.load("Background_finishlevel.jpeg")
 
-levelnumber = 0
+levelnumber = 1
 levelact = level.Level(fenster, levelnumber, p1, p2)
 
 p1.reset()
@@ -29,11 +29,11 @@ run = True
 
 while run:
 	pygame.time.delay(3) #clock in milliseconds --> Zeit nachdem Loop neu startet
-
+		
 	for event in pygame.event.get(): #for every event out of the list of all the events happening
 		if event.type == pygame.QUIT: #Loop unterbrechen wenn Fenster geschlossen wird
 			run = False
-			
+
 	allkeys = pygame.key.get_pressed() #Liste mit Status aller Tasten
 		
 	p1.bew(allkeys[pygame.K_LEFT], allkeys[pygame.K_RIGHT], allkeys[pygame.K_UP], levelact)

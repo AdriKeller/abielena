@@ -3,14 +3,17 @@ h1{
 }
 
 body{
-		background-color: #AEE0FA;
-		font-family: Comic Sans MS, Comic Sans, cursive;
+		background-color: white;
+		font-family: "Arial";
+		font-weight: bold;
+		text-align: center;
 }
 
 .act, .laact, .notact, .lanotact{
-		font-weight: bolder;
 		text-decoration:none;
 		margin: 10px 10px 1px 10px;
+		font-family: "Arial black";
+		
 }
 
 
@@ -26,4 +29,14 @@ a:hover{
 	padding: 3px;
 	border: 2px dotted black;
 	border-radius: 20px;
+}
+
+a.nohover:hover{
+	border: None;
+	padding: None;
+	border-radius: None;
+}
+
+h1, h2{
+	font-family: "Arial black";
 }
