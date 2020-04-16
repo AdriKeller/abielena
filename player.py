@@ -2,17 +2,24 @@ import pygame
 import block
 import level
 
-#stellt einen Spieler dar
+"""
+stellt einen Spieler dar
+"""
 class Player(object):
-	
-	#erstellt einen neuen Spieler
-	#Parameter:
-	#width und height: Breite und Höhe der Hitbox des Spielers
-	#bildsource: path zur Bilddatei des Spielers
-	#fenster: übergibt fenster von main, um etwas malen zu können mit blit
-	#name: Name des Spielers (relevant für Becken: wer killt wen)
+	"""
+	erstellt einen neuen Spieler
+	:param width: Breite der Hitbox des Spielers
+	:param height: Höhe der Hitbox des Spielers
+	:param bildsource: path zur Bilddatei des Spielers
+	:param fenster: übergibt fenster von main, um etwas malen zu können mit blit
+	:param name: Name des Spielers (relevant für Becken: wer killt wen)
+	:type width: int
+	:type height: int
+	:type bildsource: str
+	:type fenster: pygame.display
+	:type name: str
+	"""
 	def __init__(self, width, height, bildsource, fenster, name):
-		
 		self.x = 0
 		self.y = 0
 		
@@ -29,9 +36,9 @@ class Player(object):
 		self.name = name
 		
 		self.schritt = 10
-		
 		self.springzahl = 6.75
 		self.fallzahl = 1
+		self.springt = False
 		
 		self.darfspringen = True
 		self.darffallen = True
@@ -41,73 +48,100 @@ class Player(object):
 		self.bew_y = 0
 		
 		self.zielstate = False
+		self.tot = False
 	
-	#stellt die Position des Spielers(self) wieder auf die Standard-Werte aus der Level-Datei
+	"""
+	stellt die Position des Spielers(self) wieder auf die Standard-Werte aus der Level-Datei
+	"""
 	def reset(self):
 		self.x = self.standard_x
 		self.y = self.standard_y
+		
 		self.zielstate = False
 	
-	#malt den jeweiligen Spieler in die Fenster-Surface durch ein blit
+	"""
+	malt den jeweiligen Spieler in die Fenster-Surface durch ein blit
+	"""
 	def draw(self):
 		self.fenster.blit(self.bild, (self.x, self.y))
 	
-	#führt die horizontale und vertikale Bewegung des Spielers aus
-	#prüft davor die Kollisionen
-	#Parameter: 
-	#keys: Booleans, die angeben ob die jeweilige Taste gedrückt ist (Rechts/a, Links/d, Oben/w)
-	#level: gibt aktuelles Level (die Blöcke) weiter um die Kollisionen zu testen
+	"""
+	tot-variable wird  aktiv
+	"""
+	def die(self):
+		self.tot = True
+	
+	"""
+	führt die horizontale und vertikale Bewegung des Spielers aus
+	prüft davor die Kollisionen
+	:param key_left: Taste Links/d ist gedrückt
+	:param key_right: Taste Rechts/a ist gedrückt
+	:param key_up: Taste Oben/w ist gedrückt
+	:param level: gibt aktuelles Level (die Blöcke) weiter um die Kollisionen zu testen
+	:type key_left: bool
+	:type key_right: bool
+	:type key_up: bool
+	:type level: level.Level
+	"""
 	def bew(self, key_left, key_right, key_up, level):
 		#horizontale Bewegung
 		if key_left:
-			self.bew_x = - self.schritt
+			self.bew_x = -self.schritt
+		
 		elif key_right:
 			self.bew_x = self.schritt
 		
 		#vertikale Bewegung --> springt nur hoch!
-		if self.darfspringen:
-			
-			if key_up:
-				self.darfspringen = False #TO DO
-		else:
-			
+		if not self.springt and self.darfspringen and key_up:
+			self.darfspringen = False
+			self.springt = True
+		
+		if self.springt:
+
 			#parabelförmiger Sprung
 			if self.springzahl > 0:
 				self.bew_y = -(self.springzahl**2)
 				self.springzahl = self.springzahl - 1
 				self.darffallen = False
-				
+			
 			else:
 				#alles resetten wenn der Sprung fertig ist
-				self.darfspringen = True
+				self.springt = False
 				self.springzahl = 6.75
 				self.darffallen = True
+
 		
 		#die tatsächliche Bewegung wird erst hier ausgeführt
-		if not level.collision(self, level):
+		if not level.collision(self):
 			self.y = self.y + self.bew_y
 			self.x = self.x + self.bew_x
-			
+		
 		self.bew_x = 0
 		self.bew_y = 0
 	
-	#Gravitation
-	#fällt so lange bis er eine Kollision hat (erst wenn Sprung abgeschlossen ist)
+	"""
+	Gravitation
+	fällt so lange bis er eine Kollision hat (erst wenn Sprung abgeschlossen ist)
+	:param level: aktuelles Level
+	:type level: level.Level
+	"""
 	def grav(self, level):
-		if self.darffallen: #wenn ich springe darf ich nicht gleichzeitig fallen
+		#wenn ich springe darf ich nicht gleichzeitig fallen
+		if self.darffallen:
 			
 			#die Bewegung muss in 4 kleinen Schritten ausgeführt werden damit es unmöglich ist durch einen Block "durchzufallen"
 			for x in range(4):
-				self.bew_y = (self.fallzahl**2)/4
+				self.bew_y = (self.fallzahl**2) / 4
 				
-				if not level.collision(self, level):
-					self.darfspringen = False
+				if not level.collision(self):
 					self.y = self.y + self.bew_y
-					self.darfspringen = True
-					
+				
 				else:
 					self.fallzahl = 1
 					self.bew_y = 0
-					
-			if self.fallzahl < 6: #damit er nicht um immer mehr nach unten fällt
-					self.fallzahl = self.fallzahl + 1
+					self.darfspringen = True
+					break
+			
+			#damit er nicht um immer mehr nach unten fällt
+			if self.fallzahl < 6:
+				self.fallzahl = self.fallzahl + 1
