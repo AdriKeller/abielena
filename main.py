@@ -38,24 +38,6 @@ while run:
 	#Liste mit Status aller Tasten
 	allkeys = pygame.key.get_pressed()
 	
-	p1.bew(allkeys[pygame.K_LEFT], allkeys[pygame.K_RIGHT], allkeys[pygame.K_UP], levelact)
-	p2.bew(allkeys[pygame.K_a], allkeys[pygame.K_d], allkeys[pygame.K_w], levelact)
-	
-	p1.grav(levelact)
-	p2.grav(levelact)
-	
-	fenster.blit(bg, (0, 0))
-	
-	#wenn es sich um das finale Level handelt
-	if levelnumber == 0:
-		fenster.blit(finishlevel, (0, 0))
-	
-	#alles auf die Surface malen (Blöcke, Figuren)
-	levelact.draw_background()
-	p1.draw()
-	p2.draw()
-	levelact.draw_foreground()
-	
 	if p1.tot or p2.tot:
 		fenster.blit(bgdie, (0, 0))
 		
@@ -65,6 +47,10 @@ while run:
 			
 			p1.reset()
 			p2.reset()
+		
+		else:
+			pygame.display.update()
+			continue
 	
 	elif p1.zielstate and p2.zielstate:
 		fenster.blit(bgwin, (0, 0))
@@ -83,6 +69,28 @@ while run:
 			
 			p1.reset()
 			p2.reset()
+		
+		else:
+			pygame.display.update()
+			continue
+	
+	p1.bew(allkeys[pygame.K_LEFT], allkeys[pygame.K_RIGHT], allkeys[pygame.K_UP], levelact)
+	p2.bew(allkeys[pygame.K_a], allkeys[pygame.K_d], allkeys[pygame.K_w], levelact)
+	
+	p1.grav(levelact)
+	p2.grav(levelact)
+	
+	fenster.blit(bg, (0, 0))
+	
+	#wenn es sich um das finale Level handelt
+	if levelnumber == 0:
+		fenster.blit(finishlevel, (0, 0))
+	
+	#alles auf die Surface malen (Blöcke, Figuren)
+	levelact.draw_background()
+	p1.draw()
+	p2.draw()
+	levelact.draw_foreground()
 	
 	pygame.display.update()
 
