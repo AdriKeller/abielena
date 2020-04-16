@@ -1,0 +1,64 @@
+
+
+body{
+		background-color: white;
+		font-family: "Arial";
+		font-weight: bold;
+		text-align: center;
+}
+
+.text{
+		text-align: justify;
+		/*width: 75%;*/
+		margin-left: 10%;
+		margin-right: 10%;
+}
+.logo{
+		margin: 1px 10px 1px 30px; /*oben rechts unten links*/
+		/*position: absolute;
+		left:200px;
+		top:100px;*/
+}
+
+.act, .laact, .notact, .lanotact{
+		margin: 30px 10px 1px 10px;
+		font-family: "Arial black";
+		
+}
+
+
+.laact, .lanotact{
+		float: right;
+}
+
+.act, .notact{
+		float:left;
+}
+
+.laact, .act{
+		color: #000000;
+		padding: 3px;
+		border: 2px dotted black;
+		border-radius: 20px;
+}
+
+.lanotact, .notact{
+		color: #f497d1;
+}
+
+a.hover:hover{
+		padding: 3px;
+		border: 2px dotted black;
+		border-radius: 20px;
+}
+
+
+h1, h2, h3{
+		font-family: "Arial black";
+}
+
+a{
+		text-decoration:none;
+}
+
+
