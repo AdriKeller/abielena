@@ -7,21 +7,24 @@ body{
 		text-align: center;
 }
 
-.text{
+.textblock{
 		text-align: justify;
 		/*width: 75%;*/
 		margin-left: 10%;
 		margin-right: 10%;
 }
 .logo{
-		margin: 1px 10px 1px 30px; /*oben rechts unten links*/
+		margin: 1px 200px 1px 1px; /*oben rechts unten links*/
 		/*position: absolute;
 		left:200px;
 		top:100px;*/
 }
 
 .act, .laact, .notact, .lanotact{
-		margin: 30px 10px 1px 10px;
+		margin: 20px 1px 1px 1px;
+		padding: 3px;
+		border: 4px solid white;
+		border-radius: 20px;
 		font-family: "Arial black";
 		
 }
@@ -36,10 +39,7 @@ body{
 }
 
 .laact, .act{
-		color: #000000;
-		padding: 3px;
-		border: 2px dotted black;
-		border-radius: 20px;
+		color: black;
 }
 
 .lanotact, .notact{
@@ -47,18 +47,21 @@ body{
 }
 
 a.hover:hover{
-		padding: 3px;
-		border: 2px dotted black;
-		border-radius: 20px;
+		border: 4px solid #f497d1;
 }
 
+a.hover{
+		text-decoration:none;
+		color: auto;
+}
 
 h1, h2, h3{
 		font-family: "Arial black";
 }
 
 a{
-		text-decoration:none;
+		text-decoration:underline;
+		color: black;
 }
 
 

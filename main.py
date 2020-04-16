@@ -7,7 +7,7 @@ import time
 
 pygame.init()
 fenster = pygame.display.set_mode((900, 600))
-pygame.display.set_caption("Mon jeu")
+pygame.display.set_caption("Barbasauteur")
 
 # width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
 p1 = player.Player(26, 50, "barbapapa.png", fenster, "p1")
