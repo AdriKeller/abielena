@@ -31,43 +31,7 @@ class Block(object):
 	malt den jeweiligen Block in die Fenster-Surface durch ein blit
 	"""
 	def draw(self):
-		self.fenster.blit(self.bild, (self.x*30, self.y*30))
-	
-	"""
-	testet ob der Block für den jeweiligen Spieler tödlich ist
-	:param currentplayer: Spieler um den es geht
-	:type currentplayer: player.Player
-	:return: Block für den jeweiligen Spieler tödlich
-	:rtype: bool
-	"""
-	def kills(self, currentplayer):
-		return False
-	
-	"""
-	löst das Sterben aus
-	:param currentplayer: Spieler um den es geht
-	:param level: das aktuelle Level um level.Level.die() auszulösen
-	:type currentplayer: player.Player
-	:type level: level.Level
-	"""
-	def collbecken(self, currentplayer, level):
-		#schaut ob der collisions-block den spieler tötet
-		if self.kills(currentplayer):
-			level.die()
-	
-	"""
-	Legt fest ob der Spieler in seiner Zieltür ist
-	:param currentplayer: Spieler um den es geht
-	:param level: das aktuelle Level
-	:type currentplayer: player.Player
-	:type level: level.Level
-	"""
-	def collziel(self, currentplayer):
-		if self.wins(currentplayer):
-			currentplayer.zielstate = True
-		
-		else:
-			currentplayer.zielstate = False
+		self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
 	
 	"""
 	Testet die Kollision zwischen dem Block und dem jeweiligen Spieler
@@ -78,22 +42,14 @@ class Block(object):
 	:return: Gab es eine Kollision zwischen dem Player und dem Block
 	:rtype: bool
 	"""
-	#currentplayer = alles vom player
 	def collision(self, currentplayer, level):
-		#sagt wv tiefer von der oberen kante die Hitbox anfängt
-		tiefe = 0
-		currentplayer.schritt = 10
-		if isinstance(self, Becken):
-			tiefe = 2/3
-			currentplayer.schritt = 3
-		
-		if (self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * (self.y + tiefe)  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)):
-			#wenn er sich nach unten bewegt
-			if currentplayer.bew_y > 0:
-				self.collbecken(currentplayer, level)
-			return True
-		else:
-			return False
+		return ((self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * self.y  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)))
+	
+	"""
+	
+	"""
+	def handleCollision(self, currentplayer):
+		return True
 
 """
 stellt einen Stein dar (Unterklasse von Block)
@@ -132,6 +88,14 @@ class Ziel(Block):
 		self.height = 60
 		self.width = 30
 	
+	"""
+	Legt fest ob der Spieler in seiner Zieltür ist
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	"""
+	def handleCollision(self, currentplayer):
+		currentplayer.zielstate = self.wins(currentplayer)
+
 	"""
 	Elemente der Klasse Ziel lassen einen Spieler grundsätzlich nicht gewinnen
 	:param currentplayer: Spieler um den es geht
@@ -211,6 +175,26 @@ class Becken(Block):
 	"""
 	def __init__(self, fenster, x, y, bildsource):
 		super().__init__(fenster, x, y, bildsource)
+	
+	"""
+	löst das Sterben aus
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	"""
+	def handleCollision(self, currentplayer):
+
+		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height):
+			currentplayer.bew_y = currentplayer.bew_y / 3
+
+			if currentplayer.bew_y > 0:
+
+				if self.kills(currentplayer):
+					currentplayer.die()
+			
+			return True
+		
+		else:
+			return False
 	
 	"""
 	Elemente dieser Klasse sind grundsätzlich nicht tötlich für die Spieler

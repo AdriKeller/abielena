@@ -28,7 +28,7 @@ class Level:
 		self.levelfeld_foreground = []
 		
 		#readlines ist damit man nur eine Zeile ablesen kann mit bsp. [0]
-		level = open("Level/Level"+ str(levelnumber) + ".txt").readlines()
+		level = open("Level/Level" + str(levelnumber) + ".txt").readlines()
 		
 		y = 0
 		#damit er die position der player nicht einliest
@@ -86,7 +86,6 @@ class Level:
 	"""
 	def draw_background(self):
 		for element in self.levelfeld_background:
-			#element gehört zu block, dieser hat funktion draw()
 			element.draw()
 
 	"""
@@ -97,26 +96,12 @@ class Level:
 	:rtype: bool
 	"""
 	def collision(self, currentplayer):
-		#geht die Liste mit den Steinen und Becken durch
-		for element in self.levelfeld_foreground:
+		collisionstate = False
+		for element in self.levelfeld_foreground + self.levelfeld_background:
 			
-			#ruft die Collision-Methode aus block auf
 			if element.collision(currentplayer, self):
-				return True
+
+				if element.handleCollision(currentplayer):
+					collisionstate = True
 		
-		#geht die Liste mit den Zieltüren durch
-		for element in self.levelfeld_background:
-			
-			#ruft die Collision-Methode aus block auf
-			#wenn es eine collision mit dem Ziel gibt
-			if element.collision(currentplayer, self):
-				element.collziel(currentplayer)
-				return False #er soll trotzdem weiterlaufen
-		
-		return False
-	
-	"""
-	tot-variable wird  aktiv
-	"""
-	def die(self):
-		self.leveldeath = True
+		return collisionstate

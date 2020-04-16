@@ -9,7 +9,6 @@ pygame.init()
 fenster = pygame.display.set_mode((900, 600))
 pygame.display.set_caption("Mon jeu")
 
-#importiert die class Player aus der datei player
 # width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
 p1 = player.Player(26, 50, "barbapapa.png", fenster, "p1")
 p2 = player.Player(26, 50, "barbamama.png", fenster, "p2")
@@ -31,10 +30,11 @@ while run:
 	
 	#for every event out of the list of all the events happening
 	for event in pygame.event.get():
+		
 		#Loop unterbrechen wenn Fenster geschlossen wird
 		if event.type == pygame.QUIT:
 			run = False
-	
+
 	#Liste mit Status aller Tasten
 	allkeys = pygame.key.get_pressed()
 	
@@ -56,8 +56,7 @@ while run:
 	p2.draw()
 	levelact.draw_foreground()
 	
-	if levelact.leveldeath:
-		#time.sleep(0.5)
+	if p1.tot or p2.tot:
 		fenster.blit(bgdie, (0, 0))
 		
 		#Level von neuem beginnen
@@ -68,7 +67,6 @@ while run:
 			p2.reset()
 	
 	elif p1.zielstate and p2.zielstate:
-		#time.sleep(0.5)
 		fenster.blit(bgwin, (0, 0))
 		
 		#in nächstes Level übergehen

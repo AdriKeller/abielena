@@ -38,6 +38,7 @@ class Player(object):
 		self.schritt = 10
 		self.springzahl = 6.75
 		self.fallzahl = 1
+		self.springt = False
 		
 		self.darfspringen = True
 		self.darffallen = True
@@ -47,6 +48,7 @@ class Player(object):
 		self.bew_y = 0
 		
 		self.zielstate = False
+		self.tot = False
 	
 	"""
 	stellt die Position des Spielers(self) wieder auf die Standard-Werte aus der Level-Datei
@@ -54,7 +56,7 @@ class Player(object):
 	def reset(self):
 		self.x = self.standard_x
 		self.y = self.standard_y
-
+		
 		self.zielstate = False
 	
 	"""
@@ -62,6 +64,12 @@ class Player(object):
 	"""
 	def draw(self):
 		self.fenster.blit(self.bild, (self.x, self.y))
+	
+	"""
+	tot-variable wird  aktiv
+	"""
+	def die(self):
+		self.tot = True
 	
 	"""
 	führt die horizontale und vertikale Bewegung des Spielers aus
@@ -78,18 +86,17 @@ class Player(object):
 	def bew(self, key_left, key_right, key_up, level):
 		#horizontale Bewegung
 		if key_left:
-			self.bew_x = - self.schritt
+			self.bew_x = -self.schritt
 		
 		elif key_right:
 			self.bew_x = self.schritt
 		
 		#vertikale Bewegung --> springt nur hoch!
-		if self.darfspringen:
-			
-			if key_up:
-				self.darfspringen = False #TODO
+		if not self.springt and self.darfspringen and key_up:
+			self.darfspringen = False
+			self.springt = True
 		
-		else:
+		if self.springt:
 
 			#parabelförmiger Sprung
 			if self.springzahl > 0:
@@ -99,9 +106,10 @@ class Player(object):
 			
 			else:
 				#alles resetten wenn der Sprung fertig ist
-				self.darfspringen = True
+				self.springt = False
 				self.springzahl = 6.75
 				self.darffallen = True
+
 		
 		#die tatsächliche Bewegung wird erst hier ausgeführt
 		if not level.collision(self):
@@ -123,16 +131,16 @@ class Player(object):
 			
 			#die Bewegung muss in 4 kleinen Schritten ausgeführt werden damit es unmöglich ist durch einen Block "durchzufallen"
 			for x in range(4):
-				self.bew_y = (self.fallzahl**2)/4
+				self.bew_y = (self.fallzahl**2) / 4
 				
 				if not level.collision(self):
-					self.darfspringen = False
 					self.y = self.y + self.bew_y
-					self.darfspringen = True
 				
 				else:
 					self.fallzahl = 1
 					self.bew_y = 0
+					self.darfspringen = True
+					break
 			
 			#damit er nicht um immer mehr nach unten fällt
 			if self.fallzahl < 6:
