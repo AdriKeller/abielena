@@ -3,20 +3,18 @@ import player
 import level
 import block
 import os
-import time
 
 pygame.init()
 fenster = pygame.display.set_mode((900, 600))
 pygame.display.set_caption("Barbasauteur")
 
-# width und height 2 weniger da border width von rect = 2 und diese geht nach außen (s.u.) --> für hitbox
-p1 = player.Player(26, 50, "barbapapa.png", fenster, "p1")
-p2 = player.Player(26, 50, "barbamama.png", fenster, "p2")
+p1 = player.Player(26, 50, "Bilder/barbapapa.png", fenster, "p1")
+p2 = player.Player(26, 50, "Bilder/barbamama.png", fenster, "p2")
 
-bg = pygame.image.load("Background.jpeg")
-bgdie = pygame.image.load("Background_die.jpeg")
-bgwin = pygame.image.load("Background_win.jpeg")
-finishlevel = pygame.image.load("Background_finishlevel.jpeg")
+bg = pygame.image.load("Bilder/Background.jpeg")
+bgdie = pygame.image.load("Bilder/Background_die.jpeg")
+bgwin = pygame.image.load("Bilder/Background_win.jpeg")
+finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 
 levelnumber = 1
 levelact = level.Level(fenster, levelnumber, p1, p2)
@@ -38,7 +36,7 @@ while run:
 	#Liste mit Status aller Tasten
 	allkeys = pygame.key.get_pressed()
 	
-	if p1.tot or p2.tot:
+	if p1.isdead or p2.isdead:
 		fenster.blit(bgdie, (0, 0))
 		
 		#Level von neuem beginnen

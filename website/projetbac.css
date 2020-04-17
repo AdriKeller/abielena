@@ -10,8 +10,8 @@ body{
 .textblock{
 		text-align: justify;
 		/*width: 75%;*/
-		margin-left: 10%;
-		margin-right: 10%;
+		margin-left: 20%;
+		margin-right: 20%;
 }
 .logo{
 		margin: 1px 200px 1px 1px; /*oben rechts unten links*/
@@ -64,4 +64,14 @@ a{
 		color: black;
 }
 
+table, tr, td{
+		border:4px solid #f497d1;
+		border-radius: 20px;
+		border-collapse: collapse;
+		text-align: center;	
+}
+
+table{
+		width: 80%;
+}
 

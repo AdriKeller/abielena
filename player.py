@@ -48,7 +48,7 @@ class Player(object):
 		self.bew_y = 0
 		
 		self.zielstate = False
-		self.tot = False
+		self.isdead = False
 	
 	"""
 	stellt die Position des Spielers(self) wieder auf die Standard-Werte aus der Level-Datei
@@ -56,7 +56,7 @@ class Player(object):
 	def reset(self):
 		self.x = self.standard_x
 		self.y = self.standard_y
-		self.tot = False
+		self.isdead = False
 		self.zielstate = False
 	
 	"""
@@ -66,10 +66,10 @@ class Player(object):
 		self.fenster.blit(self.bild, (self.x, self.y))
 	
 	"""
-	tot-variable wird  aktiv
+	isdead-variable wird  aktiv
 	"""
 	def die(self):
-		self.tot = True
+		self.isdead = True
 	
 	"""
 	führt die horizontale und vertikale Bewegung des Spielers aus
@@ -140,7 +140,7 @@ class Player(object):
 					self.fallzahl = 1
 					self.bew_y = 0
 					self.darfspringen = True
-					break
+					break #damit er nicht 4 mal durch den Loop geht wenn er eh auf dem Boden steht
 			
 			#damit er nicht um immer mehr nach unten fällt
 			if self.fallzahl < 6:

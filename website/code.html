@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Barbasauteur</title>
+		<link rel="icon" href="Bilder/icon.png" type="image/x-icon" />
+		<link rel="stylesheet" media="screen" type="text/css" href="projetbac.css" />
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+		<a href="code.html" class = "laact hover" >Français</a>
+		<a href="code_de.html" class = "lanotact hover" >Allemand</a>
+		<a href="index.html" class = "notact hover">Home</a>
+		<a href="jeu.html" class = "notact hover">Jeu</a>
+		<a href="code.html" class = "act hover" >Code</a>
+		<a href="download.html" class = "notact hover">Téléchargement</a>
+		<a href = "index.html" class = "logo"><img src="Bilder/logo.png" alt = "BARBASAUTEUR"></a>
+		
+		<hr style="border:solid #88CDF0 3px; border-radius: 7px">
+		<hr style="border:solid #000000 3px; border-radius: 7px">
+		
+		<h1>Étapes difficiles de la programmation</h1>
+				
+		<h2> Le programme</h2>
+		
+		<h3 class = "textblock">Structure</h3>
+		<p class = "textblock">Quand j’ai commencé mon programme, 
+		j’ai beaucoup travaillé avec 
+		<a href = "https://techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/">techwithtim.net</a>  
+		pour apprendre les bases de pygame. Son tutoriel consiste en la programmation 
+		d’un petit jeu avec des étapes différentes comme „basic movements“, „
+		jumping & boundaries“ ou „hit boxes“. 
+		Au bout d’une certaine étape il a commencé à introduire 
+		les „classes“ ce que je ne connaissais pas encore. 
+		Sur <a href = "https://www.unpeud.info/python3/structures/objets/">unpeud.info</a> 
+		j’ai trouvé une page qui en explique les bases 
+		et j’ai cherché sur internet comment utiliser ces „classes“. 
+		Au lieu de tout écrire dans un fichier (c’est comme ça que j’avais commencé), 
+		j’en ai crée plusieurs et j’ai commencé à programmer orienté objet.</p>
+		<h3 class = "textblock">Programmation orientée objet</h3>
+		<p class = "textblock">Au début j’avais beaucoup de mal à garder 
+		le style de la programmation orientée objet et je devais souvent 
+		changer mon code et le restructurer. Je mettais du temps à m’y 
+		habituer, mais peu à peu, je commençais à comprendre les grands 
+		avantages de ce style de programmation. Par exemple vers la fin 
+		du projet, j’ai décidé de rajouter les bassins bleus qui ne sont 
+		pas mortels du tout et cela ne m’a presque pas du tout coûté de 
+		travail grâce à cette programmation.</p>
+		<h3 class = "textblock">"Inheritance" et "classes"</h3>
+		<p class = "textblock">Ci-dessous un diagramme UML pour expliquer 
+		le lien de parenté entre les objets différents. Une classe peut
+		avoir des sous-classes qui peut encore avoir des sous-classes.
+		Et chaque classe hérite toutes les propriétés de sa classe parent.</p>
+		<h3 class = "textblock">Faire afficher les niveaux</h3>
+		<p class = "textblock">Mon professeur monsieur Kientz m’a posé 
+		la question de comment je voulais faire afficher mon plan de jeu. 
+		Il m’a ensuite expliqué la méthode la plus simple pour cela. 
+		Pour chaque niveau, il existe un fichier texte. 
+		La fenêtre a une taille de 900x600 px. 
+		J’ai donc fixé la taille d’un bloc de pierre à 30x30 px, mon 
+		plan de jeu est constitué de 30x20 blocs. La fonction „init“ de 
+		la classe „Level“ lit ce fichier texte et génère un bloc pour 
+		chaque élément dans le fichier.</p>
+		<table class = "textblock">
+				<tr>
+					<td> 1</td>
+					<td> 2</td>
+					<td> 3</td>
+					<td> 4</td>
+					<td> 5</td>
+					<td> 6</td>
+					<td> 7</td>
+				</tr>
+				<tr>
+					<td> block de pierre </td>
+					<td> bassin rose </td>
+					<td> bassin noir </td>
+					<td> bassin vert </td>
+					<td> bassin bleu </td>
+					<td> porte finale rose</td>
+					<td> porte finale noire</td>
+				</tr>
+				<tr>
+					<td><img src="Bilder/block.png" alt = "block"></td>
+					<td><img src="Bilder/rose.png" alt = "rose"></td>
+					<td><img src="Bilder/noir.png" alt = "noir"></td>
+					<td><img src="Bilder/vert.png" alt = "vert"></td>
+					<td><img src="Bilder/bleu.png" alt = "bleu"></td>
+					<td><img src="Bilder/porterose.png" alt = "porte rose"></td>
+					<td><img src="Bilder/portenoire.png" alt = "porte noire"></td>
+				</tr>
+		</table>
+		<h3 class = "textblock">Pydoc</h3>
+		
+		<h2> Le site web</h2>
+		
+		<p class = "textblock"></p>
+		
+		<br>
+		<hr style="border:solid #000000 3px; border-radius: 7px">
+		<hr style="border:solid #88CDF0 3px; border-radius: 7px">
+		<br>
+		
+		<p>
+			Elena Baruc-Westhäuser
+		
+			<br>
+			<br>
+		
+			<a href="impressum.html" >mentions légales</a>	
+		</p>
+	</body>
+	
+</html>
+

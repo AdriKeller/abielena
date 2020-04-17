@@ -36,20 +36,18 @@ class Block(object):
 	"""
 	Testet die Kollision zwischen dem Block und dem jeweiligen Spieler
 	:param currentplayer: Spieler um den es geht
-	:param level: das aktuelle Level
 	:type currentplayer: player.Player
-	:type level: level.Level
 	:return: Gab es eine Kollision zwischen dem Player und dem Block
 	:rtype: bool
 	"""
-	def collision(self, currentplayer, level):
+	def collision(self, currentplayer):
 		return ((self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * self.y  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)))
 	
 	"""
 	
 	"""
 	def handleCollision(self, currentplayer):
-		return True
+		return True #behandle diesen Block als sei er ein massiver Stein
 
 """
 stellt einen Stein dar (Unterklasse von Block)
@@ -65,7 +63,7 @@ class Stein(Block):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "block.png")
+		super().__init__(fenster, x, y, "Bilder/block.png")
 
 """
 stellt eine Zieltür dar (Unterklasse von Block)
@@ -92,9 +90,12 @@ class Ziel(Block):
 	Legt fest ob der Spieler in seiner Zieltür ist
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
+	:return: Muss die Bewegung massiv gestoppt werden
+	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
-		currentplayer.zielstate = self.wins(currentplayer)
+		currentplayer.zielstate = self.wins(currentplayer) #wenn das eine True ist dann auch das andere
+		return False
 
 	"""
 	Elemente der Klasse Ziel lassen einen Spieler grundsätzlich nicht gewinnen
@@ -120,7 +121,7 @@ class P1ziel(Ziel):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "p1ziel.png")
+		super().__init__(fenster, x, y, "Bilder/p1ziel.png")
 	
 	"""
 	Elemente der Klasse Ziel lassen den Spieler 1 gewinnen
@@ -146,7 +147,7 @@ class P2ziel(Ziel):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "p2ziel.png")
+		super().__init__(fenster, x, y, "Bilder/p2ziel.png")
 	
 	"""
 	Elemente der Klasse Ziel lassen den Spieler 2 gewinnen
@@ -182,6 +183,9 @@ class Becken(Block):
 	:type currentplayer: player.Player
 	"""
 	def handleCollision(self, currentplayer):
+		#verlangsamt den Player
+		currentplayer.bew_x = currentplayer.bew_x / 2
+		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height): #ob er den Boden berührt
 
 		currentplayer.bew_x = currentplayer.bew_x / 2
 
@@ -219,7 +223,7 @@ class P1becken(Becken):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "p1becken.png")
+		super().__init__(fenster, x, y, "Bilder/p1becken.png")
 	
 	"""
 	Elemente dieser Klasse töten den Spieler namens p2
@@ -245,7 +249,7 @@ class P2becken(Becken):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "p2becken.png")
+		super().__init__(fenster, x, y, "Bilder/p2becken.png")
 	
 	"""
 	Elemente dieser Klasse töten den Spieler namens p1
@@ -258,8 +262,38 @@ class P2becken(Becken):
 		return currentplayer.name == "p1"
 
 """
+stellt ein harmloses Becken dar (blau)
+"""
+
+class Nonebecken(Becken):
+	"""
+	erstellt ein neues Becken der Farbe harmlos und ruft dabei die init Funktion von Becken auf: setzt den path für die Bilddatei
+	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
+	:param x: x-Position des Blocks (zwischen 0 und 29)
+	:param y: y-Position des Blocks (zwischen 0 und 19)
+	:type fenster: pygame.display
+	:type x: int
+	:type y: int
+	"""
+	def __init__(self, fenster, x, y):
+		super().__init__(fenster, x, y, "Bilder/nonebecken.png")
+	
+	"""
+	Elemente dieser Klasse sind nie tödlich
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: Becken für den jeweiligen Spieler tödlich
+	:rtype: bool
+	"""
+	def kills(self, currentplayer):
+		return False
+
+
+"""
 stellt ein giftiges Becken dar (grün)
 """
+
+
 class Bothbecken(Becken):
 	"""
 	erstellt ein neues Becken der Farbe giftig und ruft dabei die init Funktion von Becken auf: setzt den path für die Bilddatei
@@ -271,7 +305,7 @@ class Bothbecken(Becken):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "bothbecken.png")
+		super().__init__(fenster, x, y, "Bilder/bothbecken.png")
 	
 	"""
 	Elemente dieser Klasse sind immer tödlich
