@@ -185,10 +185,8 @@ class Becken(Block):
 	def handleCollision(self, currentplayer):
 		#verlangsamt den Player
 		currentplayer.bew_x = currentplayer.bew_x / 2
-		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height): #ob er den Boden berührt
 
-		currentplayer.bew_x = currentplayer.bew_x / 2
-
+		#ob er den Boden berührt
 		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height):
 
 			if currentplayer.bew_y >= 0 and self.kills(currentplayer):
