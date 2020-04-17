@@ -53,9 +53,12 @@ class Level:
 						self.levelfeld_foreground = self.levelfeld_foreground + [block.Bothbecken(fenster, x, y)]
 					
 					elif element == "5":
-						self.levelfeld_background = self.levelfeld_background + [block.P1ziel(fenster, x, y)]
+						self.levelfeld_foreground = self.levelfeld_foreground + [block.Nonebecken(fenster, x, y)]
 					
 					elif element == "6":
+						self.levelfeld_background = self.levelfeld_background + [block.P1ziel(fenster, x, y)]
+					
+					elif element == "7":
 						self.levelfeld_background = self.levelfeld_background + [block.P2ziel(fenster, x, y)]
 					
 					x = x + 1
@@ -97,10 +100,11 @@ class Level:
 	"""
 	def collision(self, currentplayer):
 		collisionstate = False
-		for element in self.levelfeld_foreground + self.levelfeld_background:
+		
+		for element in self.levelfeld_foreground + self.levelfeld_background: #addiert beide Listen
 			
-			if element.collision(currentplayer, self):
-
+			if element.collision(currentplayer):
+				
 				if element.handleCollision(currentplayer):
 					collisionstate = True
 		
