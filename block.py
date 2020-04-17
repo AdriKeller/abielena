@@ -183,12 +183,11 @@ class Becken(Block):
 	"""
 	def handleCollision(self, currentplayer):
 
+		currentplayer.bew_x = currentplayer.bew_x / 2
+
 		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height):
-			currentplayer.bew_y = currentplayer.bew_y / 3
 
-			if currentplayer.bew_y > 0:
-
-				if self.kills(currentplayer):
+			if currentplayer.bew_y >= 0 and self.kills(currentplayer):
 					currentplayer.die()
 			
 			return True
