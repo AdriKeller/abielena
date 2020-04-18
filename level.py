@@ -1,6 +1,10 @@
 import pygame
 import block
 import player
+import stein
+import becken
+import ziel
+import ghostblock
 
 """
 stellt ein Level dar
@@ -41,25 +45,25 @@ class Level:
 				if element != "\n":
 					
 					if element == "1":
-						self.levelfeld_foreground = self.levelfeld_foreground + [block.Stein(fenster, x, y)]
+						self.levelfeld_foreground = self.levelfeld_foreground + [stein.Stein(fenster, x, y)]
 					
 					elif element == "2":
-						self.levelfeld_foreground = self.levelfeld_foreground + [block.P1becken(fenster, x, y)]
+						self.levelfeld_foreground = self.levelfeld_foreground + [becken.P1becken(fenster, x, y)]
 					
 					elif element == "3":
-						self.levelfeld_foreground = self.levelfeld_foreground + [block.P2becken(fenster, x, y)]
+						self.levelfeld_foreground = self.levelfeld_foreground + [becken.P2becken(fenster, x, y)]
 					
 					elif element == "4":
-						self.levelfeld_foreground = self.levelfeld_foreground + [block.Bothbecken(fenster, x, y)]
+						self.levelfeld_foreground = self.levelfeld_foreground + [becken.Bothbecken(fenster, x, y)]
 					
 					elif element == "5":
-						self.levelfeld_foreground = self.levelfeld_foreground + [block.Nonebecken(fenster, x, y)]
+						self.levelfeld_foreground = self.levelfeld_foreground + [becken.Nonebecken(fenster, x, y)]
 					
 					elif element == "6":
-						self.levelfeld_background = self.levelfeld_background + [block.P1ziel(fenster, x, y)]
+						self.levelfeld_background = self.levelfeld_background + [ziel.P1ziel(fenster, x, y)]
 					
 					elif element == "7":
-						self.levelfeld_background = self.levelfeld_background + [block.P2ziel(fenster, x, y)]
+						self.levelfeld_background = self.levelfeld_background + [ziel.P2ziel(fenster, x, y)]
 					
 					x = x + 1
 			
