@@ -1,1 +1,3 @@
-blabla
+.DS_Store
+.gitignore
+__pycache__/*
