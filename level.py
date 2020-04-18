@@ -5,6 +5,7 @@ import stein
 import becken
 import ziel
 import ghostblock
+import button
 
 """
 stellt ein Level dar
@@ -72,7 +73,7 @@ class Level:
 						self.levelfeld_background = self.levelfeld_background + [ghostblock.Lilaghostblock(fenster, x, y)]
 					
 					elif element == "r":
-						self.levelfeld_background = self.levelfeld_background + [button.Roterbutton(fenster, x, y)]
+						self.levelfeld_background = self.levelfeld_background + [button.Button(fenster, x, y)]
 					
 					elif element == "R":
 						self.levelfeld_background = self.levelfeld_background + [ghostblock.Roterghostblock(fenster, x, y)]

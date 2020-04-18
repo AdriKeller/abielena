@@ -1,6 +1,10 @@
 import pygame
 import block
 
+
+"""
+stellt einen Button dar der einen Ghostblock aktiviert
+"""	
 class Button(block.Block):
 	
 	"""
@@ -14,5 +18,5 @@ class Button(block.Block):
 	:type y: int
 	:type bildsource: str
 	"""
-	def __init__(self, fenster, x, y, bildsource):
-		super().__init__(fenster, x, y, bildsource)
+	def __init__(self, fenster, x, y):
+		super().__init__(fenster, x, y, "Bilder/lilabutton_aktiv.png")
