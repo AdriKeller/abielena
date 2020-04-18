@@ -64,6 +64,30 @@ class Level:
 					
 					elif element == "7":
 						self.levelfeld_background = self.levelfeld_background + [ziel.P2ziel(fenster, x, y)]
+						
+					elif element == "l":
+						self.levelfeld_background = self.levelfeld_background + [button.Lilabutton(fenster, x, y)]
+					
+					elif element == "L":
+						self.levelfeld_background = self.levelfeld_background + [ghostblock.Lilaghostblock(fenster, x, y)]
+					
+					elif element == "r":
+						self.levelfeld_background = self.levelfeld_background + [button.Roterbutton(fenster, x, y)]
+					
+					elif element == "R":
+						self.levelfeld_background = self.levelfeld_background + [ghostblock.Roterghostblock(fenster, x, y)]
+					
+					elif element == "g":
+						self.levelfeld_background = self.levelfeld_background + [button.Gelberbutton(fenster, x, y)]
+					
+					elif element == "G":
+						self.levelfeld_background = self.levelfeld_background + [ghostblock.Gelberghostblock(fenster, x, y)]
+					
+					elif element == "P":
+						self.levelfeld_background = self.levelfeld_background + [ghostblock.P1ghostblock(fenster, x, y)]
+					
+					elif element == "M":
+						self.levelfeld_background = self.levelfeld_background + [ghostblock.P2ghostblock(fenster, x, y)]
 					
 					x = x + 1
 			

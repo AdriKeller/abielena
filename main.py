@@ -16,7 +16,7 @@ bgdie = pygame.image.load("Bilder/Background_die.jpeg")
 bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 
-levelnumber = 1
+levelnumber = 5
 levelact = level.Level(fenster, levelnumber, p1, p2)
 p1.reset()
 p2.reset()
