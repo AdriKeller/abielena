@@ -18,10 +18,12 @@ class Ghostblock(block.Block):
 	"""
 	def __init__(self, fenster, x, y, bildsource):
 		super().__init__(fenster, x, y, bildsource)
-	
-	def draw(self):
-		if True:
-			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
+			
+	def handleCollision(self, currentplayer):
+		return not self.durchlassen(currentplayer)
+		
+	def durchlassen(self, currentplayer):
+		return False
 	
 """
 stellt einen durchlässigen Stein dar, der duch Button gesteuert wird (Unterklasse von Ghostblock)
@@ -41,9 +43,12 @@ class Buttonghostblock(Ghostblock):
 	:type bildsource: str
 	:type ghostbild: str
 	"""
-	def __init__(self, fenster, x, y, bildsource, ghostbild, name):
+	def __init__(self, fenster, x, y, bildsource, ghostbild, game):
 		super().__init__(fenster, x, y, bildsource)
-		self.ghostbild = ghostbild
+		self.game = game
+		#self.bild = pygame.image.load(bildsource)
+		self.ghostbild = pygame.image.load(ghostbild)
+	
 		
 		
 """
@@ -60,9 +65,17 @@ class Gelberghostblock(Buttonghostblock):
 	:type x: int
 	:type y: int
 	"""
-	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/gelberblock.png", "Bilder/gelberblock_ghost.png", "gelberblock")
+	def __init__(self, fenster, x, y, game):
+		super().__init__(fenster, x, y, "Bilder/gelberblock.png", "Bilder/gelberblock_ghost.png", game)
 		
+	def draw(self):
+		if self.game.gelberbuttonstate:
+			self.fenster.blit(self.ghostbild, (self.x * 30, self.y * 30))
+		else:
+			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
+			
+	def durchlassen(self, currentplayer):
+		return self.game.gelberbuttonstate
 		
 """
 stellt einen lilanen durchlässigen Stein dar, der durch Button gesteuert wird (Unterklasse von Buttonghostblock)
@@ -78,8 +91,17 @@ class Lilaghostblock(Buttonghostblock):
 	:type x: int
 	:type y: int
 	"""
-	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/lilablock.png", "Bilder/lilablock_ghost.png", "lilablock")
+	def __init__(self, fenster, x, y, game):
+		super().__init__(fenster, x, y, "Bilder/lilablock.png", "Bilder/lilablock_ghost.png", game)
+		
+	def draw(self):
+		if self.game.lilabuttonstate:
+			self.fenster.blit(self.ghostbild, (self.x * 30, self.y * 30))
+		else:
+			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
+			
+	def durchlassen(self, currentplayer):
+		return self.game.lilabuttonstate
 
 """
 stellt einen roten durchlässigen Stein dar, der durch Button gesteuert wird (Unterklasse von Buttonghostblock)
@@ -95,8 +117,17 @@ class Roterghostblock(Buttonghostblock):
 	:type x: int
 	:type y: int
 	"""
-	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/roterblock.png", "Bilder/roterblock_ghost.png", "roterblock")
+	def __init__(self, fenster, x, y, game):
+		super().__init__(fenster, x, y, "Bilder/roterblock.png", "Bilder/roterblock_ghost.png", game)
+		
+	def draw(self):
+		if self.game.roterbuttonstate:
+			self.fenster.blit(self.ghostbild, (self.x * 30, self.y * 30))
+		else:
+			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
+			
+	def durchlassen(self, currentplayer):
+		return self.game.roterbuttonstate
 
 
 """
@@ -117,7 +148,7 @@ class Playerghostblock(Ghostblock):
 	"""
 	def __init__(self, fenster, x, y, bildsource):
 		super().__init__(fenster, x, y, bildsource)
-		
+			
 
 """
 stellt einen rosanen für P1 durchlässigen Stein dar (Unterklasse von Playerghostblock)
@@ -136,7 +167,8 @@ class P1ghostblock(Playerghostblock):
 	def __init__(self, fenster, x, y):
 		super().__init__(fenster, x, y, "Bilder/rosablock.png")
 		
-		
+	def durchlassen(self, currentplayer):
+		return currentplayer.name == "p1"
 """
 stellt einen schwarzen für P2 durchlässigen Stein dar (Unterklasse von Playerghostblock)
 """	
@@ -153,3 +185,7 @@ class P2ghostblock(Playerghostblock):
 	"""
 	def __init__(self, fenster, x, y):
 		super().__init__(fenster, x, y, "Bilder/schwarzerblock.png")
+		
+	def durchlassen(self, currentplayer):
+		return currentplayer.name == "p2"
+		

@@ -5,7 +5,7 @@ import level
 """
 stellt einen Spieler dar
 """
-class Player(object):
+class Player():
 	"""
 	erstellt einen neuen Spieler
 	:param width: Breite der Hitbox des Spielers

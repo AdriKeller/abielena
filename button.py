@@ -20,8 +20,11 @@ class Button(block.Block):
 	:type bildsource: str
 	:type aktivbild: str
 	"""
-	def __init__(self, fenster, x, y, bildsource, aktivbild):
+	def __init__(self, fenster, x, y, bildsource, aktivbild, game):
 		super().__init__(fenster, x, y, bildsource)
+		self.game = game
+		self.inaktivbild = pygame.image.load(bildsource)
+		self.aktivbild = pygame.image.load(aktivbild)
 
 
 	"""
@@ -32,18 +35,18 @@ class Button(block.Block):
 	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
-		se
-		
 		return False
 		
 	
 	def draw(self):
-		if True:
-			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
+		if self.buttonstate:
+			self.fenster.blit(self.aktivbild, (self.x * 30, self.y * 30))
+		else:
+			self.fenster.blit(self.inaktivbild, (self.x * 30, self.y * 30))
 
 """
 stellt einen gelben Button dar, der den gelben Ghostblock steuert
-"""	
+"""
 class Gelberbutton(Button):
 	
 	"""
@@ -55,8 +58,14 @@ class Gelberbutton(Button):
 	:type x: int
 	:type y: int
 	"""
-	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/gelberbutton_inaktiv.png", "Bilder/gelberbutton_aktiv.png")
+	def __init__(self, fenster, x, y, game):
+		super().__init__(fenster, x, y, "Bilder/gelberbutton_inaktiv.png", "Bilder/gelberbutton_aktiv.png", game)
+		self.buttonstate = False
+		
+	def handleCollision(self, currentplayer):
+		self.game.gelberbuttonstate = True
+		self.buttonstate = True
+		return False
 
 
 """
@@ -73,8 +82,14 @@ class Roterbutton(Button):
 	:type x: int
 	:type y: int
 	"""
-	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/roterbutton_inaktiv.png", "Bilder/roterbutton_aktiv.png")
+	def __init__(self, fenster, x, y, game):
+		super().__init__(fenster, x, y, "Bilder/roterbutton_inaktiv.png", "Bilder/roterbutton_aktiv.png", game)
+		self.buttonstate = False
+		
+	def handleCollision(self, currentplayer):
+		self.game.roterbuttonstate = True
+		self.buttonstate = True
+		return False
 
 """
 stellt einen lilanen Button dar, der den gelben Ghostblock steuert
@@ -90,5 +105,11 @@ class Lilabutton(Button):
 	:type x: int
 	:type y: int
 	"""
-	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/lilabutton_inaktiv.png", "Bilder/lilabutton_aktiv.png", )
+	def __init__(self, fenster, x, y, game):
+		super().__init__(fenster, x, y, "Bilder/lilabutton_inaktiv.png", "Bilder/lilabutton_aktiv.png", game)
+		self.buttonstate = False
+		
+	def handleCollision(self, currentplayer):
+		self.buttonstate = True
+		self.game.lilabuttonstate = True
+		return False
