@@ -22,7 +22,7 @@ class Level:
 	:type player1: player.Player
 	:type player1: player.Player
 	"""
-	def __init__(self, fenster, levelnumber, player1, player2):
+	def __init__(self, fenster, levelnumber, player1, player2, buttonstate):
 		self.fenster = fenster
 		
 		self.levelnumber = levelnumber
@@ -73,7 +73,7 @@ class Level:
 						self.levelfeld_background = self.levelfeld_background + [ghostblock.Lilaghostblock(fenster, x, y)]
 					
 					elif element == "r":
-						self.levelfeld_background = self.levelfeld_background + [button.Button(fenster, x, y)]
+						self.levelfeld_background = self.levelfeld_background + [button.Roterbutton(fenster, x, y)]
 					
 					elif element == "R":
 						self.levelfeld_background = self.levelfeld_background + [ghostblock.Roterghostblock(fenster, x, y)]

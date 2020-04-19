@@ -41,7 +41,7 @@ class Buttonghostblock(Ghostblock):
 	:type bildsource: str
 	:type ghostbild: str
 	"""
-	def __init__(self, fenster, x, y, bildsource, ghostbild):
+	def __init__(self, fenster, x, y, bildsource, ghostbild, name):
 		super().__init__(fenster, x, y, bildsource)
 		self.ghostbild = ghostbild
 		
@@ -61,7 +61,7 @@ class Gelberghostblock(Buttonghostblock):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/gelberblock.png", "Bilder/gelberblock_ghost.png")
+		super().__init__(fenster, x, y, "Bilder/gelberblock.png", "Bilder/gelberblock_ghost.png", "gelberblock")
 		
 		
 """
@@ -79,7 +79,7 @@ class Lilaghostblock(Buttonghostblock):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/lilablock.png", "Bilder/lilablock_ghost.png")
+		super().__init__(fenster, x, y, "Bilder/lilablock.png", "Bilder/lilablock_ghost.png", "lilablock")
 
 """
 stellt einen roten durchlässigen Stein dar, der durch Button gesteuert wird (Unterklasse von Buttonghostblock)
@@ -96,7 +96,7 @@ class Roterghostblock(Buttonghostblock):
 	:type y: int
 	"""
 	def __init__(self, fenster, x, y):
-		super().__init__(fenster, x, y, "Bilder/roterblock.png", "Bilder/roterblock_ghost.png")
+		super().__init__(fenster, x, y, "Bilder/roterblock.png", "Bilder/roterblock_ghost.png", "roterblock")
 
 
 """

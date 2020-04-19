@@ -16,10 +16,13 @@ bgdie = pygame.image.load("Bilder/Background_die.jpeg")
 bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 
+buttonstate = [False, False, False]
+
 levelnumber = 5
-levelact = level.Level(fenster, levelnumber, p1, p2)
+levelact = level.Level(fenster, levelnumber, p1, p2, buttonstate)
 p1.reset()
 p2.reset()
+
 
 run = True
 while run:
@@ -57,11 +60,11 @@ while run:
 			
 			#testen ob es die Datei gibt
 			if os.path.isfile("Level/Level"+ str(levelnumber) + ".txt"):
-				levelact = level.Level(fenster, levelnumber, p1, p2)
+				levelact = level.Level(fenster, levelnumber, p1, p2, buttonstate)
 			
 			else:
 				levelnumber = 0
-				levelact = level.Level(fenster, levelnumber, p1, p2)
+				levelact = level.Level(fenster, levelnumber, p1, p2, buttonstate)
 			
 			p1.reset()
 			p2.reset()

@@ -8,8 +8,8 @@ class Becken(block.Block):
 	"""
 	erstellt ein neues Becken und ruft dabei die init funktion von Block aus
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
-	:param x: x-Position des Blocks (zwischen 0 und 29)
-	:param y: y-Position des Blocks (zwischen 0 und 19)
+	:param x: x-Position des Beckens (zwischen 0 und 29)
+	:param y: y-Position des Beckens (zwischen 0 und 19)
 	:param bildsource: path zur Bilddatei des Blocks
 	:type fenster: pygame.display
 	:type x: int
@@ -82,8 +82,8 @@ class P2becken(Becken):
 	"""
 	erstellt ein neues Becken der Farbe Spieler 2 und ruft dabei die init Funktion von Becken auf: setzt den path für die Bilddatei
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
-	:param x: x-Position des Blocks (zwischen 0 und 29)
-	:param y: y-Position des Blocks (zwischen 0 und 19)
+	:param x: x-Position des Beckens (zwischen 0 und 29)
+	:param y: y-Position des Beckens (zwischen 0 und 19)
 	:type fenster: pygame.display
 	:type x: int
 	:type y: int
@@ -109,8 +109,8 @@ class Nonebecken(Becken):
 	"""
 	erstellt ein neues Becken der Farbe harmlos und ruft dabei die init Funktion von Becken auf: setzt den path für die Bilddatei
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
-	:param x: x-Position des Blocks (zwischen 0 und 29)
-	:param y: y-Position des Blocks (zwischen 0 und 19)
+	:param x: x-Position des Beckens (zwischen 0 und 29)
+	:param y: y-Position des Beckens (zwischen 0 und 19)
 	:type fenster: pygame.display
 	:type x: int
 	:type y: int
@@ -138,8 +138,8 @@ class Bothbecken(Becken):
 	"""
 	erstellt ein neues Becken der Farbe giftig und ruft dabei die init Funktion von Becken auf: setzt den path für die Bilddatei
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
-	:param x: x-Position des Blocks (zwischen 0 und 29)
-	:param y: y-Position des Blocks (zwischen 0 und 19)
+	:param x: x-Position des Beckens (zwischen 0 und 29)
+	:param y: y-Position des Beckens (zwischen 0 und 19)
 	:type fenster: pygame.display
 	:type x: int
 	:type y: int
