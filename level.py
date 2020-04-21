@@ -27,9 +27,11 @@ class Level:
 		#readlines ist damit man nur eine Zeile ablesen kann mit bsp. [0]
 		level = open("Level/Level" + str(game.levelnumber) + ".txt").readlines()
 		
+		self.bg = pygame.image.load((level[1])[:-1])
+		
 		y = 0
 		#damit er die position der player nicht einliest
-		for line in level[1:]:
+		for line in level[2:]:
 			x = 0
 			
 			#erstellt zwei Listen mit den gesamten Elementen der Datei --> erstellt jedes Mal ein Objekt einer Klasse
@@ -54,11 +56,9 @@ class Level:
 					
 					elif element == "6":
 						self.levelfeld_background = self.levelfeld_background + [ziel.P1ziel(self.fenster, x, y)]
-						#self.ziel1 = ziel.P1ziel(self.fenster, x, y)
 					
 					elif element == "7":
 						self.levelfeld_background = self.levelfeld_background + [ziel.P2ziel(self.fenster, x, y)]
-						#self.ziel2 = ziel.P2ziel(self.fenster, x, y)
 						
 					elif element == "l":
 						self.levelfeld_foreground = self.levelfeld_foreground + [button.Lilabutton(self.fenster, x, y, game)]

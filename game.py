@@ -14,12 +14,11 @@ class Game():
 		self.p1 = player.Player(26, 50, "Bilder/barbapapa.png", self.fenster, "p1")
 		self.p2 = player.Player(26, 50, "Bilder/barbamama.png", self.fenster, "p2")
 		
-		self.bg = pygame.image.load("Bilder/Background.jpeg")
 		self.bgdie = pygame.image.load("Bilder/Background_die.jpeg")
 		self.bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 		self.finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 		
-		self.levelnumber = 10
+		self.levelnumber = 1
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()
@@ -84,7 +83,8 @@ class Game():
 			self.p1.grav(self.levelact)
 			self.p2.grav(self.levelact)
 			
-			self.fenster.blit(self.bg, (0, 0))
+			self.fenster.blit(self.levelact.bg, (0, 0))
+			
 			
 			#wenn es sich um das finale Level handelt
 			if self.levelnumber == 0:
