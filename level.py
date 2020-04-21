@@ -54,9 +54,11 @@ class Level:
 					
 					elif element == "6":
 						self.levelfeld_background = self.levelfeld_background + [ziel.P1ziel(self.fenster, x, y)]
+						#self.ziel1 = ziel.P1ziel(self.fenster, x, y)
 					
 					elif element == "7":
 						self.levelfeld_background = self.levelfeld_background + [ziel.P2ziel(self.fenster, x, y)]
+						#self.ziel2 = ziel.P2ziel(self.fenster, x, y)
 						
 					elif element == "l":
 						self.levelfeld_foreground = self.levelfeld_foreground + [button.Lilabutton(self.fenster, x, y, game)]

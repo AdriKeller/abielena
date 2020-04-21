@@ -18,9 +18,6 @@ class Ziel(block.Block):
 	"""
 	def __init__(self, fenster, x, y, bildsource):
 		super().__init__(fenster, x, y, bildsource)
-		
-		self.height = 60
-		self.width = 30
 	
 	"""
 	Legt fest ob der Spieler in seiner Zieltür ist
@@ -42,6 +39,12 @@ class Ziel(block.Block):
 	"""
 	def wins(self, currentplayer):
 		return False
+		
+	"""
+	malt den jeweiligen Block in die Fenster-Surface durch ein blit
+	"""
+	def draw(self):
+		self.fenster.blit(self.bild, (self.x * 30, (self.y - 1)* 30))
 
 """
 stellt die Zieltür für den ersten Player dar(rosa)
