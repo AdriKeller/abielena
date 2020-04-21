@@ -19,7 +19,7 @@ class Game():
 		self.bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 		self.finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 		
-		self.levelnumber = 5
+		self.levelnumber = 8
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()
@@ -45,7 +45,7 @@ class Game():
 			allkeys = pygame.key.get_pressed()
 			
 			if self.p1.isdead or self.p2.isdead:
-				fenster.blit(self.bgdie, (0, 0))
+				self.fenster.blit(self.bgdie, (0, 0))
 				
 				#Level von neuem beginnen
 				if  allkeys[pygame.K_SPACE]:
@@ -65,11 +65,11 @@ class Game():
 					
 					#testen ob es die Datei gibt
 					if os.path.isfile("Level/Level"+ str(self.levelnumber) + ".txt"):
-						self.levelact = level.Level(self.fenster, self.levelnumber, self.p1, self.p2)
+						self.levelact = level.Level(self)
 					
 					else:
 						self.levelnumber = 0
-						self.levelact = level.Level(self.fenster, self.levelnumber, self.p1, self.p2)
+						self.levelact = level.Level(self)
 					
 					self.p1.reset()
 					self.p2.reset()

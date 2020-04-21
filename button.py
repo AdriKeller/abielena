@@ -43,6 +43,7 @@ class Button(block.Block):
 			self.fenster.blit(self.aktivbild, (self.x * 30, self.y * 30))
 		else:
 			self.fenster.blit(self.inaktivbild, (self.x * 30, self.y * 30))
+		self.buttonstate = False
 
 """
 stellt einen gelben Button dar, der den gelben Ghostblock steuert

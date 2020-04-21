@@ -122,12 +122,12 @@ class Roterghostblock(Buttonghostblock):
 		
 	def draw(self):
 		if self.game.roterbuttonstate:
-			self.fenster.blit(self.ghostbild, (self.x * 30, self.y * 30))
-		else:
 			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
+		else:
+			self.fenster.blit(self.ghostbild, (self.x * 30, self.y * 30))
 			
 	def durchlassen(self, currentplayer):
-		return self.game.roterbuttonstate
+		return not self.game.roterbuttonstate
 
 
 """

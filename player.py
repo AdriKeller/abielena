@@ -113,8 +113,9 @@ class Player():
 		
 		#die tatsächliche Bewegung wird erst hier ausgeführt
 		if not level.collision(self):
-			self.y = self.y + self.bew_y
-			self.x = self.x + self.bew_x
+			self.y = (self.y + self.bew_y) % 600
+			self.x = (self.x + self.bew_x) % 900
+			#print(self.x, self.y)
 		
 		self.bew_x = 0
 		self.bew_y = 0
@@ -134,7 +135,7 @@ class Player():
 				self.bew_y = (self.fallzahl**2) / 4
 				
 				if not level.collision(self):
-					self.y = self.y + self.bew_y
+					self.y = (self.y + self.bew_y) % 600
 				
 				else:
 					self.fallzahl = 1
