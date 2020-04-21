@@ -18,7 +18,7 @@ class Game():
 		self.bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 		self.finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 		
-		self.levelnumber = 1
+		self.levelnumber = 8
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()
@@ -76,6 +76,8 @@ class Game():
 				else:
 					pygame.display.update()
 					continue
+			self.levelact.collision(self.p1)
+			self.levelact.collision(self.p2)
 			
 			self.p1.bew(allkeys[pygame.K_LEFT], allkeys[pygame.K_RIGHT], allkeys[pygame.K_UP], self.levelact)
 			self.p2.bew(allkeys[pygame.K_a], allkeys[pygame.K_d], allkeys[pygame.K_w], self.levelact)

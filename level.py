@@ -121,7 +121,6 @@ class Level:
 	:rtype: bool
 	"""
 	def collision(self, currentplayer):
-		currentplayer.geschw = 1
 		collisionstate = False
 		
 		for element in self.levelfeld_foreground + self.levelfeld_background: #addiert beide Listen

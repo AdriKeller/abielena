@@ -113,6 +113,7 @@ class Player():
 				self.springzahl = 6.75
 				self.darffallen = True
 
+		self.geschw = 1
 		
 		#die tatsächliche Bewegung wird erst hier ausgeführt
 		if not level.collision(self):
