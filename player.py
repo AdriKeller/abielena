@@ -47,6 +47,8 @@ class Player():
 		self.bew_x = 0
 		self.bew_y = 0
 		
+		self.geschw = 1
+		
 		self.zielstate = False
 		self.isdead = False
 	
@@ -90,7 +92,12 @@ class Player():
 		
 		elif key_right:
 			self.bew_x = self.schritt
-		
+		print("go")
+		print(self.bew_x)
+		print(self.geschw)
+		#verlangsamt den Player (bsp Becken)
+		self.bew_x = self.bew_x * self.geschw
+		print(self.bew_x)
 		#vertikale Bewegung --> springt nur hoch!
 		if not self.springt and self.darfspringen and key_up:
 			self.darfspringen = False

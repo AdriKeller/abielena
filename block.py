@@ -26,6 +26,7 @@ class Block(object):
 		self.width = 30
 		
 		self.bild = pygame.image.load(bildsource)
+		
 	
 	"""
 	malt den jeweiligen Block in die Fenster-Surface durch ein blit

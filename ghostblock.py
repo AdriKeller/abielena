@@ -46,8 +46,10 @@ class Buttonghostblock(Ghostblock):
 	def __init__(self, fenster, x, y, bildsource, ghostbild, game):
 		super().__init__(fenster, x, y, bildsource)
 		self.game = game
-		#self.bild = pygame.image.load(bildsource)
 		self.ghostbild = pygame.image.load(ghostbild)
+		
+	def handleCollision(self, currentplayer):
+		return not (self.durchlassen(currentplayer) or ((self.width * self.x < currentplayer.x + currentplayer.width) and (currentplayer.x < self.width * (self.x + 1)) and (self.height * self.y  < currentplayer.y + currentplayer.height) and (currentplayer.y < self.height * (self.y + 1))))
 	
 		
 		

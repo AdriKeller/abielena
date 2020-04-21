@@ -25,14 +25,15 @@ class Becken(block.Block):
 	:type currentplayer: player.Player
 	"""
 	def handleCollision(self, currentplayer):
-		#verlangsamt den Player
-		#currentplayer.bew_x = currentplayer.bew_x / 2
 		
 		#ob er den Boden berührt
 		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height): 
 			#er stirbt erst wenn er den Boden berührt und von oben kommt
-			if (currentplayer.bew_y > 0) and self.kills(currentplayer):
-				currentplayer.die()
+			
+			if (currentplayer.bew_y > 0):
+				currentplayer.geschw = 0.5
+				if self.kills(currentplayer):
+					currentplayer.die()
 			
 			return True
 		

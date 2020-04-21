@@ -19,7 +19,7 @@ class Game():
 		self.bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 		self.finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 		
-		self.levelnumber = 8
+		self.levelnumber = 6
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()
