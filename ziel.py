@@ -1,6 +1,7 @@
 import pygame
 import block
 
+
 """
 stellt eine Zieltür dar (Unterklasse von Block)
 """

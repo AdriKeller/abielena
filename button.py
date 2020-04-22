@@ -1,12 +1,10 @@
 import pygame
 import block
 
-
 """
 stellt einen Button dar der einen Ghostblock aktiviert
 """	
 class Button(block.Block):
-	
 	"""
 	erstellt einen neuen Button und ruft dabei die init Funktion von Block auf
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
@@ -19,6 +17,7 @@ class Button(block.Block):
 	:type y: int
 	:type bildsource: str
 	:type aktivbild: str
+	:game: 
 	"""
 	def __init__(self, fenster, x, y, bildsource, aktivbild, game):
 		super().__init__(fenster, x, y, bildsource)
@@ -37,7 +36,9 @@ class Button(block.Block):
 	def handleCollision(self, currentplayer):
 		return False
 		
-	
+	"""
+	malt den Button in die Fenster-Surface durch ein blit, abhängig davon ob er  gedrückt ist oder nicht (anderes Bild)
+	"""
 	def draw(self):
 		if self.buttonstate:
 			self.fenster.blit(self.aktivbild, (self.x * 30, self.y * 30))
@@ -63,9 +64,16 @@ class Gelberbutton(Button):
 		super().__init__(fenster, x, y, "Bilder/gelberbutton_inaktiv.png", "Bilder/gelberbutton_aktiv.png", game)
 		self.buttonstate = False
 		
+	"""
+	Legt fest ob der Spieler den Knopf drückt
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: Muss die Bewegung massiv gestoppt werden
+	:rtype: bool
+	"""
 	def handleCollision(self, currentplayer):
-		self.game.gelberbuttonstate = True
-		self.buttonstate = True
+		self.game.gelberbuttonstate = True #für Ghostblocks relevant
+		self.buttonstate = True #nur für Bild relevant
 		return False
 
 
@@ -87,6 +95,13 @@ class Roterbutton(Button):
 		super().__init__(fenster, x, y, "Bilder/roterbutton_inaktiv.png", "Bilder/roterbutton_aktiv.png", game)
 		self.buttonstate = False
 		
+	"""
+	Legt fest ob der Spieler den Knopf drückt
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: Muss die Bewegung massiv gestoppt werden
+	:rtype: bool
+	"""
 	def handleCollision(self, currentplayer):
 		self.game.roterbuttonstate = True
 		self.buttonstate = True
@@ -110,6 +125,13 @@ class Lilabutton(Button):
 		super().__init__(fenster, x, y, "Bilder/lilabutton_inaktiv.png", "Bilder/lilabutton_aktiv.png", game)
 		self.buttonstate = False
 		
+	"""
+	Legt fest ob der Spieler den Knopf drückt
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: Muss die Bewegung massiv gestoppt werden
+	:rtype: bool
+	"""
 	def handleCollision(self, currentplayer):
 		self.buttonstate = True
 		self.game.lilabuttonstate = True

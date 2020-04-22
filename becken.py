@@ -20,9 +20,11 @@ class Becken(block.Block):
 		super().__init__(fenster, x, y, bildsource)
 	
 	"""
-	löst das Sterben aus
+	löst das Sterben aus und gibt vor wann der Player die Bewegung stoppen muss
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
+	:return: soll Bewegung des Players gestoppt werden
+	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
 		
@@ -105,7 +107,6 @@ class P2becken(Becken):
 """
 stellt ein harmloses Becken dar (blau)
 """
-
 class Nonebecken(Becken):
 	"""
 	erstellt ein neues Becken der Farbe harmlos und ruft dabei die init Funktion von Becken auf: setzt den path für die Bilddatei
@@ -129,12 +130,9 @@ class Nonebecken(Becken):
 	def kills(self, currentplayer):
 		return False
 
-
 """
 stellt ein giftiges Becken dar (grün)
 """
-
-
 class Bothbecken(Becken):
 	"""
 	erstellt ein neues Becken der Farbe giftig und ruft dabei die init Funktion von Becken auf: setzt den path für die Bilddatei

@@ -4,6 +4,9 @@ import level
 import block
 import os
 
+"""
+stellt das Spiel dar
+"""
 class Game():
 	
 	def __init__(self):
@@ -18,7 +21,7 @@ class Game():
 		self.bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 		self.finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 		
-		self.levelnumber = 8
+		self.levelnumber = 9
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()

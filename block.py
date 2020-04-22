@@ -45,7 +45,9 @@ class Block(object):
 		return ((self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * self.y  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)))
 	
 	"""
-	
+	löst Bewegungs-Stop aus
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
 	"""
 	def handleCollision(self, currentplayer):
 		return True #behandle diesen Block als sei er ein massiver Stein

@@ -18,10 +18,24 @@ class Ghostblock(block.Block):
 	"""
 	def __init__(self, fenster, x, y, bildsource):
 		super().__init__(fenster, x, y, bildsource)
-			
+		
+	"""
+	gibt an ob der Stein die Bewegung des Players stoppen muss
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: Ob der Stein die Bewegung des PLayers stoppen soll
+	:rtype: bool
+	"""	
 	def handleCollision(self, currentplayer):
 		return not self.durchlassen(currentplayer)
 		
+	"""
+	gibt Durchlässigkeit des Steins an
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: ob STein durchlässig ist
+	:rtype: bool
+	"""	
 	def durchlassen(self, currentplayer):
 		return False
 	
@@ -31,7 +45,7 @@ stellt einen durchlässigen Stein dar, der duch Button gesteuert wird (Unterklas
 class Buttonghostblock(Ghostblock):
 	
 	"""
-	erstellt einen neuen durchlässigen Stein und ruft dabei die init Funktion von Ghostbecken auf
+	erstellt einen neuen durchlässigen Stein und ruft dabei die init Funktion von Ghostblock auf
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
 	:param x: x-Position des Blocks (zwischen 0 und 29)
 	:param y: y-Position des Blocks (zwischen 0 und 19)
@@ -48,10 +62,17 @@ class Buttonghostblock(Ghostblock):
 		self.game = game
 		self.ghostbild = pygame.image.load(ghostbild)
 		
-	def handleCollision(self, currentplayer):
-		return not (self.durchlassen(currentplayer) or ((self.width * self.x < currentplayer.x + currentplayer.width) and (currentplayer.x < self.width * (self.x + 1)) and (self.height * self.y  < currentplayer.y + currentplayer.height) and (currentplayer.y < self.height * (self.y + 1))))
 	
-		
+	"""
+	gibt an ob der Stein die Bewegung des Players stoppen muss
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: Ob der Stein die Bewegung des PLayers stoppen soll
+	:rtype: bool
+	"""		
+	def handleCollision(self, currentplayer):
+		#nach dem or: damit Player nicht im STein stecken bleibt
+		return not (self.durchlassen(currentplayer) or ((self.width * self.x < currentplayer.x + currentplayer.width) and (currentplayer.x < self.width * (self.x + 1)) and (self.height * self.y  < currentplayer.y + currentplayer.height) and (currentplayer.y < self.height * (self.y + 1))))
 		
 """
 stellt einen gelben durchlässigen Stein dar, der durch Button gesteuert wird (Unterklasse von Buttonghostblock)
@@ -69,13 +90,24 @@ class Gelberghostblock(Buttonghostblock):
 	"""
 	def __init__(self, fenster, x, y, game):
 		super().__init__(fenster, x, y, "Bilder/gelberblock.png", "Bilder/gelberblock_ghost.png", game)
-		
+	
+	
+	"""
+	malt den Block in die Fenster-Surface durch ein blit, abhängig davon ob der Button gedrückt ist oder nicht (anderes Bild)
+	"""	
 	def draw(self):
 		if self.game.gelberbuttonstate:
 			self.fenster.blit(self.ghostbild, (self.x * 30, self.y * 30))
 		else:
 			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
-			
+		
+	"""
+	gibt Durchlässigkeit des Steins an
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: ob Stein durchlässig ist --> von Buttonstate abhängig
+	:rtype: bool
+	"""		
 	def durchlassen(self, currentplayer):
 		return self.game.gelberbuttonstate
 		
@@ -95,13 +127,23 @@ class Lilaghostblock(Buttonghostblock):
 	"""
 	def __init__(self, fenster, x, y, game):
 		super().__init__(fenster, x, y, "Bilder/lilablock.png", "Bilder/lilablock_ghost.png", game)
-		
+	
+	"""
+	malt den Block in die Fenster-Surface durch ein blit, abhängig davon ob der Button gedrückt ist oder nicht (anderes Bild)
+	"""	
 	def draw(self):
 		if self.game.lilabuttonstate:
 			self.fenster.blit(self.ghostbild, (self.x * 30, self.y * 30))
 		else:
 			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
 			
+	"""
+	gibt Durchlässigkeit des Steins an
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: ob Stein durchlässig ist --> von Buttonstate abhängig
+	:rtype: bool
+	"""	
 	def durchlassen(self, currentplayer):
 		return self.game.lilabuttonstate
 
@@ -122,13 +164,24 @@ class Roterghostblock(Buttonghostblock):
 	def __init__(self, fenster, x, y, game):
 		super().__init__(fenster, x, y, "Bilder/roterblock.png", "Bilder/roterblock_ghost.png", game)
 		
+	"""
+	malt den Block in die Fenster-Surface durch ein blit, abhängig davon ob der Button gedrückt ist oder nicht (anderes Bild)
+	"""
 	def draw(self):
 		if self.game.roterbuttonstate:
 			self.fenster.blit(self.bild, (self.x * 30, self.y * 30))
 		else:
 			self.fenster.blit(self.ghostbild, (self.x * 30, self.y * 30))
 			
+	"""
+	gibt Durchlässigkeit des Steins an
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: ob Stein durchlässig ist --> von Buttonstate abhängig
+	:rtype: bool
+	"""	
 	def durchlassen(self, currentplayer):
+		#andersrum als bei gelb und lila: lässt nicht durch wenn gedrückt
 		return not self.game.roterbuttonstate
 
 
@@ -138,7 +191,7 @@ stellt einen durchlässigen Stein dar, der von Player abhängig ist (Unterklasse
 class Playerghostblock(Ghostblock):
 	
 	"""
-	erstellt einen neuen durchlässigen Stein pro Player und ruft dabei die init Funktion von Ghostbecken auf
+	erstellt einen neuen durchlässigen Stein pro Player und ruft dabei die init Funktion von Ghostblock auf
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
 	:param x: x-Position des Blocks (zwischen 0 und 29)
 	:param y: y-Position des Blocks (zwischen 0 und 19)
@@ -158,7 +211,7 @@ stellt einen rosanen für P1 durchlässigen Stein dar (Unterklasse von Playergho
 class P1ghostblock(Playerghostblock):
 	
 	"""
-	erstellt einen rosanen durchlässigen Stein und ruft dabei die init Funktion von Playerghostbecken auf
+	erstellt einen rosanen durchlässigen Stein und ruft dabei die init Funktion von Playerghostblock auf
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
 	:param x: x-Position des Blocks (zwischen 0 und 29)
 	:param y: y-Position des Blocks (zwischen 0 und 19)
@@ -169,6 +222,14 @@ class P1ghostblock(Playerghostblock):
 	def __init__(self, fenster, x, y):
 		super().__init__(fenster, x, y, "Bilder/rosablock.png")
 		
+	
+	"""
+	gibt Durchlässigkeit des Steins an
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: ob Stein durchlässig ist --> vom jeweiligen Player abhängig
+	:rtype: bool
+	"""	
 	def durchlassen(self, currentplayer):
 		return currentplayer.name == "p1"
 """
@@ -177,7 +238,7 @@ stellt einen schwarzen für P2 durchlässigen Stein dar (Unterklasse von Playerg
 class P2ghostblock(Playerghostblock):
 	
 	"""
-	erstellt einen schwarzen durchlässigen Stein und ruft dabei die init Funktion von Playerghostbecken auf
+	erstellt einen schwarzen durchlässigen Stein und ruft dabei die init Funktion von Playerghostblock auf
 	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
 	:param x: x-Position des Blocks (zwischen 0 und 29)
 	:param y: y-Position des Blocks (zwischen 0 und 19)
@@ -188,6 +249,14 @@ class P2ghostblock(Playerghostblock):
 	def __init__(self, fenster, x, y):
 		super().__init__(fenster, x, y, "Bilder/schwarzerblock.png")
 		
+		
+	"""
+	gibt Durchlässigkeit des Steins an
+	:param currentplayer: Spieler um den es geht
+	:type currentplayer: player.Player
+	:return: ob Stein durchlässig ist --> vom jeweiligen Player abhängig
+	:rtype: bool
+	"""	
 	def durchlassen(self, currentplayer):
 		return currentplayer.name == "p2"
 		
