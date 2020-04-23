@@ -1,5 +1,4 @@
 import pygame
-import player
 
 """
 stellt einen einzelnen Block dar
@@ -26,7 +25,6 @@ class Block(object):
 		self.width = 30
 		
 		self.bild = pygame.image.load(bildsource)
-		
 	
 	"""
 	malt den jeweiligen Block in die Fenster-Surface durch ein blit
@@ -48,6 +46,9 @@ class Block(object):
 	löst Bewegungs-Stop aus
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
+	:return: soll Bewegung des Players gestoppt werden
+	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
-		return True #behandle diesen Block als sei er ein massiver Stein
+		#behandle diesen Block als sei er ein massiver Stein
+		return True 

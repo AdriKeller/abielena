@@ -1,14 +1,15 @@
 import pygame
 import player
 import level
-import block
 import os
 
 """
 stellt das Spiel dar
 """
 class Game():
-	
+	"""
+	FÜGE BITTE HIER NOCH EIN KOMMENTAR EIN!
+	"""
 	def __init__(self):
 		pygame.init()
 		self.fenster = pygame.display.set_mode((900, 600))
@@ -21,7 +22,7 @@ class Game():
 		self.bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 		self.finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 		
-		self.levelnumber = 10
+		self.levelnumber = 1
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()
@@ -38,7 +39,7 @@ class Game():
 				#Loop unterbrechen wenn Fenster geschlossen wird
 				if event.type == pygame.QUIT:
 					runstate = False
-					
+			
 			self.roterbuttonstate = False
 			self.lilabuttonstate = False
 			self.gelberbuttonstate = False
@@ -101,5 +102,4 @@ class Game():
 			self.levelact.draw_foreground()
 			
 			pygame.display.update()
-
 		pygame.quit()

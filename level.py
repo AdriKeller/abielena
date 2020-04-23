@@ -1,6 +1,4 @@
 import pygame
-import block
-import player
 import stein
 import becken
 import ziel
@@ -14,7 +12,7 @@ class Level:
 	"""
 	erstellt ein neues Level
 	:param game: übergibt die gesamte KLasse game
-	.type game: game.Game
+	:type game: game.Game
 	"""
 	def __init__(self, game):
 		self.fenster = game.fenster
@@ -59,7 +57,7 @@ class Level:
 					
 					elif element == "7":
 						self.levelfeld_background = self.levelfeld_background + [ziel.P2ziel(self.fenster, x, y)]
-						
+					
 					elif element == "l":
 						self.levelfeld_foreground = self.levelfeld_foreground + [button.Lilabutton(self.fenster, x, y, game)]
 					
@@ -83,9 +81,7 @@ class Level:
 					
 					elif element == "M":
 						self.levelfeld_background = self.levelfeld_background + [ghostblock.P2ghostblock(self.fenster, x, y)]
-					
 					x = x + 1
-			
 			y = y + 1
 		
 		#erstellt eine Liste aus der ersten Zeile der Datei --> 2 Elemente getrennt durch ein Komma
@@ -112,7 +108,7 @@ class Level:
 	def draw_background(self):
 		for element in self.levelfeld_background:
 			element.draw()
-
+	
 	"""
 	geht alle einzelnen Blöcke durch und ruft für jeden einzelnen die collision funktion von block auf
 	:param currentplayer: Spieler um den es geht
@@ -123,11 +119,11 @@ class Level:
 	def collision(self, currentplayer):
 		collisionstate = False
 		
-		for element in self.levelfeld_foreground + self.levelfeld_background: #addiert beide Listen
+		#addiert beide Listen
+		for element in self.levelfeld_foreground + self.levelfeld_background:
 			
 			if element.collision(currentplayer):
 				
 				if element.handleCollision(currentplayer):
 					collisionstate = True
-		
 		return collisionstate

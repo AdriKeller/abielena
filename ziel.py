@@ -1,36 +1,22 @@
 import pygame
 import block
 
-
 """
 stellt eine Zieltür dar (Unterklasse von Block)
 """
-class Ziel(block.Block):
-	"""
-	erstellt eine neuen Zieltür und ruft dabei die init funktion von Block auf
-	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
-	:param x: x-Position des Blocks (zwischen 0 und 29)
-	:param y: y-Position des Blocks (zwischen 0 und 19)
-	:param bildsource: path zur Bilddatei des Blocks
-	:type fenster: pygame.display
-	:type x: int
-	:type y: int
-	:type bildsource: str
-	"""
-	def __init__(self, fenster, x, y, bildsource):
-		super().__init__(fenster, x, y, bildsource)
-	
+class Ziel(block.Block):	
 	"""
 	Legt fest ob der Spieler in seiner Zieltür ist
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
-	:return: Muss die Bewegung massiv gestoppt werden
+	:return: Muss die Bewegung gestoppt werden
 	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
-		currentplayer.zielstate = self.wins(currentplayer) #wenn das eine True ist dann auch das andere
+		#wenn das eine True ist dann auch das andere
+		currentplayer.zielstate = self.wins(currentplayer)
 		return False
-
+	
 	"""
 	Elemente der Klasse Ziel lassen einen Spieler grundsätzlich nicht gewinnen
 	:param currentplayer: Spieler um den es geht
@@ -40,7 +26,7 @@ class Ziel(block.Block):
 	"""
 	def wins(self, currentplayer):
 		return False
-		
+	
 	"""
 	malt den jeweiligen Block in die Fenster-Surface durch ein blit
 	"""

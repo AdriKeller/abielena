@@ -1,24 +1,9 @@
-import pygame
 import block
 
 """
 stellt ein Becken dar
 """
 class Becken(block.Block):
-	"""
-	erstellt ein neues Becken und ruft dabei die init funktion von Block aus
-	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
-	:param x: x-Position des Beckens (zwischen 0 und 29)
-	:param y: y-Position des Beckens (zwischen 0 und 19)
-	:param bildsource: path zur Bilddatei des Blocks
-	:type fenster: pygame.display
-	:type x: int
-	:type y: int
-	:type bildsource: str
-	"""
-	def __init__(self, fenster, x, y, bildsource):
-		super().__init__(fenster, x, y, bildsource)
-	
 	"""
 	löst das Sterben aus und gibt vor wann der Player die Bewegung stoppen muss
 	:param currentplayer: Spieler um den es geht
@@ -27,16 +12,15 @@ class Becken(block.Block):
 	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
-		
 		#ob er den Boden berührt
-		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height): 
+		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height):
+
 			#er stirbt erst wenn er den Boden berührt und von oben kommt
-			
 			if (currentplayer.bew_y > 0):
 				currentplayer.geschw = 0.5
+
 				if self.kills(currentplayer):
 					currentplayer.die()
-			
 			return True
 		
 		else:

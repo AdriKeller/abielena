@@ -1,6 +1,4 @@
-import pygame
 import block
-
 
 """
 stellt einen Stein dar (Unterklasse von Block)
