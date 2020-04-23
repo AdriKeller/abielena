@@ -21,7 +21,7 @@ class Game():
 		self.bgwin = pygame.image.load("Bilder/Background_win.jpeg")
 		self.finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
 		
-		self.levelnumber = 9
+		self.levelnumber = 10
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()
@@ -90,7 +90,6 @@ class Game():
 			
 			self.fenster.blit(self.levelact.bg, (0, 0))
 			
-			
 			#wenn es sich um das finale Level handelt
 			if self.levelnumber == 0:
 				self.fenster.blit(self.finishlevel, (0, 0))
@@ -104,4 +103,3 @@ class Game():
 			pygame.display.update()
 
 		pygame.quit()
-	
