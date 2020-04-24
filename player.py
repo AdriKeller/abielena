@@ -1,6 +1,4 @@
 import pygame
-import block
-import level
 
 """
 stellt einen Spieler dar
@@ -94,6 +92,7 @@ class Player():
 			self.bew_x = self.schritt
 		#verlangsamt den Player (bsp Becken)
 		self.bew_x = self.bew_x * self.geschw
+
 		#vertikale Bewegung --> springt nur hoch!
 		if not self.springt and self.darfspringen and key_up:
 			self.darfspringen = False
@@ -112,14 +111,12 @@ class Player():
 				self.springt = False
 				self.springzahl = 6.75
 				self.darffallen = True
-
 		self.geschw = 1
 		
 		#die tatsächliche Bewegung wird erst hier ausgeführt
 		if not level.collision(self):
 			self.y = (self.y + self.bew_y) % 600
 			self.x = (self.x + self.bew_x) % 900
-		
 		self.bew_x = 0
 		self.bew_y = 0
 	
@@ -144,7 +141,8 @@ class Player():
 					self.fallzahl = 1
 					self.bew_y = 0
 					self.darfspringen = True
-					break #damit er nicht 4 mal durch den Loop geht wenn er eh auf dem Boden steht
+					#damit er nicht 4 mal durch den Loop geht wenn er eh auf dem Boden steht
+					break
 			
 			#damit er nicht um immer mehr nach unten fällt
 			if self.fallzahl < 6:

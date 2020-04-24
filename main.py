@@ -1,3 +1,3 @@
 import game
 
-Barbasauteur = game.Game()
+game.Game()
