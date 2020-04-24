@@ -6,7 +6,7 @@ stellt einen einzelnen Block dar
 class Block(object):
 	"""
 	erstelle einen neuen Block
-	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
+	:param fenster: gibt fenster-Surface weiter um darauf malen zu koennen
 	:param x: x-Position des Blocks (zwischen 0 und 29)
 	:param y: y-Position des Blocks (zwischen 0 und 19)
 	:param bildsource: path zur Bilddatei des Blocks
@@ -43,7 +43,7 @@ class Block(object):
 		return ((self.width * self.x < currentplayer.x + currentplayer.bew_x + currentplayer.width) and (currentplayer.x + currentplayer.bew_x < self.width * (self.x + 1)) and (self.height * self.y  < currentplayer.y + currentplayer.bew_y + currentplayer.height) and (currentplayer.y + currentplayer.bew_y < self.height * (self.y + 1)))
 	
 	"""
-	löst Bewegungs-Stop aus
+	loest Bewegungs-Stop aus
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
 	:return: soll Bewegung des Players gestoppt werden

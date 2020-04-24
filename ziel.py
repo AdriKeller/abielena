@@ -2,11 +2,11 @@ import pygame
 import block
 
 """
-stellt eine Zieltür dar (Unterklasse von Block)
+stellt eine Zieltuer dar (Unterklasse von Block)
 """
 class Ziel(block.Block):	
 	"""
-	Legt fest ob der Spieler in seiner Zieltür ist
+	Legt fest ob der Spieler in seiner Zieltuer ist
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
 	:return: Muss die Bewegung gestoppt werden
@@ -18,10 +18,10 @@ class Ziel(block.Block):
 		return False
 	
 	"""
-	Elemente der Klasse Ziel lassen einen Spieler grundsätzlich nicht gewinnen
+	Elemente der Klasse Ziel lassen einen Spieler grundsaetzlich nicht gewinnen
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
-	:return: Spieler ist an seiner Tür
+	:return: Spieler ist an seiner Tuer
 	:rtype: bool
 	"""
 	def wins(self, currentplayer):
@@ -34,12 +34,12 @@ class Ziel(block.Block):
 		self.fenster.blit(self.bild, (self.x * 30, (self.y - 1)* 30))
 
 """
-stellt die Zieltür für den ersten Player dar(rosa)
+stellt die Zieltuer fuer den ersten Player dar(rosa)
 """
 class P1ziel(Ziel):
 	"""
-	erstellt die rosa Zieltür und ruft dabei die init funktion von Zieltür auf: setzt den Path für die Bilddatei
-	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
+	erstellt die rosa Zieltuer und ruft dabei die init funktion von Zieltuer auf: setzt den Path fuer die Bilddatei
+	:param fenster: gibt fenster-Surface weiter um darauf malen zu koennen
 	:param x: x-Position des Blocks (zwischen 0 und 29)
 	:param y: y-Position des Blocks (zwischen 0 und 19)
 	:type fenster: pygame.display
@@ -53,19 +53,19 @@ class P1ziel(Ziel):
 	Elemente der Klasse Ziel lassen den Spieler 1 gewinnen
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
-	:return: Spieler 1 is an seiner Tür
+	:return: Spieler 1 is an seiner Tuer
 	:rtype: bool
 	"""
 	def wins(self, currentplayer):
 		return currentplayer.name == "p1"
 
 """
-stellt die Zieltür für den zewiten Player dar (schwarz)
+stellt die Zieltuer fuer den zewiten Player dar (schwarz)
 """
 class P2ziel(Ziel):
 	"""
-	erstellt die schwarze Zieltür und ruft dabei die init funktion von Zieltür auf: setzt den Path für die Bilddatei
-	:param fenster: gibt fenster-Surface weiter um darauf malen zu können
+	erstellt die schwarze Zieltuer und ruft dabei die init funktion von Zieltuer auf: setzt den Path fuer die Bilddatei
+	:param fenster: gibt fenster-Surface weiter um darauf malen zu koennen
 	:param x: x-Position des Blocks (zwischen 0 und 29)
 	:param y: y-Position des Blocks (zwischen 0 und 19)
 	:type fenster: pygame.display
@@ -79,7 +79,7 @@ class P2ziel(Ziel):
 	Elemente der Klasse Ziel lassen den Spieler 2 gewinnen
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
-	:return: Spieler 2 is an seiner Tür
+	:return: Spieler 2 is an seiner Tuer
 	:rtype: bool
 	"""
 	def wins(self, currentplayer):

@@ -11,7 +11,7 @@ stellt ein Level dar
 class Level:
 	"""
 	erstellt ein neues Level
-	:param game: übergibt die gesamte KLasse game
+	:param game: uebergibt die gesamte KLasse game
 	:type game: game.Game
 	"""
 	def __init__(self, game):
@@ -87,7 +87,7 @@ class Level:
 		#erstellt eine Liste aus der ersten Zeile der Datei --> 2 Elemente getrennt durch ein Komma
 		standardposition = level[0].split(",")
 		
-		#stellt die Standardposition der Player für dieses Level ein
+		#stellt die Standardposition der Player fuer dieses Level ein
 		game.p1.standard_x = int(standardposition[0])
 		game.p1.standard_y = int(standardposition[1])
 		game.p2.standard_x = int(standardposition[2])
@@ -95,22 +95,22 @@ class Level:
 	
 	"""
 	Loop der durch die foreground-liste geht: Steine und Becken
-	ruft für jedes einzelne Element die draw-methode auf aus block
+	ruft fuer jedes einzelne Element die draw-methode auf aus block
 	"""
 	def draw_foreground(self):
 		for element in self.levelfeld_foreground:
 			element.draw()
 	
 	"""
-	Loop der durch die foreground-liste geht: Zieltüren
-	ruft für jedes einzelne Element die draw-methode auf aus block
+	Loop der durch die foreground-liste geht: Zieltueren
+	ruft fuer jedes einzelne Element die draw-methode auf aus block
 	"""
 	def draw_background(self):
 		for element in self.levelfeld_background:
 			element.draw()
 	
 	"""
-	geht alle einzelnen Blöcke durch und ruft für jeden einzelnen die collision funktion von block auf
+	geht alle einzelnen Bloecke durch und ruft fuer jeden einzelnen die collision funktion von block auf
 	:param currentplayer: Spieler um den es geht
 	:type currentplayer: player.Player
 	:return: Gab es eine Kollision zwischen dem Player und einem Block

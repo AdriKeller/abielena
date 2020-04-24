@@ -8,7 +8,7 @@ stellt das Spiel dar
 """
 class Game():
 	"""
-	FÜGE BITTE HIER NOCH EIN KOMMENTAR EIN!
+	erstelle ein neues Spiel
 	"""
 	def __init__(self):
 		pygame.init()
@@ -62,7 +62,7 @@ class Game():
 			elif self.p1.zielstate and self.p2.zielstate:
 				self.fenster.blit(self.bgwin, (0, 0))
 				
-				#in nächstes Level übergehen
+				#in naechstes Level uebergehen
 				if allkeys[pygame.K_SPACE]:
 					self.levelnumber = self.levelnumber + 1
 					
@@ -93,9 +93,10 @@ class Game():
 			
 			#wenn es sich um das finale Level handelt
 			if self.levelnumber == 0:
+				self.fenster.blit(self.levelact.bg, (0,0))
 				self.fenster.blit(self.finishlevel, (0, 0))
 			
-			#alles auf die Surface malen (Blöcke, Figuren)
+			#alles auf die Surface malen (Bloecke, Figuren)
 			self.levelact.draw_background()
 			self.p1.draw()
 			self.p2.draw()

@@ -7,10 +7,10 @@ class Player():
 	"""
 	erstellt einen neuen Spieler
 	:param width: Breite der Hitbox des Spielers
-	:param height: Höhe der Hitbox des Spielers
+	:param height: Hoehe der Hitbox des Spielers
 	:param bildsource: path zur Bilddatei des Spielers
-	:param fenster: übergibt fenster von main, um etwas malen zu können mit blit
-	:param name: Name des Spielers (relevant für Becken: wer killt wen)
+	:param fenster: uebergibt fenster von main, um etwas malen zu koennen mit blit
+	:param name: Name des Spielers (relevant fuer Becken: wer killt wen)
 	:type width: int
 	:type height: int
 	:type bildsource: str
@@ -41,7 +41,7 @@ class Player():
 		self.darfspringen = True
 		self.darffallen = True
 		
-		#um wv sich der Player gerne bewegen "möchte"
+		#um wv sich der Player gerne bewegen "moechte"
 		self.bew_x = 0
 		self.bew_y = 0
 		
@@ -72,12 +72,12 @@ class Player():
 		self.isdead = True
 	
 	"""
-	führt die horizontale und vertikale Bewegung des Spielers aus
-	prüft davor die Kollisionen
-	:param key_left: Taste Links/d ist gedrückt
-	:param key_right: Taste Rechts/a ist gedrückt
-	:param key_up: Taste Oben/w ist gedrückt
-	:param level: gibt aktuelles Level (die Blöcke) weiter um die Kollisionen zu testen
+	fuehrt die horizontale und vertikale Bewegung des Spielers aus
+	prueft davor die Kollisionen
+	:param key_left: Taste Links/d ist gedrueckt
+	:param key_right: Taste Rechts/a ist gedrueckt
+	:param key_up: Taste Oben/w ist gedrueckt
+	:param level: gibt aktuelles Level (die Bloecke) weiter um die Kollisionen zu testen
 	:type key_left: bool
 	:type key_right: bool
 	:type key_up: bool
@@ -100,7 +100,7 @@ class Player():
 		
 		if self.springt:
 
-			#parabelförmiger Sprung
+			#parabelfoermiger Sprung
 			if self.springzahl > 0:
 				self.bew_y = -(self.springzahl**2)
 				self.springzahl = self.springzahl - 1
@@ -113,7 +113,7 @@ class Player():
 				self.darffallen = True
 		self.geschw = 1
 		
-		#die tatsächliche Bewegung wird erst hier ausgeführt
+		#die tatsaechliche Bewegung wird erst hier ausgefuehrt
 		if not level.collision(self):
 			self.y = (self.y + self.bew_y) % 600
 			self.x = (self.x + self.bew_x) % 900
@@ -122,7 +122,7 @@ class Player():
 	
 	"""
 	Gravitation
-	fällt so lange bis er eine Kollision hat (erst wenn Sprung abgeschlossen ist)
+	faellt so lange bis er eine Kollision hat (erst wenn Sprung abgeschlossen ist)
 	:param level: aktuelles Level
 	:type level: level.Level
 	"""
@@ -130,7 +130,7 @@ class Player():
 		#wenn ich springe darf ich nicht gleichzeitig fallen
 		if self.darffallen:
 			
-			#die Bewegung muss in 4 kleinen Schritten ausgeführt werden damit es unmöglich ist durch einen Block "durchzufallen"
+			#die Bewegung muss in 4 kleinen Schritten ausgefuehrt werden damit es unmoeglich ist durch einen Block "durchzufallen"
 			for x in range(4):
 				self.bew_y = (self.fallzahl**2) / 4
 				
@@ -144,6 +144,6 @@ class Player():
 					#damit er nicht 4 mal durch den Loop geht wenn er eh auf dem Boden steht
 					break
 			
-			#damit er nicht um immer mehr nach unten fällt
+			#damit er nicht um immer mehr nach unten faellt
 			if self.fallzahl < 6:
 				self.fallzahl = self.fallzahl + 1
