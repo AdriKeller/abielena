@@ -18,11 +18,11 @@ class Game():
 		self.p1 = player.Player(26, 50, "Bilder/barbapapa.png", self.fenster, "p1")
 		self.p2 = player.Player(26, 50, "Bilder/barbamama.png", self.fenster, "p2")
 		
-		self.bgdie = pygame.image.load("Bilder/Background_die.jpeg")
-		self.bgwin = pygame.image.load("Bilder/Background_win.jpeg")
-		self.finishlevel = pygame.image.load("Bilder/Background_finishlevel.jpeg")
+		self.bgdie = pygame.image.load("Bilder/die_d.png")
+		self.bgwin = pygame.image.load("Bilder/win_d.png")
+		self.finishlevel = pygame.image.load("Bilder/finishlevel_d.png")
 		
-		self.levelnumber = 1
+		self.levelnumber = 6
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()
@@ -48,6 +48,7 @@ class Game():
 			allkeys = pygame.key.get_pressed()
 			
 			if self.p1.isdead or self.p2.isdead:
+				self.fenster.blit(self.levelact.bg, (0,0))
 				self.fenster.blit(self.bgdie, (0, 0))
 				
 				#Level von neuem beginnen
@@ -60,6 +61,7 @@ class Game():
 					continue
 			
 			elif self.p1.zielstate and self.p2.zielstate:
+				self.fenster.blit(self.levelact.bg, (0,0))
 				self.fenster.blit(self.bgwin, (0, 0))
 				
 				#in naechstes Level uebergehen
