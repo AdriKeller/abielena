@@ -22,7 +22,7 @@ class Game():
 		self.bgwin = pygame.image.load("Bilder/win_d.png")
 		self.finishlevel = pygame.image.load("Bilder/finishlevel_d.png")
 		
-		self.levelnumber = 6
+		self.levelnumber = 1
 		self.levelact = level.Level(self)
 		
 		self.p1.reset()
@@ -82,6 +82,9 @@ class Game():
 				else:
 					pygame.display.update()
 					continue
+			self.p1.zielstate = False
+			self.p2.zielstate = False
+
 			self.levelact.collision(self.p1)
 			self.levelact.collision(self.p2)
 			
