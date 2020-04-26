@@ -1,5 +1,5 @@
 420,280,480,280
-Bilder/Background.jpeg
+Bilder/Background_clouds.jpeg
 111111111111111111111111111111
 1                            1 
 1                            1

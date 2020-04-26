@@ -1,5 +1,5 @@
 820,520,30,520
-Bilder/Night.jpeg
+Bilder/Background_winter.jpeg
 111111111111111111111111111111
 1                            1 
 1                            1

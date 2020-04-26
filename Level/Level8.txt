@@ -1,5 +1,5 @@
 60,520,30,520
-Bilder/Background.jpeg
+Bilder/Background_winter.jpeg
 111111111111111111111111111  1
 1        GGG      LLL        1 
 1        GGG      LLL        1
