@@ -84,6 +84,7 @@ class Player():
 	:type level: level.Level
 	"""
 	def bew(self, key_left, key_right, key_up, level):
+		self.zielstate = False
 		#horizontale Bewegung
 		if key_left:
 			self.bew_x = -self.schritt
