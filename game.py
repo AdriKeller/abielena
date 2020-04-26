@@ -82,6 +82,9 @@ class Game():
 				else:
 					pygame.display.update()
 					continue
+			self.p1.zielstate = False
+			self.p2.zielstate = False
+
 			self.levelact.collision(self.p1)
 			self.levelact.collision(self.p2)
 			
