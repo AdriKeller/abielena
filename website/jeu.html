@@ -1,32 +1,157 @@
 <!DOCTYPE html>
 <html lang="de">
 	<head>
-		<title>Mein Informatik-Projekt</title>
+		<title>Barbasauteur</title>
+		<link rel="icon" href="Bilder/icon.png" type="image/x-icon" />
 		<link rel="stylesheet" media="screen" type="text/css" href="projetbac.css" />
 		<meta charset="utf-8">
 	</head>
 
 	<body>
-
-		<a href="projet.html" >Französisch</a>
-		<a href="projet_de.html" >Deutsch</a>
-		<a href="index_de.html" >Home</a>
-		<a href="download_de.html" >Download</a>
-		<a href="difficultes_de.html" >Schwierigkeiten</a>
-		<a href="projet_de.html" >Projekt</a>
-		<br />
-		<hr style="border:solid #f497d1 3px; border-radius: 7px">
-		
-		
-		<hr style="border:solid #000000 3px; border-radius: 7px">
-		<h1> Barbapapa</h1>
-		<h2> Projekt</h2>
-		<p id="credits">
-			Elena Baruc-Westhäuser
-			<br />
-			<br />
-			<a href="impressum.html" >Impressum</a>	
-		</p>
+		<header>
+			<a href = "index.html"><img src="Bilder/logo.png" alt = "BARBASAUTEUR" class = "logo"></a>
+			<nav class = "sprachmenu">
+				<a href="jeu_fr.html" class = "notact" >Französisch</a>
+				<a href="jeu.html" class = "act" >Deutsch</a>
+			</nav>
+			<nav class = "menu">
+				<a href="index.html" class = "notact">Home</a>
+				<a href="jeu.html" class = "act" >Spiel</a>
+				<a href="code.html" class = "notact">Code</a>
+				<a href="download.html" class = "notact">Download</a>
+			</nav>
+		</header>
+		<div class = "inhalt">
+			<h1>Die Idee</h1>
+			
+			<p>Für mich war es sehr wichtig, während der Arbeit an meinem 
+			Projekt immer ein klares Ziel vor Augen zu haben: 
+			Ich wollte wissen, wie die endgültige Version aussehen sollte, 
+			und zu jedem Zeitpunkt wissen, was mein nächster Schritt sein würde. 
+			Deshalb habe ich mich dazu entschlossen, ein Spiel zu programmieren – 
+			auch, weil ich TKinter nicht allzu sehr mochte und 
+			stattdessen lieber mit pygame arbeiten wollte... 
+			Meine ursprüngliche Idee war es, ein ähnliches Spiel 
+			wie Feuer und Wasser (ein bekanntes Jump and Run-Spiel 
+			der deutschen Spieleplattform <a href = "https://www.spielaffe.de/">spieleaffe.de</a>) zu entwickeln. 
+			Ein Vorteil davon war, dass ich einerseits alles recht simpel und 
+			einfach halten konnte und andererseits immer noch etwas hinzufügen konnte. 
+			Das Spiel kann allein oder zu zweit gespielt werden, da es zwei Spieler gibt, 
+			die sich gegenseitig helfen müssen, um zu gewinnen. 
+			Ich fing an, ein anderes Thema als Feuer und Wasser für das Spiel zu finden, 
+			und beschloss, die Figuren aus 
+			<a href = "https://www.barbapapa.com/la-famille-des-barbapapa/">Barbapapa</a> 
+			zu verwenden - eine französische Serie, die ich als Kind geliebt habe. 
+			Deshalb ist das Spiel für Kinder zwischen etwa 6 und 12 Jahren konzipiert.</p>
+			
+			<h1>Wie funktioniert das Spiel?</h1>
+			<h3>Wie bewegt man die Spielfiguren?</h3>
+			<p>
+			Um Barbapapa zu bewegen, benutze die Pfeiltasten:
+			<br>
+			<img src="Bilder/barbapapa.png" alt = "barbapapa"> <img src="Bilder/pfeile.png" alt = "pfeile">
+			<br>
+			Um Barbamama zu bewegen, benutze die WAD-Tasten: 
+			<br>
+			<img src="Bilder/barbamama.png" alt = "barbamama"><img src="Bilder/wad.png" alt = "wad">
+			</p>
+			<h3>Einige Spielregeln:</h3>
+			<ul>
+				<li>Um zu gewinnen:</li>
+					<ul>
+						<li>Jeder Spieler muss sich vor die Tür der eigenen Farbe stellen
+						<br> <img src="Bilder/barbapapa.png" alt = "barbapapa"> 
+						<img src="Bilder/arrow_hoch.png" alt = "arrow"> 
+						<img src="Bilder/porterose.png" alt = "rosa Tür">
+						<br> <img src="Bilder/barbamama.png" alt = "barbamama"> 
+						<img src="Bilder/arrow_hoch.png" alt = "arrow"> 
+						<img src="Bilder/portenoire.png" alt = "schwarze Tür">
+						</li>
+					</ul>
+					<br>
+				<li> Die Becken:</li>
+					<ul>
+						<li>
+							Die rosa Flüssigkeit ist für Barbamama giftig 
+							<br> <img src="Bilder/rose.png" alt = "rosa">
+						</li>
+						<li>
+							Die schwarze Flüssigkeit ist für Barbapapa giftig
+							<br> <img src="Bilder/noir.png" alt = "schwarz">
+						</li>
+						<li>
+							Die grüne Flüssigkeit ist für beide giftig
+							<br> <img src="Bilder/vert.png" alt = "grün">
+						</li>
+						<li>
+							Die blaue Flüssigkeit ist für keinen giftig
+							<br> <img src="Bilder/bleu.png" alt = "blau">
+						</li>
+					</ul>
+					<br>
+				<li>Die durchlässigen Blöcke:</li>
+					<ul>
+						<li>
+							Es existiert jeweils ein Block in der Farbe der Spieler. 
+							Dieser ist durchsichtig für den Spieler der jeweiligen Farbe, 
+							für den anderen jedoch einganz normaler Steinblock.
+							<br> 
+							<img src="Bilder/barbapapa.png" alt = "barbapapa"> 
+							<img src="Bilder/arrow_mittel.png" alt = "arrow"> 
+							<img src="Bilder/rosablock.png" alt = "rosa Block">
+							<br> 
+							<img src="Bilder/barbamama.png" alt = "barbamama"> 
+							<img src="Bilder/arrow_mittel.png" alt = "arrow"> 
+							<img src="Bilder/schwarzerblock.png" alt = "schwarzer Block">
+						</li>
+						<br>
+						<li>
+							Es existieren auch Blöcke dessen Durchlässigkeit 
+							durch einen Knopf gesteuert wird – indem ein Spieler draufsteht
+							<br>
+							<br>
+							lila: Wenn der Knopf aktiviert ist, wird der Block durchlässig für beide Spieler
+							<br>
+							<img src="Bilder/lilabutton_inaktiv.png" alt = "lilaner inaktiver Knopf">
+							<img src="Bilder/lilablock.png" alt = "lilaner undurchlässiger Block"> 
+							<img src="Bilder/arrow_tief.png" alt = "arrow"> 
+							<img src="Bilder/lilabutton_aktiv.png" alt = "lilaner aktiver Knopf">
+							<img src="Bilder/lilablock_ghost.png" alt = "lilaner durchlässiger Block">
+							<br>
+							<br>
+							gelb: Wenn der Knopf aktiviert ist, wird der Block durchlässig für beide Spieler
+							<br>
+							<img src="Bilder/gelberbutton_inaktiv.png" alt = "gelber inaktiver Knopf">
+							<img src="Bilder/gelberblock.png" alt = "gelber undurchlässiger Block"> 
+							<img src="Bilder/arrow_tief.png" alt = "arrow"> 
+							<img src="Bilder/gelberbutton_aktiv.png" alt = "gelber aktiver Knopf">
+							<img src="Bilder/gelberblock_ghost.png" alt = "gelber durchlässiger Block">
+							<br>
+							<br>
+							rot: Wenn der Knopf aktiviert ist, wird der Block undurchlässig für beide Spieler
+							<br>
+							<img src="Bilder/roterbutton_inaktiv.png" alt = "roter inaktiver Knopf">
+							<img src="Bilder/roterblock_ghost.png" alt = "roter durchlässiger Block"> 
+							<img src="Bilder/arrow_tief.png" alt = "arrow"> 
+							<img src="Bilder/roterbutton_aktiv.png" alt = "roter aktiver Knopf">
+							<img src="Bilder/roterblock.png" alt = "roter undurchlässiger Block">
+						</li>
+					</ul>
+					<br>
+				<li> 
+					Wenn im Rahmen des Spielfeldes eine Lücke ist, 
+					kann der Spieler diese nutzen um sich ans 
+					andere Ende des Spielfeldes zu teleportieren
+					<br> <br>
+					Beispiel: Der Spieler läuft rechts durch eine Lücke 
+					raus und kommt links bei einer Lücke wieder rein
+				</li>
+			</ul>
+			<br>
+		</div>
+		<footer>
+			<p>Elena Baruc-Westhäuser, TSBC2</p>
+		</footer>
 	</body>
 	
 </html>

@@ -1,33 +1,174 @@
 <!DOCTYPE html>
 <html lang="de">
 	<head>
-		<title>Mein Informatik-Projekt</title>
+		<title>Barbasauteur</title>
+		<link rel="icon" href="Bilder/icon.png" type="image/x-icon" />
 		<link rel="stylesheet" media="screen" type="text/css" href="projetbac.css" />
 		<meta charset="utf-8">
 	</head>
-
 	<body>
-
-		<a href="difficultes.html" >Französisch</a>
-		<a href="difficultes_de.html" >Deutsch</a>
-		<a href="index_de.html" >Home</a>
-		<a href="download_de.html" >Download</a>
-		<a href="difficultes_de.html" >Schwierigkeiten</a>
-		<a href="projet_de.html" >Projekt</a>
-		<br />
-		<hr style="border:solid #f497d1 3px; border-radius: 7px">
-		
-		
-		<hr style="border:solid #000000 3px; border-radius: 7px">
-		<h1> Barbapapa</h1>
-		<h2> Schwierigkeiten</h2>
-		<p id="credits">
-			Elena Baruc-Westhäuser
-			<br />
-			<br />
-			<a href="impressum.html" >Impressum</a>	
-		</p>
+		<header>
+			<a href = "index_fr.html"><img src="Bilder/logo.png" alt = "BARBASAUTEUR" class = "logo"></a>
+			<nav class="sprachmenu">
+				<a href="code_fr.html" class = "notact" >Französisch</a>
+				<a href="code.html" class = "act" >Deutsch</a>
+			</nav>
+			<nav class="menu">
+				<a href="index.html" class = "notact">Home</a>
+				<a href="jeu.html" class = "notact">Spiel</a>
+				<a href="code.html" class = "act" >Code</a>
+				<a href="download.html" class = "notact">Download</a>
+			</nav>
+			
+		</header>
+		<div class="inhalt">
+			<h1>Schwierigkeiten beim programmieren</h1>
+			<br>
+			<h2> Das Programm</h2>
+			
+			<h3>Struktur</h3>
+			<p>Zu Beginn habe ich viel mit 
+			<a href = "https://techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/">techwithtim.net</a>  
+			gearbeitet, um die Grundlagen von Pygame zu lernen. 
+			Sein Tutorial besteht darin, ein kleines Spiel mit 
+			verschiedenen Schritten wie „basic movements„, 
+			„jumping& boudaries“ oder „hitboxes“ zu programmieren. 
+			In diesem Tutorial verwendet er Klassen, ein Konzept, 
+			das ich noch nicht kannte... 
+			Auf <a href = "https://www.unpeud.info/python3/structures/objets/">unpeud.info</a> 
+			fand ich eine Seite, die die Grundlagen gut erklärt, 
+			und im Internet fand ich weitere Webseiten um zu lernen 
+			wie man diese "Klassen" verwendet. Anstatt alles in eine 
+			Datei zu schreiben, wie ich es am Anfang getan hatte, habe 
+			ich mehrere erstellt und begonnen mit der 
+			objektorientierten Programmierung zu arbeiten.</p>
+			
+			<h3>Objektorientiertes Programmieren</h3>
+			
+			<p>Am Anfang fiel es mir schwer, den Stil der objektorientierten 
+			Programmierung beizubehalten, und ich musste meinen Code 
+			oft ändern und umstrukturieren. 
+			Es dauerte eine Weile, bis ich mich daran gewöhnt hatte, 
+			aber nach und nach begann ich, die großen Vorteile 
+			dieses Programmierstils zu verstehen. 
+			Gegen Ende des Projekts beschloss ich zum Beispiel, 
+			blaue Becken hinzuzufügen, die für keinen der beiden Spieler giftig sind, 
+			und dank dieser Art der Programmierung kostete es mich fast keine Arbeit.</p>
+			
+			<h3>"Inheritance" und "classes"</h3>
+			
+			<p>Unten sehen Sie ein UML-Diagramm zur Erläuterung der 
+			Beziehung zwischen verschiedenen Objekten. 
+			Eine Klasse kann Unterklassen haben, die wiederum 
+			Unterklassen haben können. Und jede Klasse erbt alle 
+			Eigenschaften ihrer Elternklasse.
+			</p>
+			<img src="Bilder/UML.png" alt = "Diagram UML" class = "textimg">
+			<h3>Die Level anzeigens</h3>
+			<p>Mein Lehrer Monsieur Kientz fragte mich ziemlich am Anfang meines Projekts, 
+			ob ich schon weiß wie ich das Spielfeld anzeigen lassen soll. 
+			Er erklärte mir die einfachste Art dafür: 
+			Für jedes Level gibt es eine Textdatei, in der die Elemente 
+			des Spielfeldes durch Symbole dargestellt sind. 
+			Mein Fenster hat eine Größe von 900x600 Einheiten. 
+			Also habe ich die Größe eines Blocks auf 30x30 Einheiten festgelegt, 
+			das Spielfeld besteht also aus besteht aus 30x20 Blöcken. 
+			Die Funktion "init" der Klasse "Level" liest die Textdatei, 
+			die der Höhe des Levels entspricht, und erzeugt einen Block, 
+			der dem Symbol in der Datei entspricht.
+			<br> <br>Hier sind die Symbole und die dazugehörigen Blöcke:</p>
+			<div class = "tabelle">
+				<div class = "tabellenelement">
+					1<div>Steinblock</div><div class = "tabellenbild"><img src="Bilder/block.png" alt = "block"></div>
+				</div>
+				<div class = "tabellenelement">
+					2<div>rosa Becken</div><div class = "tabellenbild"><img src="Bilder/rose.png" alt = "rosa"></div>
+				</div>
+				<div class = "tabellenelement">
+					3<div>schwarzes Becken</div><div class = "tabellenbild"><img src="Bilder/noir.png" alt = "schwarz"></div>
+				</div>
+				<div class = "tabellenelement">
+					4<div>grünes Becken</div><div class = "tabellenbild"><img src="Bilder/vert.png" alt = "grün"></div>
+				</div>
+				<div class = "tabellenelement">
+					5<div>blaues Becken</div><div class = "tabellenbild"><img src="Bilder/bleu.png" alt = "blau"></div>
+				</div>
+				<div class = "tabellenelement">
+					6<div>rosa Zieltür </div><div class = "tabellenbild"><img src="Bilder/porterose.png" alt = "rosa Tür"></div>
+				</div>
+				<div class = "tabellenelement">
+					7<div>schwarze Zieltür </div><div class = "tabellenbild"><img src="Bilder/portenoire.png" alt = "schwarze Tür"></div>
+				</div>
+				<div class = "tabellenelement">
+					P<div>rosa Block</div><div class = "tabellenbild"><img src="Bilder/rosablock.png" alt = "rosa Block"></div>
+				</div>
+				<div class = "tabellenelement">
+					M<div>schwarzer Block</div><div class = "tabellenbild"><img src="Bilder/schwarzerblock.png" alt = "schwarzer Block"></div>
+				</div>
+				<div class = "tabellenelement">
+					l<div>lilaner Knopf</div><div class = "tabellenbild"><img src="Bilder/lilabutton_inaktiv.png" alt = "lila Knopf">
+					<img src="Bilder/lilabutton_aktiv.png" alt = "boutton violet actif"></div>
+				</div>
+				<div class = "tabellenelement">
+					L<div>lilaner Block</div><div class = "tabellenbild"><img src="Bilder/lilablock.png" alt = "lila Block">
+					<img src="Bilder/lilablock_ghost.png" alt = "bloc violet permeable"></div>
+				</div>
+				<div class = "tabellenelement">
+					g<div>gelber Knopf</div><div class = "tabellenbild"><img src="Bilder/gelberbutton_inaktiv.png" alt = "gelber Knopf">
+					<img src="Bilder/gelberbutton_aktiv.png" alt = "boutton jaune actif"></div>
+				</div>
+				<div class = "tabellenelement">
+					G<div>gelber Block</div><div class = "tabellenbild"><img src="Bilder/gelberblock.png" alt = "gelber Block">
+					<img src="Bilder/gelberblock_ghost.png" alt = "bloc jaune permeable"></div>
+				</div>
+				<div class = "tabellenelement">
+					r<div>roter Knopf</div><div class = "tabellenbild"><img src="Bilder/roterbutton_inaktiv.png" alt = "roter Knopf">
+					<img src="Bilder/roterbutton_aktiv.png" alt = "boutton rouge inactif"></div>
+				</div>
+				<div class = "tabellenelement">
+					R<div>roter Block</div><div class = "tabellenbild"><img src="Bilder/roterblock.png" alt = "roter Block">
+					<img src="Bilder/roterblock_ghost.png" alt = "bloc rouge permeable"></div>
+				</div>
+			</div>
+			<h3>Kollisionen</h3>
+			<p> Ich habe recht schnell herausgefunden wie man am besten 
+			die Kollision zwischen 2 gegebenen Elementen zu testen. 
+			Komplizierter war es dann, herauszufinden, 
+			wie man zu jedem Zeitpunkt testen kann, 
+			ob es zu einer Kollision zwischen einem Spieler und einem 
+			oder mehreren Blöcken des Spielplans kommt. 
+			Mein Programm erstellt eine Liste mit allen Blöcken des Spielfeldes, 
+			die ich benutze um die Blöcke zu „zeichnen“. 
+			In der Funktion, die die Spieler bewegt, prüfe ich dann anhand dieser Listen, 
+			ob es zu einer Kollision mit dem jeweiligen Spieler gekommen ist.</p>
+			<h3>Pydoc</h3>
+			<p> In vielen Tutorials und Websites mit Ausschnitten aus
+			 Python-Code sind mir Kommentare aufgefallen, die nicht mit 
+			 der Raute gemacht sind, wie ich es bis jetzt aus dem 
+			 Informatik-Unterricht kannte, sondern zwischen """.  
+			 Ich suchte im Internet danach um rauszufinden was das genau 
+			 ist und fand heraus, dass es sich hier um die Standard-Vorgehensweise 
+			 handelt um seinen Python-Code strukturiert zu kommentieren: pydoc. 
+			 Da ich fand, dass diese Art der Kommentierung 
+			 (die z.B. auch die Art und die Bedeutung eines Parameters 
+			 einer Funktion beschreibt) meinem Code mehr Struktur und 
+			 Übersichtlichkeit verleiht, habe ich mich für diese Art der Kommentierung entschieden.</p>
+			<br>
+			<br>
+			<h2> Die Website</h2>
+			
+			<p>
+			Als ich mit der Website anfing, habe ich beschlossen, 
+			sie auf eine simple, leicht bedienbare und für den Leser 
+			gut lesbare Art aufzubauen. Zudem wollte ich sie für die 
+			Benutzer des Programms ansprechend gestalten: Kinder. 
+			Nach einigen anfänglichen Schwierigkeiten, weil ich HTML5 
+			und CSS schon seit einiger Zeit nicht mehr verwendet hatte, 
+			stellte die Website keine größeren Probleme dar wie das Python Programm.
+			</p>
+		</div>
+		<footer>
+			<p>Elena Baruc-Westhäuser, TSBC2</p>
+		</footer>
 	</body>
-	
 </html>
-

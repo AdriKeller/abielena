@@ -1,32 +1,57 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="fr">
 	<head>
-		<title>Mein Informatik-Projekt</title>
+		<title>Barbasauteur</title>
+		<link rel="icon" href="Bilder/icon.png" type="image/x-icon" />
 		<link rel="stylesheet" media="screen" type="text/css" href="projetbac.css" />
 		<meta charset="utf-8">
 	</head>
 
 	<body>
-
-		<a href="index.html" >Französisch</a>
-		<a href="index_de.html" >Deutsch</a>
-		<a href="index_de.html" >Home</a>
-		<a href="download_de.html" >Download</a>
-		<a href="difficultes_de.html" >Schwierigkeiten</a>
-		<a href="projet_de.html" >Projekt</a>
-		<br />
-		<hr style="border:solid #f497d1 3px; border-radius: 7px">
-		
-		
-		<hr style="border:solid #000000 3px; border-radius: 7px">
-		<h1> Barbapapa</h1>
-		<h2> Home</h2>
-		<p id="credits">
-			Elena Baruc-Westhäuser
-			<br />
-			<br />
-			<a href="impressum.html" >Impressum</a>	
-		</p>
+		<header>
+			<a href = "index.html"><img src="Bilder/logo.png" alt = "BARBASAUTEUR" class = "logo"></a>
+			<nav class = "sprachmenu">
+				<a href="index_fr.html"class = "notact">Französisch</a>
+				<a href="index.html" class = "act">Deutsch</a>
+			</nav>
+			<nav class = "menu">
+				<a href="index.html" class = "act" >Home</a>
+				<a href="jeu.html" class = "notact">Spiel</a>
+				<a href="code.html" class = "notact">Code</a>
+				<a href="download.html" class = "notact">Download</a>
+			</nav>
+		</header>
+		<div class = "inhalt">
+			<h1>Hallo und herzlich Willkommen auf der Website zum Spiel Barbasauteur</h1>
+			<p>Ich habe dieses Spiel im Rahmen eines Schulprojekts programmiert: 
+			Es handelt sich um mein Informatik-Abi am Deutsch-Französischen Gymnasium Freiburg.
+			Auf dieser Seite, die ebenfalls Teil des Projekts ist, 
+			erkläre ich Idee und Prinzip des Spiels, wie es funktioniert und auf welche 
+			Probleme und Schwierigkeiten ich bei der Programmierung/Realisierung gestoßen bin. 
+			</p>
+			<br>
+			<p> <img src = "Bilder/screen_home.png" alt = "Screenshot" class = "textimg"></p>
+			<br>
+			<h3>Referenzen</h3>
+			<ul>
+				<li>Das Programm wurde mit Python 2.7 geschrieben</li>
+				<li>Seine graphic interface wurde mit der library pygame gemacht</li>
+				<li>Um die Basics von pygame zu lernen, habe ich mit 
+					<a href = "https://techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/">techwithtim.net</a> gearbeitet</li>
+				<li>Um Probleme zu lösen, habe ich
+					<a href = "https://stackoverflow.com/">stackoverflow.com</a> benutzt</li>
+				<li>Beim arbeiten mit pygame habe ich die
+					<a href = "https://www.pygame.org/docs/">Pygame Dokumentation</a> benutzt</li>
+				<li>Um den Code zu verifizieren, habe ich die w3c Validation für
+					<a href = "https://validator.w3.org/">HTML</a> und <a href = "https://jigsaw.w3.org/css-validator/">CSS</a> benutzt</li>
+				<li>Und zum Schluss ein sehr großes Dankeschön an Adrian Keller 
+					für seine Hilfe wenn ich Fragen oder Bugs hatte und
+					<a href = "https://stackoverflow.com/">stackoverflow.com</a> mir nicht helfen konnte.</li>
+			</ul>
+		</div>
+		<footer>
+			<p>Elena Baruc-Westhäuser, TSBC2</p>
+		</footer>
 	</body>
 	
 </html>
