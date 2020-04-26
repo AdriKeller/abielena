@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Barbasauteur</title>
+		<link rel="icon" href="Bilder/icon.png" type="image/x-icon" />
+		<link rel="stylesheet" media="screen" type="text/css" href="projetbac.css" />
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+		<a href="code_fr.html" class = "laact hover" >Français</a>
+		<a href="code.html" class = "lanotact hover" >Allemand</a>
+		<a href="index_fr.html" class = "notact hover">Home</a>
+		<a href="jeu_fr.html" class = "notact hover">Jeu</a>
+		<a href="code_fr.html" class = "act hover" >Code</a>
+		<a href="download_fr.html" class = "notact hover">Téléchargement</a>
+		<a href = "index_fr.html" class = "logo"><img src="Bilder/logo.png" alt = "BARBASAUTEUR"></a>
+		
+		<hr style="border:solid #88CDF0 3px; border-radius: 7px">
+		<hr style="border:solid #000000 3px; border-radius: 7px">
+		
+		<h1>Difficultés durant la programmation</h1>
+		<br>
+		<h2> Le programme</h2>
+		
+		<h3 class = "textblock">Structure</h3>
+		<p class = "textblock">Quand j’ai commencé mon programme, 
+		j’ai beaucoup travaillé avec 
+		<a href = "https://techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/">techwithtim.net</a>  
+		pour apprendre les bases de pygame. Son tutoriel consiste en la programmation 
+		d’un petit jeu avec des étapes différentes comme „basic movements“, 
+		„jumping & boundaries“ ou „hit boxes“. 
+		Dans ce tutoriel il utilise des „classes“, 
+		un concepte que je ne connaissais pas encore.. 
+		Sur <a href = "https://www.unpeud.info/python3/structures/objets/">unpeud.info</a> 
+		j’ai trouvé une page qui en explique les bases 
+		et j’ai cherché sur internet comment utiliser ces „classes“. 
+		Au lieu de tout écrire dans un fichier comme je l’avais fait au début, 
+		j’en ai crée plusieurs et j’ai commencé à programmer de façon orienté objet.</p>
+		<h3 class = "textblock">Programmation orientée objet</h3>
+		<p class = "textblock">Au début j'ai eu beaucoup de mal à garder 
+		le style de la programmation orientée objet et j'ai souvent dû 
+		changer mon code et le restructurer. J'ai mis du temps à m’y 
+		habituer, mais peu à peu, j'ai commencé à comprendre les grands 
+		avantages de ce style de programmation. Par exemple vers la fin 
+		du projet, j’ai décidé de rajouter des bassins bleus qui ne sont 
+		pas mortels du tout et cela ne m’a presque pas coûté de travail 
+		grâce à cette façon de programmer.</p>
+		<h3 class = "textblock">"Inheritance" et "classes"</h3>
+		<p class = "textblock">Ci-dessous un diagramme UML pour expliquer 
+		le lien de parenté entre les objets différents. Une classe peut
+		avoir des sous-classes qui peut encore avoir des sous-classes.
+		Et chaque classe hérite toutes les propriétés de sa classe parent.
+		<br>
+		<img src="Bilder/UML.png" alt = "Diagram UML">
+		</b></p>
+		<h3 class = "textblock">Faire afficher les niveaux</h3>
+		<p class = "textblock">Mon professeur monsieur Kientz m’a posé 
+		la question comment je voulais faire afficher mon plan de jeu. 
+		Il m’a ensuite expliqué la méthode la plus simple: pour chaque 
+		niveau, il existe un fichier texte dans lequel les éléments du 
+		plan de jeu sont représentés par des symboles. La fenêtre a une 
+		taille de 900x600 unités. J’ai donc fixé la taille d’un bloc à 
+		30x30 unités, mon plan de jeu est constitué de 30x20 blocs. 
+		La fonction „init“ de la classe „Level“ lit le fichier texte 
+		correspondant au niveau et génère le bloc correspondant au 
+		symbole dans le fichier.
+		<br> <br>Voici les symboles et les blocs correspondants:</p>
+		<table class = "textblock">
+				<tr>
+					<td> 1 </td>
+					<td> 2 </td>
+					<td> 3 </td>
+					<td> 4 </td>
+					<td> 5 </td>
+					<td> 6 </td>
+					<td> 7 </td>
+					<td>   </td>
+				</tr>
+				<tr>
+					<td> bloc de pierre </td>
+					<td> bassin rose </td>
+					<td> bassin noir </td>
+					<td> bassin vert </td>
+					<td> bassin bleu </td>
+					<td> porte finale rose </td>
+					<td> porte finale noire </td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td><img src="Bilder/block.png" alt = "bloc"></td>
+					<td><img src="Bilder/rose.png" alt = "rose"></td>
+					<td><img src="Bilder/noir.png" alt = "noir"></td>
+					<td><img src="Bilder/vert.png" alt = "vert"></td>
+					<td><img src="Bilder/bleu.png" alt = "bleu"></td>
+					<td><img src="Bilder/porterose.png" alt = "porte rose"></td>
+					<td><img src="Bilder/portenoire.png" alt = "porte noire"></td>
+					<td> </td>
+				</tr>
+				
+				<tr>
+					<td> P </td>
+					<td> M </td>
+					<td> l </td>
+					<td> L </td>
+					<td> g </td>
+					<td> G </td>
+					<td> r </td>
+					<td> G </td>
+				</tr>
+				<tr>
+					<td> bloc rose </td>
+					<td> bloc noir </td>
+					<td> boutton violet </td>
+					<td> bloc violet </td>
+					<td> boutton jaune </td>
+					<td> bloc jaune </td>
+					<td> boutton rouge </td>
+					<td> bloc rouge </td>
+				</tr>
+				<tr>
+					<td>
+						<img src="Bilder/rosablock.png" alt = "bloc rose">
+					</td>
+					<td>
+						<img src="Bilder/schwarzerblock.png" alt = "bloc noir">
+					</td>
+					<td>
+						<img src="Bilder/lilabutton_inaktiv.png" alt = "boutton violet inactif">
+						<img src="Bilder/lilabutton_aktiv.png" alt = "boutton violet actif">
+					</td>
+					<td>
+						<img src="Bilder/lilablock.png" alt = "bloc violet">
+						<img src="Bilder/lilablock_ghost.png" alt = "bloc violet permeable">
+					</td>
+					<td>
+						<img src="Bilder/gelberbutton_inaktiv.png" alt = "boutton jaune inactif">
+						<img src="Bilder/gelberbutton_aktiv.png" alt = "boutton jaune actif">
+					</td>
+					<td>
+						<img src="Bilder/gelberblock.png" alt = "bloc jaune">
+						<img src="Bilder/gelberblock_ghost.png" alt = "bloc jaune permeable">
+					</td>
+					<td>
+						<img src="Bilder/roterbutton_inaktiv.png" alt = "boutton rouge actif">
+						<img src="Bilder/roterbutton_aktiv.png" alt = "boutton rouge inactif">
+					</td>
+					<td>
+						<img src="Bilder/roterblock.png" alt = "bloc rouge">
+						<img src="Bilder/roterblock_ghost.png" alt = "bloc rouge permeable">
+					</td>
+				</tr>
+		</table>
+		<h3 class = "textblock">Collision</h3>
+		<p class = "textblock"> Pour tester la collision entre 2 éléments 
+		donnés, j’ai trouvé assez rapidement comment faire. Ce qui était 
+		plus compliqué était de trouver comment tester à chaque moment 
+		s’il y a une collision entre un joueur et un ou plusieurs blocs 
+		du plan de jeu. J’ai des listes qui contiennent tous les blocs 
+		que j'utilise pour „dessiner“ les blocs. Dans la fonction qui 
+		fait bouger les joueurs, je teste s’il y a collision avec le 
+		joueur donné en utilisant les mêmes listes.</p>
+		<h3 class = "textblock">Pydoc</h3>
+		<p class = "textblock"> Dans beaucoup de tutoriels et de sites 
+		avec des extraits de code python, j’ai remarqué des commentaires 
+		non pas avec des croisillons comme je le connaissais, mais entre """. 
+		Quand j’ai cherché sur internet de quoi il s’agit, j’ai découvert 
+		que c’était une façon standard structuré de commenter son code python: pydoc. 
+		Puisque je trouve que cette façon de commenter qui décrit aussi 
+		par example le type et la signification d’un paramètre, 
+		donne plus de structure et de clarté à mon code, 
+		j’ai décidé de l'utiliser.</p>
+		<br>
+		<br>
+		<h2> Le site web</h2>
+		
+		<p class = "textblock">
+		Quand j’ai commencé avec le site web, 
+		j’ai décidé de le construire de façon simple, logique et lisible 
+		pour le lecteur. De plus, je voulais le rendre attractif pour 
+		les utilisateurs du programme: les enfants. Après quelques 
+		difficultés au début, parce que je n’avais plus utilisé HTML5 
+		et CSS depuis quelque temps, le site n’a pas posé de grands problèmes 
+		comme le programme en Python.
+		</p>
+		
+		<br>
+		<hr style="border:solid #000000 3px; border-radius: 7px">
+		<hr style="border:solid #88CDF0 3px; border-radius: 7px">
+		<br>
+		
+		<p>
+			Elena Baruc-Westhäuser, TSBC2
+		
+			<br>
+			<br>
+		</p>
+	</body>
+	
+</html>
+

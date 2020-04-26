@@ -12,7 +12,7 @@ class Becken(block.Block):
 	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
-		#ob er den Boden beruehrt
+		#ob er den Boden des Beckens beruehrt
 		if (self.height * (self.y + 2/3)  < currentplayer.y + currentplayer.bew_y + currentplayer.height):
 
 			#er stirbt erst wenn er den Boden beruehrt und von oben kommt

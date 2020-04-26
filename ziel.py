@@ -13,7 +13,6 @@ class Ziel(block.Block):
 	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
-		#wenn das eine True ist dann auch das andere
 		currentplayer.zielstate = self.wins(currentplayer)
 		return False
 	

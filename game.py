@@ -18,9 +18,9 @@ class Game():
 		self.p1 = player.Player(26, 50, "Bilder/barbapapa.png", self.fenster, "p1")
 		self.p2 = player.Player(26, 50, "Bilder/barbamama.png", self.fenster, "p2")
 		
-		self.bgdie = pygame.image.load("Bilder/die_f.png")
-		self.bgwin = pygame.image.load("Bilder/win_f.png")
-		self.finishlevel = pygame.image.load("Bilder/finishlevel_f.png")
+		self.bgdie = pygame.image.load("Bilder/die.png")
+		self.bgwin = pygame.image.load("Bilder/win.png")
+		self.finishlevel = pygame.image.load("Bilder/finishlevel.png")
 		
 		self.levelnumber = 1
 		self.levelact = level.Level(self)
@@ -82,8 +82,6 @@ class Game():
 				else:
 					pygame.display.update()
 					continue
-			self.p1.zielstate = False
-			self.p2.zielstate = False
 
 			self.levelact.collision(self.p1)
 			self.levelact.collision(self.p2)

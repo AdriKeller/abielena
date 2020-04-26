@@ -28,7 +28,7 @@ class Level:
 		self.bg = pygame.image.load((level[1])[:-1])
 		
 		y = 0
-		#damit er die position der player nicht einliest
+		#damit er die Position der Player  und den Hintergrund nicht einliest
 		for line in level[2:]:
 			x = 0
 			
@@ -84,7 +84,7 @@ class Level:
 					x = x + 1
 			y = y + 1
 		
-		#erstellt eine Liste aus der ersten Zeile der Datei --> 2 Elemente getrennt durch ein Komma
+		#erstellt eine Liste aus der ersten Zeile der Datei --> Elemente in Datei getrennt durch ein Komma
 		standardposition = level[0].split(",")
 		
 		#stellt die Standardposition der Player fuer dieses Level ein
@@ -117,6 +117,7 @@ class Level:
 	:rtype: bool
 	"""
 	def collision(self, currentplayer):
+		currentplayer.zielstate = False
 		collisionstate = False
 		
 		#addiert beide Listen

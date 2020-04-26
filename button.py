@@ -24,7 +24,7 @@ class Button(block.Block):
 		super().__init__(fenster, x, y, bildsource)
 		self.game = game
 		self.aktivbild = pygame.image.load(aktivbild)
-		self.buttonstate = False
+		self.buttonstate = False #nur fürs Bild relevant
 	
 	"""
 	Legt fest ob der Spieler den Knopf drueckt
@@ -73,9 +73,7 @@ class Gelberbutton(Button):
 	:rtype: bool
 	"""
 	def handleCollision(self, currentplayer):
-		#fuer Ghostblocks relevant
 		self.game.gelberbuttonstate = True
-		#nur fuer Bild relevant
 		self.buttonstate = True
 		return False
 

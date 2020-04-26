@@ -1,0 +1,99 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11760\viewh8200\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Hallo und herzlich Willkommen auf der Website zum Spiel Barbasauteur\
+\
+Ich habe dieses Spiel im Rahmen eines Schulprojekts programmiert: Es handelt sich um mein Informatik-Abi am Deutsch-Franz\'f6sischen Gymnasium Freiburg. Auf dieser Seite, die ebenfalls Teil des Projekts ist, erkl\'e4re ich Idee und Prinzip des Spiels, wie es funktioniert und auf welche Probleme und Schwierigkeiten ich bei der Programmierung/Realisierung gesto\'dfen bin.\
+\
+\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl280\qj\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}Das Programm wurde mit Python 2.7 geschrieben\
+{\listtext	\uc0\u8226 	}Seine graphic interface wurde mit der library pygame gemacht\
+{\listtext	\uc0\u8226 	}Um die Basics von pygame zu lernen, habe ich mit \'a0{\field{\*\fldinst{HYPERLINK "https://techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/"}}{\fldrslt techwithtim.net}} gearbeitet\
+{\listtext	\uc0\u8226 	}Um Probleme zu l\'f6sen, habe ich {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/"}}{\fldrslt stackoverflow.com}} benutzt\
+{\listtext	\uc0\u8226 	}Beim arbeiten mit pygame habe ich die Pygame Dokumentation benutzt\
+{\listtext	\uc0\u8226 	}Um den Code zu verifizieren, habe ich die w3c Validation f\'fcr HTML und CSS benutzt	\
+{\listtext	\uc0\u8226 	}Und zum Schluss ein sehr gro\'dfes Dankesch\'f6n an Adrian Keller f\'fcr seine Hilfe wenn ich Fragen oder Bugs hatte und {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/"}}{\fldrslt stackoverflow.com}}\'a0mir nicht helfen konnte\
+\pard\tx566\pardeftab720\sl280\qj\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 F\'fcr mich war es sehr wichtig, w\'e4hrend der Arbeit an meinem Projekt immer ein klares Ziel vor Augen zu haben: Ich wollte wissen, wie die endg\'fcltige Version aussehen sollte, und zu jedem Zeitpunkt wissen, was mein n\'e4chster Schritt sein w\'fcrde. Deshalb habe ich mich dazu entschlossen, ein Spiel zu programmieren \'96 auch, weil ich TKinter nicht allzu sehr mochte und stattdessen lieber mit pygame arbeiten wollte... Meine urspr\'fcngliche Idee war es, ein \'e4hnliches Spiel wie Feuer und Wasser (ein bekanntes Jump and Run-Spiel der deutschen Spieleplattform spieleaffe.de) zu entwickeln. Ein Vorteil davon war, dass ich einerseits alles recht simpel und einfach halten konnte und andererseits immer noch etwas hinzuf\'fcgen konnte. Das Spiel kann allein oder zu zweit gespielt werden, da es zwei Spieler gibt, die sich gegenseitig helfen m\'fcssen, um zu gewinnen. Ich fing an, ein anderes Thema als Feuer und Wasser f\'fcr das Spiel zu finden, und beschloss, die Figuren aus Barbapapa zu verwenden - eine franz\'f6sische Serie, die ich als Kind geliebt habe. Deshalb ist das Spiel f\'fcr Kinder zwischen etwa 6 und 12 Jahren konzipiert.\
+\
+Wie funktioniert das Spiel?\
+Wie bewegt man die Spielfiguren?\
+Einige Spielregeln:\
+- um zu gewinnen:\
+\'97 jeder Spieler muss sich vor die T\'fcr der eigenen Farbe stellen\
+- Die Becken\
+\'97 Die rosa Fl\'fcssigkeit ist f\'fcr Barbamama giftig \
+\'97 Die schwarze Fl\'fcssigkeit ist f\'fcr Barbapapa giftig\
+\'97 Die gr\'fcne Fl\'fcssigkeit ist f\'fcr beide giftig\
+\'97 Die blaue Fl\'fcssigkeit ist f\'fcr keinen giftig\
+- die durchl\'e4ssigen Bl\'f6cke:\
+\'97 Es existiert jeweils ein Block in der Farbe der Spieler. Dieser ist durchsichtig f\'fcr den Spieler der jeweiligen Farbe, f\'fcr den anderen jedoch einganz normaler Steinblock.\
+\'97 Es existieren auch Bl\'f6cke dessen Durchl\'e4ssigkeit durch einen Knopf gesteuert wird \'96 indem ein Spieler draufsteht\
+lila: Wenn der Knopf aktiviert ist, wird der Block durchl\'e4ssig f\'fcr beide Spieler\
+gelb: Wenn der Knopf aktiviert ist, wird der Block durchl\'e4ssig f\'fcr beide Spieler\
+rot : Wenn der Knopf aktiviert ist, wird der Block undurchl\'e4ssig f\'fcr beide Spieler\
+\
+- Wenn im Rahmen des Spielfeldes eine L\'fccke ist, kann der Spieler diese nutzen um sich ans andere Ende des Spielfeldes zu teleportieren\
+Beispiel: Der Spieler l\'e4uft rechts durch eine L\'fccke raus und kommt links bei einer L\'fccke wieder rein\
+\
+\
+\
+\
+\
+\
+Schwierigkeiten beim programmieren\
+\
+Struktur\
+\
+Zu Beginn habe ich viel mit techwithtim.net gearbeitet, um die Grundlagen von Pygame zu lernen. Sein Tutorial besteht darin, ein kleines Spiel mit verschiedenen Schritten wie \'84basic movements\'84, \'84jumping& boudaries\'93 oder \'84hitboxes\'93 zu programmieren. In diesem Tutorial verwendet er Klassen, ein Konzept, das ich noch nicht kannte... Auf unpeud.info fand ich eine Seite, die die Grundlagen gut erkl\'e4rt, und im Internet fand ich weitere Webseiten um zu lernen wie man diese "Klassen" verwendet. Anstatt alles in eine Datei zu schreiben, wie ich es am Anfang getan hatte, habe ich mehrere erstellt und begonnen mit der objektorientierten Programmierung zu arbeiten.\
+\
+Objektorientiertes Programmieren\
+\
+Am Anfang fiel es mir schwer, den Stil der objektorientierten Programmierung beizubehalten, und ich musste meinen Code oft \'e4ndern und umstrukturieren. Es dauerte eine Weile, bis ich mich daran gew\'f6hnt hatte, aber nach und nach begann ich, die gro\'dfen Vorteile dieses Programmierstils zu verstehen. Gegen Ende des Projekts beschloss ich zum Beispiel, blaue Becken hinzuzuf\'fcgen, die f\'fcr keinen der beiden Spieler giftig sind, und dank dieser Art der Programmierung kostete es mich fast keine Arbeit.\
+\
+\
+Inheritance und classes\
+\
+Unten sehen Sie ein UML-Diagramm zur Erl\'e4uterung der Beziehung zwischen verschiedenen Objekten. Eine Klasse kann Unterklassen haben, die wiederum Unterklassen haben k\'f6nnen. Und jede Klasse erbt alle Eigenschaften ihrer Elternklasse.\
+\
+\
+Die Level anzeigen\
+\
+Mein Lehrer Monsieur Kientz fragte mich ziemlich am Anfang meines Projekts, ob ich schon wei\'df wie ich das Spielfeld anzeigen lassen soll. Er erkl\'e4rte mir die einfachste Art daf\'fcr: F\'fcr jedes Level gibt es eine Textdatei, in der die Elemente des Spielfeldes durch Symbole dargestellt sind. Mein Fenster hat eine Gr\'f6\'dfe von 900x600 Einheiten. Also habe ich die Gr\'f6\'dfe eines Blocks auf 30x30 Einheiten festgelegt, das Spielfeld besteht also aus besteht aus 30x20 Bl\'f6cken. Die Funktion "init" der Klasse "Level" liest die Textdatei, die der H\'f6he des Levels entspricht, und erzeugt einen Block, der dem Symbol in der Datei entspricht.\
+Hier sind die Symbole und die dazugeh\'f6rigen Bl\'f6cke:\
+\
+\
+\
+Kollisionen\
+\
+Ich habe recht schnell herausgefunden wie man am besten die Kollision zwischen 2 gegebenen Elementen zu testen. Komplizierter war es dann, herauszufinden, wie man zu jedem Zeitpunkt testen kann, ob es zu einer Kollision zwischen einem Spieler und einem oder mehreren Bl\'f6cken des Spielplans kommt. Mein Programm erstellt eine Liste mit allen Bl\'f6cken des Spielfeldes, die ich benutze um die Bl\'f6cke zu \'84zeichnen\'93. In der Funktion, die die Spieler bewegt, pr\'fcfe ich dann anhand dieser Listen, ob es zu einer Kollision mit dem jeweiligen Spieler gekommen ist.\
+\
+\
+Pydoc\
+\
+\
+In vielen Tutorials und Websites mit Ausschnitten aus Python-Code sind mir Kommentare aufgefallen, die nicht mit Querklammern gemacht sind, wie ich es bis jetzt aus dem Informatik-Unterricht kannte, sondern zwischen """.  Ich suchte im Internet danach um rauszufinden was das genau ist und fand heraus, dass es sich hier um die Standard-Vorgehensweise handelt um seinen Python-Code strukturiert zu kommentieren: pydoc. Da ich fand, dass diese Art der Kommentierung (die z.B. auch die Art und die Bedeutung eines Parameters einer Funktion beschreibt) meinem Code mehr Struktur und \'dcbersichtlichkeit verleiht, habe ich mich f\'fcr diese Art der Kommentierung entschieden.\
+\
+\
+Die Website\
+\
+Als ich mit der Website anfing, habe ich beschlossen, sie auf eine simple, leicht bedienbare und f\'fcr den Leser gut lesbare Art aufzubauen. Zudem wollte ich sie f\'fcr die Benutzer des Programms ansprechend gestalten: Kinder. Nach einigen anf\'e4nglichen Schwierigkeiten, weil ich HTML5 und CSS schon seit einiger Zeit nicht mehr verwendet hatte, stellte die Website keine gr\'f6\'dferen Probleme dar wie das Python Programm.}
